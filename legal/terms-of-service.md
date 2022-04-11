@@ -4,7 +4,7 @@ order: 1
 # Terms of Service
 These Terms of Service explain the limitations and guidelines for your use of this application.
 
-Last Updated: February 17, 2022
+Last Updated: April 10, 2022
 
 ## Topics
 - Definitions
@@ -18,7 +18,7 @@ Last Updated: February 17, 2022
 
 ## Definitions
 These definitions apply regardless of capitalization or quantity.
-- **Application** refers to NotifHy and the resources that are intellectual property of its operators for the purposes of operating NotifHy
+- **Application** refers to Hypixel Announcements and the resources that are intellectual property of its operators for the purposes of operating Hypixel Announcements
 - **Company** (also referred to as "us", "we", "our") refers to Attituding and the other administrators, if any
 - **Service** refers to the purposes or functions that the application offers or can be used for
 - **You** (also referred to as "your") refers to the individual or legal entity accessing this application
@@ -38,7 +38,7 @@ This application and its services is provided to your "AS IS" and "AS AVAILABLE"
 We may immediately terminate or suspend your usage of this application for any reason at any time, including but not limited to breaches of these Terms of Service.
 
 ## Acceptance of Our Privacy Policy
-Our Privacy Policy explains how we use the personal data we collect from you when you use our application. By agreeing to these Terms of Service, you also agree to our [Privacy Policy](https://attituding.github.io/NotifHy/privacy/ "Privacy Policy").
+Our Privacy Policy explains how we use the personal data we collect from you when you use our application. By agreeing to these Terms of Service, you also agree to our [Privacy Policy](https://attituding.github.io/Hypixel-Announcements/privacy/ "Privacy Policy").
 
 ## Third-Party Terms of Service
 Our application contains links to other websites. Our Terms of Service only applies to our application, so if you click on a link to another website or application, you should read their Terms of Service.
