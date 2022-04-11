@@ -1,0 +1,42 @@
+input: .
+output: .retype
+url: notifhy.attituding.live
+branding:
+  title: NotifHy
+  logo: assets/notifhy-icon.png
+editor:
+  enabled: false
+links:
+- text: Invite
+  link: /invite/
+  icon: link-external
+  iconAlign: left
+  target: blank
+- text: GitHub
+  link: https://github.com/Attituding/NotifHy/
+  icon: mark-github
+  iconAlign: left
+  target: blank
+- text: Contact
+  link: mailto:attituding@outlook.com
+  icon: mail
+  iconAlign: left
+  target: blank
+favicon: assets/favicon.ico
+footer:
+  copyright: "&copy; {{ year }} [Attituding](https://attituding.live/). All rights reserved."
+  links:
+    - text: About
+      link: /
+      iconAlign: left
+      target: self
+    - text: Privacy Policy
+      link: /legal/privacy-policy/
+      iconAlign: left
+      target: self
+    - text: Terms of Service
+      link: /legal/terms-of-service/
+      iconAlign: left
+      target: self
+meta:
+  title: " - NotifHy"
