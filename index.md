@@ -2,7 +2,7 @@
 icon: home
 order: 3
 ---
-![](https://i.imgur.com/EpnBH0u.png)
+![](./assets/hypixel-announcements-banner.png)
 
 # About Hypixel Announcements
 Hypixel Announcements is a bot that sends you the latest news from the Hypixel Network. This bot allows you to easily choose where and what kinds of announcements you want to receive.

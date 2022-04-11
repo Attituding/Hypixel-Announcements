@@ -13,7 +13,7 @@ Click on a command to learn more about it.
 Configure what announcements you want to receive
 
 ||| Cooldown
-5 seconds
+10 seconds
 ||| Server Channel Only
 Yes
 |||
