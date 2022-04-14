@@ -4,7 +4,7 @@ order: 1
 # Terms of Service
 These Terms of Service explain the limitations and guidelines for your use of this application.
 
-Last Updated: April 10, 2022
+Last Updated: April 14, 2022
 
 ## Topics
 - Definitions

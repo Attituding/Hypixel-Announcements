@@ -4,7 +4,7 @@ order: 2
 # Privacy Policy
 This Privacy Policy explains how we use and collect your the personal data when you use our application.
 
-Last Updated: April 10, 2022
+Last Updated: April 14, 2022
 
 ## Topics
 - Definitions
