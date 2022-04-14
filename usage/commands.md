@@ -31,7 +31,7 @@ No
 
 The layouts of each command in the YAML format.
 
-==- /channel
+==- /announcements
 
 ```yaml
 name: announcements
