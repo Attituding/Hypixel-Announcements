@@ -20,7 +20,7 @@ Last Updated: April 10, 2022
 
 ## Definitions
 These definitions apply regardless of capitalization or quantity.
-- **Application** refers to Hypixel Announcements and the resources that are the intellectual property of its operators for the purposes of operating Hypixel Announcements
+- **Application** refers to Hypixel News and the resources that are the intellectual property of its operators for the purposes of operating Hypixel News
 - **Company** (also referred to as "us", "we", "our") refers to Attituding and the other administrators, if any
 - **Service** refers to the purposes or functions that the application offers
 - **You** (also referred to as "your") refers to the individual or legal entity accessing this application

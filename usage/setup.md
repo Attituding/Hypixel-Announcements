@@ -1,5 +1,5 @@
 ---
-description: This page discusses basic setup and use of Hypixel Announcements.
+description: This page discusses basic setup and use of Hypixel News.
 order: 3
 ---
 # Setup

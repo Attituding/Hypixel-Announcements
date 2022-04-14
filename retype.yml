@@ -1,9 +1,9 @@
 input: .
 output: .retype
-url: hypixelannouncements.attituding.live
+url: hypixelnews.attituding.live
 branding:
-  title: Hypixel Announcements
-  logo: assets/hypixel-announcements-icon.png
+  title: Hypixel News
+  logo: assets/hypixel-news-icon.png
 editor:
   enabled: false
 links:
@@ -13,7 +13,7 @@ links:
   iconAlign: left
   target: blank
 - text: GitHub
-  link: https://github.com/Attituding/Hypixel-Announcements
+  link: https://github.com/Attituding/Hypixel-News
   icon: mark-github
   iconAlign: left
   target: blank
@@ -39,4 +39,4 @@ footer:
       iconAlign: left
       target: self
 meta:
-  title: " - Hypixel Announcements"
+  title: " - Hypixel News"
