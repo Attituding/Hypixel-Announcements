@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hypixelannouncements.attituding.live/sitemap.xml.gz
+Sitemap: https://hypixelnews.attituding.live/sitemap.xml.gz
