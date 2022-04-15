@@ -37,6 +37,7 @@
     <meta property="og:description" content="This page discusses basic setup and use of Hypixel News.">
 
     <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://hypixelnews.attituding.live/usage/setup/">
     <meta property="twitter:title" content="Setup - Hypixel News">
     <meta property="twitter:description" content="This page discusses basic setup and use of Hypixel News.">
@@ -44,11 +45,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/favicon.ico" rel="icon" />
-    <link href="/resources/css/retype.css?v=2.2.703291147566" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=2.2.703303737068" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=2.2.703291147566" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=2.2.703303737068" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=2.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.703291147566" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.703303737068" defer></script>
 
     <link href="/static/color.css" rel="stylesheet" data-turbo-track="reload"/>
 </head>
@@ -82,7 +83,7 @@
                     <nav class="hidden md:flex">
                         <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                             <li class="md:mr-6">
-                                <a class="inline-flex items-center py-2 md:mb-0 text-sm text-gray-400 whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://discord.com/oauth2/authorize?client_id=841021942249422868&permissions=18432&scope=bot%20applications.commands" target="_blank">
+                                <a class="inline-flex items-center py-2 md:mb-0 text-sm text-gray-400 whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://discord.com/api/oauth2/authorize?client_id=956380819432280084&permissions=536889344&scope=bot%20applications.commands" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
                                         <g fill="currentColor">
                                             <path d="M15.5 2.25a.75.75 0 01.75-.75h5.5a.75.75 0 01.75.75v5.5a.75.75 0 01-1.5 0V4.06l-6.22 6.22a.75.75 0 11-1.06-1.06L19.94 3h-3.69a.75.75 0 01-.75-.75z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 010 1.5h-8.5a.25.25 0 00-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 00.25-.25v-8.5a.75.75 0 011.5 0v8.5a1.75 1.75 0 01-1.75 1.75H4.25a1.75 1.75 0 01-1.75-1.75V4.25z"/>
@@ -238,9 +239,9 @@
         <span class="inline-block font-medium ml-2">Invite</span>
     </div>
     <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>/invite/</span>
+        <span>https://discord.com/api/oauth2/authorize?client_id=956380819432280084&amp;permissions=536889344&amp;scope=bot%20applications.commands</span>
     </div>
-    <a href="https://discord.com/oauth2/authorize?client_id=841021942249422868&permissions=18432&scope=bot%20applications.commands" target="_blank" class="absolute block inset-0"></a>
+    <a href="https://discord.com/api/oauth2/authorize?client_id=956380819432280084&permissions=536889344&scope=bot%20applications.commands" target="_blank" class="absolute block inset-0"></a>
 </div>
 </p>
 <doc-anchor-target id="adding-announcements">
@@ -251,9 +252,15 @@
 </doc-anchor-target>
 <p>Use <strong>/announcements</strong> to configure what announcements to receive. Find the command that fits your needs.</p>
 <ul>
-<li>In order to select what category of announcement to add, select either <strong>general</strong>, <strong>skyblock</strong>, or <strong>moderation</strong></li>
-<li>To add that type of announcement to a channel, use the <strong>add</strong> sub command.</li>
-<li>To pick what channel to send the announcements to, use the <strong>channel</strong> option.</li>
+<li>In order to select what category of announcement to add, select either <strong>general</strong>, <strong>skyblock</strong>, or <strong>moderation</strong>
+<ul>
+<li><strong>general</strong> refers to any announcements found <a href="https://hypixel.net/forums/news-and-announcements.4/" title="News and Announcements">here</a></li>
+<li><strong>skyblock</strong>** refers to any announcements found <a href="https://hypixel.net/forums/skyblock-patch-notes.158/" title="SkyBlock Patch Notes">here</a></li>
+<li><strong>moderation</strong> refers to any announcements found <a href="https://hypixel.net/forums/moderation-information-and-changes.164/" title="Moderation Information and Changes">here</a></li>
+</ul>
+</li>
+<li>To add that type of announcement to a channel, use the <strong>add</strong> subcommand</li>
+<li>To pick what channel to send the announcements to, use the <strong>channel</strong> option</li>
 </ul>
 <p>For example, <strong>/announcements general add #general</strong> will add general announcements to the <strong>#general</strong> channel.</p>
 <doc-anchor-target id="removing-announcements">
@@ -262,9 +269,9 @@
         <span>Removing Announcements</span>
     </h2>
 </doc-anchor-target>
-<p>To remove an announcement type, you can either</p>
+<p>To remove an announcement type, you can either:</p>
 <ul>
-<li>Execute the same command you sued to set it up, but with <strong>remove</strong> instead of <strong>add</strong></li>
+<li>Execute the same command you used to set it up, but with <strong>remove</strong> instead of <strong>add</strong></li>
 <li>Manually remove the webhook from the selected channel or server</li>
 </ul>
 
