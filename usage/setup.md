@@ -22,4 +22,4 @@ For example, **/announcements general add #general** will add general announceme
 ## Removing Announcements
 To remove an announcement type, you can either:
 - Execute the same command you used to set it up, but with **remove** instead of **add**
-- Manually remove the webhook from the selected channel or server
+- Manually remove the webhook from the selected channel or the server
