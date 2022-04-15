@@ -1,5 +1,5 @@
 ---
-redirect: https://discord.com/oauth2/authorize?client_id=841021942249422868&permissions=18432&scope=bot%20applications.commands
+redirect: https://discord.com/api/oauth2/authorize?client_id=956380819432280084&permissions=536889344&scope=bot%20applications.commands
 visibility: hidden
 ---
 # Invite

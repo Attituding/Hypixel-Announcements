@@ -10,7 +10,7 @@ Hypixel News is a bot that sends you the latest news from the Hypixel Network. T
 ## Features
 - Simple, friendly, and easy-to-use interfaces
 - Minimal Discord permissions and scopes required
-- Quick and responsive announcements
+- Minimal announcement publishing delays
 
 ## Announcement Categories
 Hypixel News offers a variety of announcement types, includeing
