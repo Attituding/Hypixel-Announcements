@@ -15,7 +15,7 @@ Use **/announcements** to configure what announcements to receive. Find the comm
   - **skyblock** refers to any announcements found [here](https://hypixel.net/forums/skyblock-patch-notes.158/ "SkyBlock Patch Notes")
   - **moderation** refers to any announcements found [here](https://hypixel.net/forums/moderation-information-and-changes.164/ "Moderation Information and Changes")
 - To add that type of announcement to a channel, use the **add** subcommand
-- To pick what channel to send the announcements to, use the **channel** option
+- To pick what channel to send the selected announcements to, use the **channel** option
 
 For example, **/announcements general add #general** will add general announcements to the **#general** channel.
 
