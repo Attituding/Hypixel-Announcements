@@ -38,7 +38,7 @@ This application and its services is provided to your "AS IS" and "AS AVAILABLE"
 We may immediately terminate or suspend your usage of this application for any reason at any time, including but not limited to breaches of these Terms of Service.
 
 ## Acceptance of Our Privacy Policy
-Our Privacy Policy explains how we use the personal data we collect from you when you use our application. By agreeing to these Terms of Service, you also agree to our [Privacy Policy](https://attituding.github.io/Hypixel-Announcements/privacy/ "Privacy Policy").
+Our Privacy Policy explains how we use the personal data we collect from you when you use our application. By agreeing to these Terms of Service, you also agree to our [Privacy Policy](/legal/privacy-policy.md).
 
 ## Third-Party Terms of Service
 Our application contains links to other websites. Our Terms of Service only applies to our application, so if you click on a link to another website or application, you should read their Terms of Service.
