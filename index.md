@@ -17,7 +17,7 @@ This bot is a way of easily adding announcements to your server. You can always 
 - Styled webhook
 
 ## Announcement Categories
-Hypixel News offers a variety of announcement types, includeing
+Hypixel News offers a variety of announcement types, including
 - General Announcements, which refer to any announcements found [here](https://hypixel.net/forums/news-and-announcements.4/ "News and Announcements")
 - SkyBlock Announcements, which refer to any announcements found [here](https://hypixel.net/forums/skyblock-patch-notes.158/ "SkyBlock Patch Notes")
 - Moderation Announcements, which refer to any announcements found [here](https://hypixel.net/forums/moderation-information-and-changes.164/ "Moderation Information and Changes")
