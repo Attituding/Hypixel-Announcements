@@ -37,6 +37,7 @@
     <meta property="og:description" content="This page documents the available commands.">
 
     <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://hypixelnews.attituding.live/usage/commands/">
     <meta property="twitter:title" content="Commands - Hypixel News">
     <meta property="twitter:description" content="This page documents the available commands.">
@@ -44,12 +45,12 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/favicon.ico" rel="icon" />
-    <link href="/resources/css/retype.css?v=2.2.704439066448" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=2.2.704511280874" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=2.2.704439066448" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=2.2.704511280874" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=2.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.704439066448" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=2.2.704439066448" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.704511280874" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=2.2.704511280874" defer></script>
 
     <link href="/static/color.css" rel="stylesheet" data-turbo-track="reload"/>
 </head>
@@ -256,7 +257,7 @@
         <span>Server Channel Only</span>
     </div>
     <div class="px-5 py-3 docs-columns-content border-r border-gray-200 dark:border-dark-650">
-<p>10 seconds</p>
+<p>5 seconds</p>
     </div>
     <div class="px-5 py-3 docs-columns-content">
 <p>Yes</p>
@@ -298,70 +299,31 @@ description: Configure what announcements you want to receive
 options:
     - name: general
       description: General Hypixel News and Announcements
-      type: 2
+      type: 1
       options:
-          - name: add
-            description: Add this type of announcement to a selected channel
-            type: 1
-            options:
-                - name: channel
-                  type: 7
-                  channel_types: '[ChannelTypes.GUILD_TEXT]'
-                  description: Choose the channel to send these announcements to
-                  required: true
-          - name: remove
-            description: Stop receiving these announcements
-            type: 1
-            options:
-                - name: channel
-                  type: 7
-                  channel_types: '[ChannelTypes.GUILD_TEXT]'
-                  description: Choose the channel you want announcements to stop being sent to
-                  required: true
+          - name: channel
+            type: 7
+            channel_types: [ChannelTypes.GUILD_TEXT]
+            description: The channel where Hypixel News and Announcements should be toggled
+            required: true
     - name: skyblock
       description: SkyBlock Patch Notes
-      type: 2
+      type: 1
       options:
-          - name: add
-            description: Add this type of announcement to a selected channel
-            type: 1
-            options:
-                - name: channel
-                  type: 7
-                  channel_types: '[ChannelTypes.GUILD_TEXT]'
-                  description: Choose the channel to send these announcements to
-                  required: true
-          - name: remove
-            description: Stop receiving these announcements
-            type: 1
-            options:
-                - name: channel
-                  type: 7
-                  channel_types: '[ChannelTypes.GUILD_TEXT]'
-                  description: Choose the channel you want announcements to stop being sent to
-                  required: true
+          - name: channel
+            type: 7
+            channel_types: [ChannelTypes.GUILD_TEXT]
+            description: The channel where SkyBlock Patch Notes should be toggled
+            required: true
     - name: moderation
       description: Moderation Information and Changes
-      type: 2
+      type: 1
       options:
-          - name: add
-            description: Add this type of announcement to a selected channel
-            type: 1
-            options:
-                - name: channel
-                  type: 7
-                  channel_types: '[ChannelTypes.GUILD_TEXT]'
-                  description: Choose the channel to send these announcements to
-                  required: true
-          - name: remove
-            description: Stop receiving these announcements
-            type: 1
-            options:
-                - name: channel
-                  type: 7
-                  channel_types: '[ChannelTypes.GUILD_TEXT]'
-                  description: Choose the channel you want announcements to stop being sent to
-                  required: true</code></pre>
+          - name: channel
+            type: 7
+            channel_types: [ChannelTypes.GUILD_TEXT]
+            description: The channel where Moderation Information and Changes should be toggled
+            required: true</code></pre>
 </doc-codeblock></div>
    </doc-panel>
    <doc-panel id="help" collapsed>
