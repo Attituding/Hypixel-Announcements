@@ -13,7 +13,7 @@ Click on a command to learn more about it.
 Configure what announcements you want to receive
 
 ||| Cooldown
-10 seconds
+5 seconds
 ||| Server Channel Only
 Yes
 |||
@@ -39,71 +39,33 @@ description: Configure what announcements you want to receive
 options:
     - name: general
       description: General Hypixel News and Announcements
-      type: 2
+      type: 1
       options:
-          - name: add
-            description: Add this type of announcement to a selected channel
-            type: 1
-            options:
-                - name: channel
-                  type: 7
-                  channel_types: '[ChannelTypes.GUILD_TEXT]'
-                  description: Choose the channel to send these announcements to
-                  required: true
-          - name: remove
-            description: Stop receiving these announcements
-            type: 1
-            options:
-                - name: channel
-                  type: 7
-                  channel_types: '[ChannelTypes.GUILD_TEXT]'
-                  description: Choose the channel you want announcements to stop being sent to
-                  required: true
+          - name: channel
+            type: 7
+            channel_types: [ChannelTypes.GUILD_TEXT]
+            description: The channel where Hypixel News and Announcements should be toggled
+            required: true
     - name: skyblock
       description: SkyBlock Patch Notes
-      type: 2
+      type: 1
       options:
-          - name: add
-            description: Add this type of announcement to a selected channel
-            type: 1
-            options:
-                - name: channel
-                  type: 7
-                  channel_types: '[ChannelTypes.GUILD_TEXT]'
-                  description: Choose the channel to send these announcements to
-                  required: true
-          - name: remove
-            description: Stop receiving these announcements
-            type: 1
-            options:
-                - name: channel
-                  type: 7
-                  channel_types: '[ChannelTypes.GUILD_TEXT]'
-                  description: Choose the channel you want announcements to stop being sent to
-                  required: true
+          - name: channel
+            type: 7
+            channel_types: [ChannelTypes.GUILD_TEXT]
+            description: The channel where SkyBlock Patch Notes should be toggled
+            required: true
     - name: moderation
       description: Moderation Information and Changes
-      type: 2
+      type: 1
       options:
-          - name: add
-            description: Add this type of announcement to a selected channel
-            type: 1
-            options:
-                - name: channel
-                  type: 7
-                  channel_types: '[ChannelTypes.GUILD_TEXT]'
-                  description: Choose the channel to send these announcements to
-                  required: true
-          - name: remove
-            description: Stop receiving these announcements
-            type: 1
-            options:
-                - name: channel
-                  type: 7
-                  channel_types: '[ChannelTypes.GUILD_TEXT]'
-                  description: Choose the channel you want announcements to stop being sent to
-                  required: true
+          - name: channel
+            type: 7
+            channel_types: [ChannelTypes.GUILD_TEXT]
+            description: The channel where Moderation Information and Changes should be toggled
+            required: true
 ```
+
 ==- /help
 
 ```yaml

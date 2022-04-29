@@ -14,12 +14,11 @@ Use **/announcements** to configure what announcements to receive. Find the comm
   - **general** refers to any announcements found [here](https://hypixel.net/forums/news-and-announcements.4/ "News and Announcements")
   - **skyblock** refers to any announcements found [here](https://hypixel.net/forums/skyblock-patch-notes.158/ "SkyBlock Patch Notes")
   - **moderation** refers to any announcements found [here](https://hypixel.net/forums/moderation-information-and-changes.164/ "Moderation Information and Changes")
-- To add that type of announcement to a channel, use the **add** subcommand
 - To pick what channel to send the selected announcements to, use the **channel** option
 
-For example, **/announcements general add #general** will add general announcements to the **#general** channel.
+For example, **/announcements general #general** will add general announcements to the **#general** channel.
 
 ## Removing Announcements
 To remove an announcement type, you can either:
-- Execute the same command you used to set it up, but with **remove** instead of **add**
+- Execute the same command you used to set it up
 - Manually remove the webhook from the selected channel or the server
