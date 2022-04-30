@@ -4,7 +4,7 @@ order: 1
 # Terms of Service
 These Terms of Service explain the limitations and guidelines for your use of this application.
 
-Last Updated: April 14, 2022
+Last Updated: April 30th, 2022
 
 ## Topics
 - Definitions
@@ -18,7 +18,7 @@ Last Updated: April 14, 2022
 
 ## Definitions
 These definitions apply regardless of capitalization or quantity.
-- **Application** refers to Hypixel News and the resources that are intellectual property of its operators for the purposes of operating Hypixel News
+- **Application** refers to Hypixel News and the resources that are intellectual property of its operators for the purposes of operating the Hypixel News Discord bot
 - **Company** (also referred to as "us", "we", "our") refers to Attituding and the other administrators, if any
 - **Service** refers to the purposes or functions that the application offers or can be used for
 - **You** (also referred to as "your") refers to the individual or legal entity accessing this application

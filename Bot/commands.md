@@ -1,12 +1,9 @@
 ---
-description: This page documents the available commands.
 order: 2
 ---
-
 # Commands
 
 ## Information
-
 Click on a command to learn more about it.
 
 +++ **/announcements**
