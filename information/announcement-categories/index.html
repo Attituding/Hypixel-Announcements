@@ -45,11 +45,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/favicon.ico" rel="icon" />
-    <link href="/resources/css/retype.css?v=2.2.704665776488" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=2.2.704665890210" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=2.2.704665776488" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=2.2.704665890210" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=2.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.704665776488" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.704665890210" defer></script>
 
     <link href="/static/color.css" rel="stylesheet" data-turbo-track="reload"/>
 </head>
@@ -238,11 +238,13 @@
     </h1>
 </doc-anchor-target>
 <p>Click on an announcement category to learn more about it.</p>
-<doc-tabs>
-<doc-tab id="news-and-announcements">
-<template #title><strong>News and Announcements</strong></template>
-<p><strong>News and Announcements</strong> refers to general news from the Hypixel Network. This may include large game updates, such as a major SkyBlock release, anniversary announcements, or a new prototype game.</p>
-<p>
+<doc-anchor-target id="news-and-announcements">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#news-and-announcements">#</doc-anchor-trigger>
+        <span>News and Announcements</span>
+    </h2>
+</doc-anchor-target>
+<p><strong>News and Announcements</strong> refers to general news from the Hypixel Network. This may include large game updates, such as a major SkyBlock release, anniversary announcements, or a new prototype game.
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
     <div class="flex items-center text-blue-500 dark:text-blue-400">
         <span class="inline-block mb-px">
@@ -256,11 +258,13 @@
     <a href="https://hypixel.net/forums/news-and-announcements.4/" target="_blank" class="absolute block inset-0"></a>
 </div>
 </p>
-</doc-tab>
-<doc-tab id="skyblock-patch-notes">
-<template #title><strong>SkyBlock Patch Notes</strong></template>
-<p><strong>SkyBlock Patch Notes</strong> refers to posts about SkyBlock patches sent by the admins. This may include bug fixes, quality of life updates, or similar.</p>
-<p>
+<doc-anchor-target id="skyblock-patch-notes">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#skyblock-patch-notes">#</doc-anchor-trigger>
+        <span>SkyBlock Patch Notes</span>
+    </h2>
+</doc-anchor-target>
+<p><strong>SkyBlock Patch Notes</strong> refers to posts about SkyBlock patches sent by the admins. This may include bug fixes, quality of life updates, or similar.
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
     <div class="flex items-center text-blue-500 dark:text-blue-400">
         <span class="inline-block mb-px">
@@ -274,9 +278,12 @@
     <a href="https://hypixel.net/forums/skyblock-patch-notes.158/" target="_blank" class="absolute block inset-0"></a>
 </div>
 </p>
-</doc-tab>
-<doc-tab id="moderation-information-and-changes">
-<template #title><strong>Moderation Information and Changes</strong></template>
+<doc-anchor-target id="moderation-information-and-changes">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#moderation-information-and-changes">#</doc-anchor-trigger>
+        <span>Moderation Information and Changes</span>
+    </h2>
+</doc-anchor-target>
 <p><strong>Moderation Information and Changes</strong> refers to updates and changes about Hypixel&#x27;s moderation. This may include policy updates, ban length modifications, or additions to the banned mod list.
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
     <div class="flex items-center text-blue-500 dark:text-blue-400">
@@ -291,8 +298,6 @@
     <a href="https://hypixel.net/forums/moderation-information-and-changes.164/" target="_blank" class="absolute block inset-0"></a>
 </div>
 </p>
-</doc-tab>
-</doc-tabs>
 
                                 
                                 <!-- Required only on API pages -->
