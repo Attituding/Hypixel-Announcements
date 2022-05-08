@@ -3,7 +3,7 @@ order: 3
 ---
 # Discord Bot
 !!!success
-This Discord bot is a way to easily manage announcements to your server. **You can always add announcements by directly following the announcement channels in the [support server](https://discord.gg/d2kKwqcUsv)**. In the future, this bot may be more useful with a notification system that pings you whenever a new announcement is posted.
+This Discord bot is a way to manage where announcements should be sent in your server. **You can always add announcements by directly following the announcement channels in the [support server](https://discord.gg/d2kKwqcUsv)**.
 !!!
 
 ## Invite

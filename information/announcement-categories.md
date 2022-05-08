@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 2
 ---
 # Announcement Categories
 Click on an announcement category to learn more about it.
