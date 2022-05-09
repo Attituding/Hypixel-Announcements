@@ -3,7 +3,7 @@ order: 1
 ---
 # Notifications
 !!!warning
-These notifications may or may not be offered outside of the support server in the future. 
+These notifications may or may not be offered to servers other than the support server in the future.
 !!!
 
 ## Managing Notifications
@@ -14,7 +14,7 @@ In the [support server](https://discord.gg/d2kKwqcUsv), go to the [#notification
 ## Global Notifications
 Due to Discord limitations, the addition of notifications to every server would either be to:
 
-- Send announcements to each server individually. This would increase APi calls to an unacceptable level and limit scalability.
-- Listen to webhooks and sending pings based on them. This would probably look quite ugly and potentially unreliable, but is probably the best approach.
+- Send announcements to each server individually
+- Listen to webhooks and sending pings based on them
 
-Regardless, each approach requires the bot to be in the server and requires more permissions. Due to these reasons, for now, this addition is not a priority.
+Regardless, each approach requires the bot to be in the server, limits scalability, increases API calls, and requires more permissions. Due to these reasons, for now, this addition isn't feasible.
