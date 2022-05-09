@@ -28,27 +28,28 @@
     <!-- Primary Meta Tags -->
     <title>Notifications - Hypixel News</title>
     <meta name="title" content="Notifications - Hypixel News">
-    <meta name="description" content="These notifications may or may not be offered outside of the support server in the future." />
+    <meta name="description" content="These notifications may or may not be offered to servers other than the support server in the future." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hypixelnews.attituding.live/information/notifications/">
     <meta property="og:title" content="Notifications - Hypixel News">
-    <meta property="og:description" content="These notifications may or may not be offered outside of the support server in the future.">
+    <meta property="og:description" content="These notifications may or may not be offered to servers other than the support server in the future.">
 
     <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://hypixelnews.attituding.live/information/notifications/">
     <meta property="twitter:title" content="Notifications - Hypixel News">
-    <meta property="twitter:description" content="These notifications may or may not be offered outside of the support server in the future.">
+    <meta property="twitter:description" content="These notifications may or may not be offered to servers other than the support server in the future.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/assets/favicon.ico" rel="icon" />
-    <link href="/resources/css/retype.css?v=2.2.705368831781" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=2.2.705454004970" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=2.2.705368831781" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=2.2.705454004970" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=2.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.705368831781" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.705454004970" defer></script>
 
     <link href="/static/color.css" rel="stylesheet" data-turbo-track="reload"/>
 </head>
@@ -248,7 +249,7 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-<p>These notifications may or may not be offered outside of the support server in the future.</p>
+<p>These notifications may or may not be offered to servers other than the support server in the future.</p>
         </div>
     </div>
 </div>
@@ -268,10 +269,10 @@
 </doc-anchor-target>
 <p>Due to Discord limitations, the addition of notifications to every server would either be to:</p>
 <ul>
-<li>Send announcements to each server individually. This would increase APi calls to an unacceptable level and limit scalability.</li>
-<li>Listen to webhooks and sending pings based on them. This would probably look quite ugly and potentially unreliable, but is probably the best approach.</li>
+<li>Send announcements to each server individually</li>
+<li>Listen to webhooks and sending pings based on them</li>
 </ul>
-<p>Regardless, each approach requires the bot to be in the server and requires more permissions. Due to these reasons, for now, this addition is not a priority.</p>
+<p>Regardless, each approach requires the bot to be in the server, limits scalability, increases API calls, and requires more permissions. Due to these reasons, for now, this addition isn&#x27;t feasible.</p>
 
                                 
                                 <!-- Required only on API pages -->
