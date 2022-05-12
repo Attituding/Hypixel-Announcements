@@ -1,9 +1,7 @@
 ---
-order: 2
+order: 3
 ---
 # Announcement Categories
-Click on an announcement category to learn more about it.
-
 ## News and Announcements
 **News and Announcements** refers to general news from the Hypixel Network. This may include large game updates, such as a major SkyBlock release, anniversary announcements, or a new prototype game.
 [!ref target="blank" text="Source"](https://hypixel.net/forums/news-and-announcements.4/)
