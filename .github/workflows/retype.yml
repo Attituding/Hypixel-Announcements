@@ -4,19 +4,15 @@ on:
   push:
     branches:
       - gh-pages-source
-
 jobs:
   publish:
     name: Publish to branch
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
-
       - uses: retypeapp/action-build@v2
-
       - uses: retypeapp/action-github-pages@v2
         with:
           branch: gh-pages
+          directory: docs
           update-branch: true
