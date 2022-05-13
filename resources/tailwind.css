@@ -553,6 +553,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 30rem;
 }
 
+.select-none {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 .flex-row {
   flex-direction: row;
 }
