@@ -511,6 +511,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 8rem;
 }
 
+.h-\[7\.5rem\] {
+  height: 7.5rem;
+}
+
+.h-24 {
+  height: 6rem;
+}
+
 .w-full {
   width: 100%;
 }
@@ -537,8 +545,32 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 8rem;
 }
 
+.w-screen {
+  width: 100vw;
+}
+
+.w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.w-24 {
+  width: 6rem;
+}
+
+.min-w-max {
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+
 .max-w-\[30rem\] {
   max-width: 30rem;
+}
+
+.max-w-\[45rem\] {
+  max-width: 45rem;
 }
 
 .select-none {
@@ -604,6 +636,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.break-words {
+  overflow-wrap: break-word;
+}
+
+.break-all {
+  word-break: break-all;
 }
 
 .rounded-lg {
