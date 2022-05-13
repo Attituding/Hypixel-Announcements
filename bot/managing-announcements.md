@@ -8,7 +8,7 @@ order: 2
 Type **/announcements** to configure what announcements you want to start receiving.
 
 ##### Selecting an Announcement Category
-In order to choose the category of announcements to add, select either **general**, **skyblock**, or **moderation**. You can read more about announcement categories by clicking [here](../information/announcement-categories.md).
+In order to choose the category of announcements to add, select either **general**, **skyblock**, or **moderation**. You can read more about announcement categories by clicking [here](../guide/announcement-categories.md).
 
 ##### Selecting a Channel
 To pick what channel to send the selected announcements to, use the **channel** option.
