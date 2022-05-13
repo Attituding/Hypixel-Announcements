@@ -654,12 +654,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(88 101 242 / var(--tw-bg-opacity));
 }
 
-.p-4 {
-  padding: 1rem;
+.bg-\[\#e3e5e8\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(227 229 232 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#f2f3f5\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 243 245 / var(--tw-bg-opacity));
 }
 
 .p-8 {
   padding: 2rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .px-8 {
@@ -677,16 +687,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.5px;
 }
 
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -695,9 +695,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.text-8xl {
-  font-size: 6rem;
+.text-6xl {
+  font-size: 3.75rem;
   line-height: 1;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-xl {
@@ -719,31 +724,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.25rem;
 }
 
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
-
 .font-semibold {
   font-weight: 600;
 }
 
-.font-bold {
-  font-weight: 700;
-}
-
 .font-medium {
   font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
 }
 
 .text-black {
@@ -751,14 +741,24 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+.text-\[\#060607\] {
+  --tw-text-opacity: 1;
+  color: rgb(6 6 7 / var(--tw-text-opacity));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-\[\#DCDDDE\] {
+.text-\[\#0068E0\] {
   --tw-text-opacity: 1;
-  color: rgb(220 221 222 / var(--tw-text-opacity));
+  color: rgb(0 104 224 / var(--tw-text-opacity));
+}
+
+.text-\[\#2E3338\] {
+  --tw-text-opacity: 1;
+  color: rgb(46 51 56 / var(--tw-text-opacity));
 }
 
 .text-\[\#00Aff4\] {
@@ -819,9 +819,24 @@ Ensure the default browser behavior of the `hidden` attribute.
     background-color: rgb(47 49 54 / var(--tw-bg-opacity));
   }
 
+  .dark\:bg-black {
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  }
+
   .dark\:text-white {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+
+  .dark\:text-\[\#00AFF4\] {
+    --tw-text-opacity: 1;
+    color: rgb(0 175 244 / var(--tw-text-opacity));
+  }
+
+  .dark\:text-\[\#DCDDDE\] {
+    --tw-text-opacity: 1;
+    color: rgb(220 221 222 / var(--tw-text-opacity));
   }
 
   .dark\:hover\:bg-neutral-600:hover {
