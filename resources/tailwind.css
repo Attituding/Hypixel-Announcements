@@ -477,20 +477,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: flex;
 }
 
-.h-max {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-}
-
-.h-12 {
-  height: 3rem;
-}
-
 .h-fit {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+}
+
+.h-12 {
+  height: 3rem;
 }
 
 .h-\[18px\] {
@@ -503,10 +497,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-32 {
   height: 8rem;
-}
-
-.h-screen {
-  height: 100vh;
 }
 
 .w-full {
@@ -543,10 +533,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .items-center {
   align-items: center;
-}
-
-.justify-start {
-  justify-content: flex-start;
 }
 
 .justify-center {
