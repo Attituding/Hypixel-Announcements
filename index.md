@@ -6,7 +6,7 @@ order: 4
 
 # Hypixel News
 :::
-<div class="d-flex d-items-start d-justify-start d-w-full d-h-full d-font-sans d-text-black dark:d-text-white d-p-4">
+<div class="d-flex d-items-start d-justify-start d-w-full d-h-full d-font-sans d-text-black dark:d-text-white">
     <div class="d-flex d-flex-row d-w-fit d-h-fit d-gap-4">
         <img class="d-w-12 d-h-12 d-bg-black d-rounded-full" src="/docs/assets/hypixel-news-icon.svg" alt="Hypixel News Icon">
         <div class="d-flex d-flex-col d-max-w-[30rem] d-h-fit d-gap-2">
