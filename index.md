@@ -13,9 +13,9 @@ order: 4
     <div class="d-flex d-flex-row d-w-fit d-h-fit d-gap-4">
         <img class="d-w-12 d-h-12 d-bg-black d-rounded-full" src="/assets/hypixel-news-icon.svg" alt="Hypixel News Icon">
         <div class="d-flex d-flex-col d-max-w-[35rem] d-h-fit d-gap-2">
-            <div class="d-flex d-flex-row d-h-[18px] d-gap-1">
+            <div class="d-flex d-flex-row d-items-end d-h-[18px] d-gap-1">
                 <span style="line-height: 1.125rem !important;" class="d-text-[#060607] dark:d-text-white d-text-lg d-font-semibold d-truncate">Hypixel News</span>
-                <span class="d-text-white d-bg-[#5865F2] d-text-[10px] d-font-bold d-rounded-sm d-my-auto d-px-1 d-py-[0.5px]">SERVER</span>
+                <span class="d-text-white d-bg-[#5865F2] d-text-[10px] d-font-bold d-rounded-sm d-my-auto d-px-1">SERVER</span>
             </div>
             <div class="d-flex d-flex-row d-h-fit">
                 <div class="d-bg-[#e3e5e8] dark:d-bg-[#202225] d-w-[0.25rem] d-rounded-l-xl"></div>
