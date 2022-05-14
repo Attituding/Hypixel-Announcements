@@ -17,7 +17,7 @@ order: 4
             <div class="d-flex d-flex-row d-h-fit">
                 <div class="d-bg-[#e3e5e8] dark:d-bg-[#202225] d-w-[0.25rem] d-rounded-l-xl"></div>
                 <div class="d-flex d-flex-col d-bg-[#f2f3f5] dark:d-bg-[#2f3136] d-w-full d-rounded-r d-gap-4 d-p-4">
-                    <a href="/docs/" target="_blank" style="line-height: 1.125rem;" class="d-text-lg d-font-semibold d-text-[#0068E0] dark:d-text-[#00AFF4] hover:underline">Hypixel News</a>
+                    <a href="/docs/" target="_blank" style="line-height: 1.125rem;" class="d-text-lg d-font-semibold !d-text-[#0068E0] !dark:d-text-[#00AFF4] hover:underline">Hypixel News</a>
                     <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">Hypixel News is a project that sends you the latest news from the Hypixel Network. As soon as new posts by the Hypixel Admins are found on the forums, you will receive a neat message in your chosen Discord channel.</span>
                     <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">To get started, take a look at the announcement categories available. Then, you can start getting news by choosing to use the Discord Bot or following the news channels in the support server.</span>
                     <div class="d-flex d-items-center d-justify-center d-w-full d-h-[7.5rem] d-bg-white dark:d-bg-black d-rounded-md">
