@@ -491,10 +491,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 3rem !important;
 }
 
-.d-h-\[18px\] {
-  height: 18px !important;
-}
-
 .d-h-\[7\.5rem\] {
   height: 7.5rem !important;
 }
@@ -525,8 +521,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 6rem !important;
 }
 
-.d-max-w-\[30rem\] {
-  max-width: 30rem !important;
+.d-max-w-\[35rem\] {
+  max-width: 35rem !important;
 }
 
 .d-select-none {
@@ -717,11 +713,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(46 51 56 / var(--tw-text-opacity)) !important;
 }
 
-.\!d-text-\[\#0068E0\] {
-  --tw-text-opacity: 1 !important;
-  color: rgb(0 104 224 / var(--tw-text-opacity)) !important;
-}
-
 .d-no-underline {
   -webkit-text-decoration-line: none !important;
           text-decoration-line: none !important;
@@ -745,44 +736,42 @@ Ensure the default browser behavior of the `hidden` attribute.
           text-decoration-line: underline !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  .dark\:d-bg-\[\#202225\] {
-    --tw-bg-opacity: 1 !important;
-    background-color: rgb(32 34 37 / var(--tw-bg-opacity)) !important;
-  }
+.dark .dark\:d-bg-\[\#202225\] {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(32 34 37 / var(--tw-bg-opacity)) !important;
+}
 
-  .dark\:d-bg-\[\#2f3136\] {
-    --tw-bg-opacity: 1 !important;
-    background-color: rgb(47 49 54 / var(--tw-bg-opacity)) !important;
-  }
+.dark .dark\:d-bg-\[\#2f3136\] {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(47 49 54 / var(--tw-bg-opacity)) !important;
+}
 
-  .dark\:d-bg-black {
-    --tw-bg-opacity: 1 !important;
-    background-color: rgb(0 0 0 / var(--tw-bg-opacity)) !important;
-  }
+.dark .dark\:d-bg-black {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity)) !important;
+}
 
-  .dark\:d-bg-\[\#4f545C\] {
-    --tw-bg-opacity: 1 !important;
-    background-color: rgb(79 84 92 / var(--tw-bg-opacity)) !important;
-  }
+.dark .dark\:d-bg-\[\#4f545C\] {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(79 84 92 / var(--tw-bg-opacity)) !important;
+}
 
-  .dark\:d-text-white {
-    --tw-text-opacity: 1 !important;
-    color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
-  }
+.dark .dark\:d-text-white {
+  --tw-text-opacity: 1 !important;
+  color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+}
 
-  .dark\:d-text-\[\#00AFF4\] {
-    --tw-text-opacity: 1 !important;
-    color: rgb(0 175 244 / var(--tw-text-opacity)) !important;
-  }
+.dark .dark\:d-text-\[\#00AFF4\] {
+  --tw-text-opacity: 1 !important;
+  color: rgb(0 175 244 / var(--tw-text-opacity)) !important;
+}
 
-  .dark\:d-text-\[\#DCDDDE\] {
-    --tw-text-opacity: 1 !important;
-    color: rgb(220 221 222 / var(--tw-text-opacity)) !important;
-  }
+.dark .dark\:d-text-\[\#DCDDDE\] {
+  --tw-text-opacity: 1 !important;
+  color: rgb(220 221 222 / var(--tw-text-opacity)) !important;
+}
 
-  .dark\:hover\:d-bg-\[\#686d73\]:hover {
-    --tw-bg-opacity: 1 !important;
-    background-color: rgb(104 109 115 / var(--tw-bg-opacity)) !important;
-  }
+.dark .dark\:hover\:d-bg-\[\#686d73\]:hover {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(104 109 115 / var(--tw-bg-opacity)) !important;
 }
