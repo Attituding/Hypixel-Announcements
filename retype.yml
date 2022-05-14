@@ -1,11 +1,10 @@
-input: .
-output: .retype
-url: hypixelnews.attituding.live
 branding:
   title: Hypixel News
   logo: assets/hypixel-news-icon.png
 editor:
   enabled: false
+favicon: assets/favicon.ico
+input: .
 links:
 - text: Invite
   link: /invite/
@@ -27,7 +26,10 @@ links:
   icon: mark-github
   iconAlign: left
   target: blank
-favicon: assets/favicon.ico
+meta:
+  title: " - Hypixel News"
+output: .retype
+url: hypixelnews.attituding.live
 footer:
   copyright: "&copy; {{ year }} [Attituding](https://attituding.live/). All rights reserved."
   links:
@@ -43,5 +45,3 @@ footer:
       link: /legal/terms-of-service/
       iconAlign: left
       target: self
-meta:
-  title: " - Hypixel News"
