@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="h-full">
 <head>
+    <!-- Style Overrides -->
     <link href="/docs/static/color.css" rel="stylesheet" data-turbo-track="reload"/>
+    <link href="/docs/static/discord.css" rel="stylesheet" data-turbo-track="reload"/>
 
     <!-- Meta Tag Overrides -->
     <meta name="description" content="Hypixel News is a project that sends you the latest news from the Hypixel Network. As soon as new posts by the Hypixel Admins are found on the forums, you will receive a neat message in your chosen Discord channel." />
@@ -44,14 +46,13 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/docs/assets/favicon.ico" rel="icon" />
-    <link href="/docs/resources/css/retype.css?v=2.2.705823702541" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/docs/resources/css/retype.css?v=2.2.705823996503" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/docs/resources/js/config.js?v=2.2.705823702541" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/docs/resources/js/config.js?v=2.2.705823996503" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/docs/resources/js/retype.js?v=2.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/docs/resources/js/lunr.js?v=2.2.705823702541" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/docs/resources/js/lunr.js?v=2.2.705823996503" defer></script>
 
-    <link href="/docs/static/color.css" rel="stylesheet" data-turbo-track="reload"/>
-    <link href="/docs/static/discord.css" rel="stylesheet" data-turbo-track="reload"/>
+    
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -264,7 +265,7 @@
             <div class="d-flex d-flex-row d-h-fit">
                 <div class="d-bg-[#e3e5e8] dark:d-bg-[#202225] d-w-[0.25rem] d-rounded-l-xl"></div>
                 <div class="d-flex d-flex-col d-bg-[#f2f3f5] dark:d-bg-[#2f3136] d-w-full d-rounded-r d-gap-4 d-p-4">
-                    <a href="/docs/guide/announcement-categories" target="_blank" style="line-height: 1.125rem;" class="text-lg d-font-semibold d-text-[#0068E0] dark:d-text-[#00AFF4] hover:underline">Announcement Categories</a>
+                    <a href="/docs/guide/announcement-categories" target="_blank" style="line-height: 1.125rem;" class="text-lg d-font-semibold !d-text-[#0068E0] !dark:d-text-[#00AFF4] hover:underline">Announcement Categories</a>
                     <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">
                         <a href="https://hypixel.net/forums/news-and-announcements.4/" target="_blank" class="!d-text-[#0068E0] !dark:d-text-[#00AFF4] hover:underline">News and Announcements</a> refers to general news from the Hypixel Network. This may include large game updates, such as a major SkyBlock release, anniversary announcements, or a new prototype game.
                         <br>
@@ -279,9 +280,9 @@
             <div class="d-flex d-flex-row d-h-fit">
                 <div class="d-bg-[#e3e5e8] dark:d-bg-[#202225] d-w-[0.25rem] d-rounded-l-xl"></div>
                 <div class="d-flex d-flex-col d-bg-[#f2f3f5] dark:d-bg-[#2f3136] d-w-full d-rounded-r d-gap-4 d-p-4">
-                    <a href="/docs/guide/announcement-categories" target="_blank" style="line-height: 1.125rem;" class=" d-text-lg d-font-semibold d-text-[#0068E0] dark:d-text-[#00AFF4] hover:underline">Getting News</a>
+                    <a href="/docs/guide/announcement-categories" target="_blank" style="line-height: 1.125rem;" class=" d-text-lg d-font-semibold !d-text-[#0068E0] !dark:d-text-[#00AFF4] hover:underline">Getting News</a>
                     <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">Ready to start getting news?</span>
-                    <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">Check out the <b>Getting News</b> section by <a href="/docs/guide/getting-news/" target="_blank" class="d-text-[#00Aff4] hover:d-underline">clicking here</a>.</span>
+                    <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">Check out the <b>Getting News</b> section by <a href="/docs/guide/getting-news/" target="_blank" class="!d-text-[#00Aff4] hover:d-underline">clicking here</a>.</span>
                 </div>
             </div>
             <a href="/docs" target="_blank" class="d-flex d-flex-row d-items-center d-justify-center d-w-fit d-h-fit d-transition-colors d-bg-[#6A7480] dark:d-bg-[#4f545C] hover:d-bg-[#4f5660] dark:hover:d-bg-[#686d73] d-gap-2 d-px-4 py-2 rounded d-no-underline">
