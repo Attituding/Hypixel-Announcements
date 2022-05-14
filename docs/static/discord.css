@@ -702,15 +702,35 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-duration: 150ms;
 }
 
+.hover\:d-bg-\[\#4f5660\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(79 86 96 / var(--tw-bg-opacity));
+}
+
 .hover\:d-underline:hover {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
 }
 
 @media (prefers-color-scheme: dark) {
+  .dark\:d-bg-\[\#202225\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(32 34 37 / var(--tw-bg-opacity));
+  }
+
   .dark\:d-bg-\[\#2f3136\] {
     --tw-bg-opacity: 1;
     background-color: rgb(47 49 54 / var(--tw-bg-opacity));
+  }
+
+  .dark\:d-bg-black {
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  }
+
+  .dark\:d-bg-\[\#4f545C\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(79 84 92 / var(--tw-bg-opacity));
   }
 
   .dark\:d-text-white {
@@ -726,5 +746,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   .dark\:d-text-\[\#DCDDDE\] {
     --tw-text-opacity: 1;
     color: rgb(220 221 222 / var(--tw-text-opacity));
+  }
+
+  .dark\:hover\:d-bg-\[\#686d73\]:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(104 109 115 / var(--tw-bg-opacity));
   }
 }
