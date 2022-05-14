@@ -24,7 +24,7 @@ To get started, take a look at the announcement categories available on the next
                     <a href="/docs/" target="_blank" style="line-height: 1.125rem;" class="d-text-lg d-font-semibold d-text-[#0068E0] dark:d-text-[#00AFF4] hover:underline">Hypixel News</a>
                     <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">Hypixel News is a project that sends you the latest news from the Hypixel Network. As soon as new posts by the Hypixel Admins are found on the forums, you will receive a neat message in your chosen Discord channel.</span>
                     <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">To get started, take a look at the announcement categories available. Then, you can start getting news by choosing to use the Discord Bot or following the news channels in the support server.</span>
-                    <div class="d-flex d-items-center d-justify-center d-w-full d-h-[7.5rem] d-bg-white dark:bg-black d-rounded-md">
+                    <div class="d-flex d-items-center d-justify-center d-w-full d-h-[7.5rem] d-bg-white dark:d-bg-black d-rounded-md">
                         <img class="w-24 d-h-24 d-select-none" src="/docs/assets/hypixel-news-icon.svg" alt="Hypixel News Icon">
                     </div>
                 </div>
