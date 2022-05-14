@@ -10,7 +10,7 @@ Hypixel News is a project that sends you the latest news from the Hypixel Networ
 To get started, take a look at the announcement categories available on the next page. Then, you can start getting news by choosing to use the Discord Bot or manually following the news channels from the [support server](https://discord.gg/d2kKwqcUsv).
 
 :::
-<div class="flex items-start justify-center bg-white dark:bg-[#36393f] w-full h-full font-sans text-black dark:text-white p-4">
+<div class="flex items-start justify-center w-full h-full font-sans text-black dark:text-white p-4">
     <div class="flex flex-row w-fit h-fit gap-4">
         <img class="w-12 h-12 bg-black rounded-full" src="/docs/assets/hypixel-news-icon.svg" alt="Hypixel News Icon">
         <div class="flex flex-col max-w-[30rem] h-fit gap-2">
