@@ -28,22 +28,22 @@ order: 4
             <div class="d-flex d-flex-row d-h-fit">
                 <div class="d-bg-[#e3e5e8] dark:d-bg-[#202225] d-w-[0.25rem] d-rounded-l-xl"></div>
                 <div class="d-flex d-flex-col d-bg-[#f2f3f5] dark:d-bg-[#2f3136] d-w-full d-rounded-r d-gap-4 d-p-4">
-                    <a href="/docs/guide/announcement-categories" target="_blank" style="line-height: 1.125rem;" class="d-text-lg d-font-semibold d-text-[#0068E0] !dark:d-text-[#00AFF4] hover:d-underline">Announcement Categories</a>
+                    <a href="/docs/guide/announcement-categories" target="_blank" style="line-height: 1.125rem;" class="d-text-lg d-font-semibold d-text-[#0068E0] dark:d-text-[#00AFF4] hover:d-underline">Announcement Categories</a>
                     <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">
-                        <a href="https://hypixel.net/forums/news-and-announcements.4/" target="_blank" class="d-text-[#0068E0] !dark:d-text-[#00AFF4] hover:d-underline">News and Announcements</a> refers to general news from the Hypixel Network. This may include large game updates, such as a major SkyBlock release, anniversary announcements, or a new prototype game.
+                        <a href="https://hypixel.net/forums/news-and-announcements.4/" target="_blank" class="d-text-[#0068E0] dark:d-text-[#00AFF4] hover:d-underline">News and Announcements</a> refers to general news from the Hypixel Network. This may include large game updates, such as a major SkyBlock release, anniversary announcements, or a new prototype game.
                         <br>
                         <br>
-                        <a href="https://hypixel.net/forums/skyblock-patch-notes.158/" target="_blank" class="d-text-[#0068E0] !dark:d-text-[#00AFF4] hover:d-underline">SkyBlock Patch Notes</a> refers to posts about SkyBlock patches sent by the admins. This may include bug fixes, quality of life updates, or similar.
+                        <a href="https://hypixel.net/forums/skyblock-patch-notes.158/" target="_blank" class="d-text-[#0068E0] dark:d-text-[#00AFF4] hover:d-underline">SkyBlock Patch Notes</a> refers to posts about SkyBlock patches sent by the admins. This may include bug fixes, quality of life updates, or similar.
                         <br>
                         <br>
-                        <a href="https://hypixel.net/forums/moderation-information-and-changes.164/" target="_blank" class="d-text-[#0068E0] !dark:d-text-[#00AFF4] hover:d-underline">Moderation Information and Changes</a> refers to updates and changes about Hypixel's moderation. This may include policy updates, ban length modifications, or additions to the banned mod list.
+                        <a href="https://hypixel.net/forums/moderation-information-and-changes.164/" target="_blank" class="d-text-[#0068E0] dark:d-text-[#00AFF4] hover:d-underline">Moderation Information and Changes</a> refers to updates and changes about Hypixel's moderation. This may include policy updates, ban length modifications, or additions to the banned mod list.
                     </span>
                 </div>
             </div>
             <div class="d-flex d-flex-row d-h-fit">
                 <div class="d-bg-[#e3e5e8] dark:d-bg-[#202225] d-w-[0.25rem] d-rounded-l-xl"></div>
                 <div class="d-flex d-flex-col d-bg-[#f2f3f5] dark:d-bg-[#2f3136] d-w-full d-rounded-r d-gap-4 d-p-4">
-                    <a href="/docs/guide/announcement-categories" target="_blank" style="line-height: 1.125rem;" class=" d-text-lg d-font-semibold d-text-[#0068E0] !dark:d-text-[#00AFF4] hover:d-underline">Getting News</a>
+                    <a href="/docs/guide/announcement-categories" target="_blank" style="line-height: 1.125rem;" class=" d-text-lg d-font-semibold d-text-[#0068E0] dark:d-text-[#00AFF4] hover:d-underline">Getting News</a>
                     <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">Ready to start getting news?</span>
                     <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">Check out the <b>Getting News</b> section by <a href="/docs/guide/getting-news/" target="_blank" class="d-text-[#0068E0] dark:d-text-[#00AFF4]  hover:d-underline">clicking here</a>.</span>
                 </div>
