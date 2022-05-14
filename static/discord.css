@@ -683,9 +683,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.d-text-\[\#0068E0\] {
-  --tw-text-opacity: 1;
-  color: rgb(0 104 224 / var(--tw-text-opacity));
+.\!d-text-\[\#0068E0\] {
+  --tw-text-opacity: 1 !important;
+  color: rgb(0 104 224 / var(--tw-text-opacity)) !important;
 }
 
 .d-text-\[\#2E3338\] {
@@ -693,14 +693,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(46 51 56 / var(--tw-text-opacity));
 }
 
-.\!d-text-\[\#0068E0\] {
+.\!d-text-\[\#00Aff4\] {
   --tw-text-opacity: 1 !important;
-  color: rgb(0 104 224 / var(--tw-text-opacity)) !important;
-}
-
-.d-text-\[\#00Aff4\] {
-  --tw-text-opacity: 1;
-  color: rgb(0 175 244 / var(--tw-text-opacity));
+  color: rgb(0 175 244 / var(--tw-text-opacity)) !important;
 }
 
 .d-no-underline {
@@ -750,11 +745,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .dark\:d-text-white {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
-
-  .dark\:d-text-\[\#00AFF4\] {
-    --tw-text-opacity: 1;
-    color: rgb(0 175 244 / var(--tw-text-opacity));
   }
 
   .dark\:d-text-\[\#DCDDDE\] {
