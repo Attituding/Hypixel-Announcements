@@ -548,6 +548,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   align-items: center;
 }
 
+.d-justify-start {
+  justify-content: flex-start;
+}
+
 .d-justify-center {
   justify-content: center;
 }
@@ -692,6 +696,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .d-text-\[\#00Aff4\] {
   --tw-text-opacity: 1;
   color: rgb(0 175 244 / var(--tw-text-opacity));
+}
+
+.d-no-underline {
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
 }
 
 .d-transition-colors {

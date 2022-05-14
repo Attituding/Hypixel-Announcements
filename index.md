@@ -10,7 +10,7 @@ Hypixel News is a project that sends you the latest news from the Hypixel Networ
 To get started, take a look at the announcement categories available on the next page. Then, you can start getting news by choosing to use the Discord Bot or manually following the news channels from the [support server](https://discord.gg/d2kKwqcUsv).
 
 :::
-<div class="d-flex d-items-start d-justify-center d-w-full d-h-full d-font-sans d-text-black dark:d-text-white d-p-4">
+<div class="d-flex d-items-start d-justify-start d-w-full d-h-full d-font-sans d-text-black dark:d-text-white d-p-4">
     <div class="d-flex d-flex-row d-w-fit d-h-fit d-gap-4">
         <img class="d-w-12 d-h-12 d-bg-black d-rounded-full" src="/docs/assets/hypixel-news-icon.svg" alt="Hypixel News Icon">
         <div class="d-flex d-flex-col d-max-w-[30rem] d-h-fit d-gap-2">
@@ -52,7 +52,7 @@ To get started, take a look at the announcement categories available on the next
                     <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">Check out the <b>Getting News</b> section by <a href="/docs/guide/getting-news/" target="_blank" class="d-text-[#00Aff4] hover:d-underline">clicking here</a>.</span>
                 </div>
             </div>
-            <a href="/docs" target="_blank" class="d-flex d-flex-row d-items-center d-justify-center d-w-fit d-h-fit d-transition-colors d-bg-[#6A7480] dark:d-bg-[#4f545C] hover:d-bg-[#4f5660] dark:hover:d-bg-[#686d73] d-gap-2 d-px-4 py-2 rounded">
+            <a href="/docs" target="_blank" class="d-flex d-flex-row d-items-center d-justify-center d-w-fit d-h-fit d-transition-colors d-bg-[#6A7480] dark:d-bg-[#4f545C] hover:d-bg-[#4f5660] dark:hover:d-bg-[#686d73] d-gap-2 d-px-4 py-2 rounded d-no-underline">
                 <span class="d-text-white d-font-semibold">View Documentation</span>
                 <svg class="d-fill-white" width="16" height="16" viewBox="0 0 24 24">
                     <path d="M10 5V3H5.375C4.06519 3 3 4.06519 3 5.375V18.625C3 19.936 4.06519 21 5.375 21H18.625C19.936 21 21 19.936 21 18.625V14H19V19H5V5H10Z"></path><path d="M21 2.99902H14V4.99902H17.586L9.29297 13.292L10.707 14.706L19 6.41302V9.99902H21V2.99902Z"></path>
