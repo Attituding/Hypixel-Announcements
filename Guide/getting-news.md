@@ -8,10 +8,10 @@ To start getting your news, you can either choose to use the Discord Bot or choo
 
 ## Channel Following
 Discord offers a neat feature where you can "follow" certain channels and have its messages be sent to your desired server + channel. To get Hypixel news using this method,
-- Join [support server](https://discord.gg/d2kKwqcUsv)
-- Navigate to the Hypixel News categories
+- Join the [support server](https://discord.gg/d2kKwqcUsv)
+- Navigate to the Hypixel News category
 - Find your desired announcement category
-- Click the follow button at the top
+- Click/tap the follow button at the top
 - Choose your desired server and channel
 
 and done! 🎉
