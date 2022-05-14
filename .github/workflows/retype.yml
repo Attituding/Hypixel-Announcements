@@ -14,5 +14,5 @@ jobs:
       - uses: retypeapp/action-github-pages@v2
         with:
           branch: gh-pages
-          directory: docs
+          directory: /
           update-branch: true
