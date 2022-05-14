@@ -43,7 +43,6 @@
 .dark .docs-copyright a {
     color: rgb(234 179 8 / var(--tw-text-opacity));
 }
-.docs-markdown a:not(.no-link),
 .docs-markdown h1 .header-anchor-trigger,
 .docs-markdown h2 .header-anchor-trigger,
 .docs-markdown h3 .header-anchor-trigger,
@@ -60,7 +59,6 @@
 .docs-markdown h6 .header-anchor-trigger:hover {
     color: rgb(133 77 14 / var(--tw-text-opacity)) !important;
 }
-.dark .docs-markdown a:not(.no-link),
 .dark .docs-markdown h1 .header-anchor-trigger,
 .dark .docs-markdown h2 .header-anchor-trigger,
 .dark .docs-markdown h3 .header-anchor-trigger,
