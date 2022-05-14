@@ -1,14 +1,15 @@
 ---
 icon: home
 order: 4
-label: Hypixel News
 ---
+# Hypixel News
+
 ![](./assets/hypixel-news-banner.png)
 
 :::
 <div class="d-flex d-items-start d-justify-start d-w-full d-h-full d-font-sans d-text-black dark:d-text-white">
     <div class="d-flex d-flex-row d-w-fit d-h-fit d-gap-4">
-        <img class="d-w-12 d-h-12 d-bg-black d-rounded-full" src="/docs/assets/hypixel-news-icon.svg" alt="Hypixel News Icon">
+        <img class="d-w-12 d-h-12 d-bg-black d-rounded-full" src="/assets/hypixel-news-icon.svg" alt="Hypixel News Icon">
         <div class="d-flex d-flex-col d-max-w-[35rem] d-h-fit d-gap-2">
             <div class="d-flex d-flex-row d-gap-1">
                 <span style="line-height: 1.125rem;" class="d-text-[#060607] dark:d-text-white d-text-lg d-font-medium d-truncate">Hypixel News</span>
@@ -21,7 +22,7 @@ label: Hypixel News
                     <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">Hypixel News is a project that sends you the latest news from the Hypixel Network. As soon as new posts by the Hypixel Admins are found on the forums, you will receive a neat message in your chosen Discord channel.</span>
                     <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">To get started, take a look at the announcement categories available. Then, you can start getting news by choosing to use the Discord Bot or following the news channels in the support server.</span>
                     <div class="d-flex d-items-center d-justify-center d-w-full d-h-[7.5rem] d-bg-white dark:d-bg-black d-rounded-md">
-                        <img class="d-w-24 d-h-24 d-select-none" src="/docs/assets/hypixel-news-icon.svg" alt="Hypixel News Icon">
+                        <img class="d-w-24 d-h-24 d-select-none" src="/assets/hypixel-news-icon.svg" alt="Hypixel News Icon">
                     </div>
                 </div>
             </div>
