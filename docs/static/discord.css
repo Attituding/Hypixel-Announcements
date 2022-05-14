@@ -708,6 +708,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (prefers-color-scheme: dark) {
+  .dark\:d-bg-\[\#2f3136\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(47 49 54 / var(--tw-bg-opacity));
+  }
+
   .dark\:d-text-white {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
