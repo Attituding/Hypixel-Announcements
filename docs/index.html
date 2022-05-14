@@ -46,13 +46,15 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/docs/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="/docs/assets/favicon.ico" rel="icon" />
-    <link href="/docs/resources/css/retype.css?v=2.2.705823996503" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/docs/resources/css/retype.css?v=2.2.705824141009" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/docs/resources/js/config.js?v=2.2.705823996503" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/docs/resources/js/config.js?v=2.2.705824141009" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/docs/resources/js/retype.js?v=2.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/docs/resources/js/lunr.js?v=2.2.705823996503" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/docs/resources/js/lunr.js?v=2.2.705824141009" defer></script>
 
-    
+    <!-- Style Overrides -->
+    <link href="/docs/static/color.css" rel="stylesheet" data-turbo-track="reload"/>
+    <link href="/docs/static/discord.css" rel="stylesheet" data-turbo-track="reload"/>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -243,7 +245,7 @@
         <span>Hypixel News</span>
     </h1>
 </doc-anchor-target>
-<div><div class="d-flex d-items-start d-justify-start d-w-full d-h-full d-font-sans d-text-black dark:d-text-white d-p-4">
+<div><div class="d-flex d-items-start d-justify-start d-w-full d-h-full d-font-sans d-text-black dark:d-text-white">
     <div class="d-flex d-flex-row d-w-fit d-h-fit d-gap-4">
         <img class="d-w-12 d-h-12 d-bg-black d-rounded-full" src="/docs/assets/hypixel-news-icon.svg" alt="Hypixel News Icon">
         <div class="d-flex d-flex-col d-max-w-[30rem] d-h-fit d-gap-2">
