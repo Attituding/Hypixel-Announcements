@@ -23,21 +23,21 @@
     <meta name="generator" content="Retype 2.2">
 
     <!-- Primary Meta Tags -->
-    <title>Not Found - Hypixel News</title>
-    <meta name="title" content="Not Found - Hypixel News">
-    <meta name="description" content="Return to Home" />
+    <title>Commands - Hypixel News</title>
+    <meta name="title" content="Commands - Hypixel News">
+    <meta name="description" content="Click on a command to learn more about it." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://hypixelnews.attituding.live/404.html">
-    <meta property="og:title" content="Not Found - Hypixel News">
-    <meta property="og:description" content="Return to Home">
+    <meta property="og:url" content="https://hypixelnews.attituding.live/bot/commands/">
+    <meta property="og:title" content="Commands - Hypixel News">
+    <meta property="og:description" content="Click on a command to learn more about it.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://hypixelnews.attituding.live/404.html">
-    <meta property="twitter:title" content="Not Found - Hypixel News">
-    <meta property="twitter:description" content="Return to Home">
+    <meta property="twitter:url" content="https://hypixelnews.attituding.live/bot/commands/">
+    <meta property="twitter:title" content="Commands - Hypixel News">
+    <meta property="twitter:description" content="Click on a command to learn more about it.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -47,6 +47,7 @@
     <script type="text/javascript" src="/resources/js/config.js?v=2.2.705863664996" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=2.2" defer data-turbo-track="reload"></script>
     <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.705863664996" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=2.2.705863664996" defer></script>
 
     <!-- Style Overrides -->
     <link href="/static/color.css" rel="stylesheet" data-turbo-track="reload"/>
@@ -230,32 +231,125 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="404" class="break-words">
+<doc-anchor-target id="commands" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#404">#</doc-anchor-trigger>
-        <span><strong>404</strong></span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#commands">#</doc-anchor-trigger>
+        <span>Commands</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="looks-like-you-took-a-wrong-turn">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#looks-like-you-took-a-wrong-turn">#</doc-anchor-trigger>
-        <span>Looks like you took a wrong turn.</span>
-    </h4>
+<doc-anchor-target id="information">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#information">#</doc-anchor-trigger>
+        <span>Information</span>
+    </h2>
 </doc-anchor-target>
-<p>
-<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
-    <div class="flex items-center text-blue-500 dark:text-blue-400">
-        <span class="inline-block mb-px">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
-        </span>
-        <span class="inline-block font-medium ml-2">Return to Home</span>
+<p>Click on a command to learn more about it.</p>
+<doc-tabs>
+<doc-tab id="announcements">
+<template #title><strong>/announcements</strong></template>
+<p>Configure what announcements you want to receive</p>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white border-r">
+        <span>Cooldown</span>
     </div>
-    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>/</span>
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Server Channel Only</span>
     </div>
-    <a href="/" class="absolute block inset-0"></a>
+    <div class="px-5 py-3 docs-columns-content border-r border-gray-200 dark:border-dark-650">
+<p>5 seconds</p>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p>Yes</p>
+    </div>
 </div>
-</p>
+</doc-tab>
+<doc-tab id="help">
+<template #title><strong>/help</strong></template>
+<p>Displays helpful information and available commands</p>
+<div class="mb-6 overflow-hidden border rounded-md docs-columns dark:border-dark-650" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white border-r">
+        <span>Cooldown</span>
+    </div>
+    <div class="flex items-center px-5 py-3 font-medium leading-snug text-gray-900 border-b border-gray-200 dark:border-dark-650 dark:text-white">
+        <span>Server Channel Only</span>
+    </div>
+    <div class="px-5 py-3 docs-columns-content border-r border-gray-200 dark:border-dark-650">
+<p>5 seconds</p>
+    </div>
+    <div class="px-5 py-3 docs-columns-content">
+<p>No</p>
+    </div>
+</div>
+</doc-tab>
+</doc-tabs>
+<doc-anchor-target id="structures">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#structures">#</doc-anchor-trigger>
+        <span>Structures</span>
+    </h2>
+</doc-anchor-target>
+<p>The layouts of each command in the YAML format.</p>
+<doc-panels>
+   <doc-panel id="announcements" collapsed>
+       <template #title>/announcements</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-yaml"><code v-pre class="language-yaml">name: announcements
+description: Configure what announcements you want to receive
+options:
+    - name: general
+      description: General Hypixel News and Announcements
+      type: 1
+      options:
+          - name: channel
+            type: 7
+            channel_types: [ChannelTypes.GUILD_TEXT]
+            description: The channel where Hypixel News and Announcements should be toggled
+            required: true
+    - name: skyblock
+      description: SkyBlock Patch Notes
+      type: 1
+      options:
+          - name: channel
+            type: 7
+            channel_types: [ChannelTypes.GUILD_TEXT]
+            description: The channel where SkyBlock Patch Notes should be toggled
+            required: true
+    - name: moderation
+      description: Moderation Information and Changes
+      type: 1
+      options:
+          - name: channel
+            type: 7
+            channel_types: [ChannelTypes.GUILD_TEXT]
+            description: The channel where Moderation Information and Changes should be toggled
+            required: true</code></pre>
+</doc-codeblock></div>
+   </doc-panel>
+   <doc-panel id="help" collapsed>
+       <template #title>/help</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-yaml"><code v-pre class="language-yaml">name: help
+description: Displays helpful information and available commands
+options:
+    - name: commands
+      type: SUB_COMMAND
+      description: Displays information about commands
+      options:
+          - name: command
+            type: STRING
+            description: A command to get info about. This parameter is completely optional
+            required: false
+            choices:
+                - name: '/announcements'
+                  value: announcements
+                - name: '/help'
+                  value: help
+    - name: information
+      description: Returns information about this bot
+      type: SUB_COMMAND</code></pre>
+</doc-codeblock></div>
+   </doc-panel>
+</doc-panels>
 
                                 
                                 <!-- Required only on API pages -->
@@ -263,6 +357,27 @@
                             </div>
                             <footer class="clear-both">
                             
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/bot/managing-announcements/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Managing Announcements</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/legal/privacy-policy/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Privacy Policy</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
                             </footer>
                         </main>
                 
@@ -310,6 +425,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = null</script>
+    <script>window.__DOCS__ = { "title": "Commands", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>
