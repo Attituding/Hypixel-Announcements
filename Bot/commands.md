@@ -1,5 +1,6 @@
 ---
 order: 1
+tags: [Discord Bot, Guide]
 ---
 # Commands
 
@@ -23,6 +24,8 @@ Displays helpful information and available commands
 No
 |||
 +++
+
+---
 
 ## Structures
 

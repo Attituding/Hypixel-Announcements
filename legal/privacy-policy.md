@@ -1,5 +1,6 @@
 ---
 order: 2
+tags: [Discord Bot, Legal]
 ---
 # Privacy Policy
 This Privacy Policy explains how we use and collect your the personal data when you use our application.

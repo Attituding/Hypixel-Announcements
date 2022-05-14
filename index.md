@@ -6,6 +6,8 @@ order: 4
 
 ![](./assets/hypixel-news-banner.png)
 
+---
+
 :::
 <div class="d-flex d-items-start d-justify-start d-w-full d-h-full d-font-sans d-text-black dark:d-text-white">
     <div class="d-flex d-flex-row d-w-fit d-h-fit d-gap-4">
@@ -30,7 +32,7 @@ order: 4
                 <div class="d-bg-[#e3e5e8] dark:d-bg-[#202225] d-w-[0.25rem] d-rounded-l-xl"></div>
                 <div class="d-flex d-flex-col d-bg-[#f2f3f5] dark:d-bg-[#2f3136] d-w-full d-rounded-r d-gap-4 d-p-4">
                     <a href="/guide/announcement-categories/" target="_blank" style="line-height: 1.125rem;" class="d-text-lg d-font-semibold d-text-[#0068E0] dark:d-text-[#00AFF4] hover:d-underline">Getting Started</a>
-                    <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">Check out the <b>Guide</b> section by clicking on the button below.</span>
+                    <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">Check out the <b>Guide</b> section by clicking on the button below to get started.</span>
                     <span class="d-text-[#2E3338] dark:d-text-[#DCDDDE] d-text-sm d-font-medium">In the guide, you can look at the announcement categories available, how to start getting news, and how notifications work (or don't work).</span>
                 </div>
             </div>

@@ -1,9 +1,10 @@
 ---
 order: 2
+tags: [Guide]
 ---
 
 # Getting News
-As mentioned in the introduction, the Hypixel News project includes a Discord Bot to simplify the process. Alternatively, you can also choose to follow an announcement channel directly.
+To start getting your news, you can either choose to use the Discord Bot or choose to directly follow the announcement channels.
 
 ## Channel Following
 Discord offers a neat feature where you can "follow" certain channels and have its messages be sent to your desired server + channel. To get Hypixel news using this method,
@@ -15,7 +16,11 @@ Discord offers a neat feature where you can "follow" certain channels and have i
 
 and done! 🎉
 
+---
+
 ## Discord Bot
-Check out the Discord Bot section here:
+If you find Discord Bots more manageable, this option is for you. 
+
+Check out the dedicated Discord Bot section here:
 
 [!ref target="self" text="Discord Bot"](../Bot/getting-started.md)

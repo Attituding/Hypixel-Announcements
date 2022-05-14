@@ -1,5 +1,6 @@
 ---
 order: 1
+tags: [Discord Bot, Legal]
 ---
 # Terms of Service
 These Terms of Service explain the limitations and guidelines for your use of this application.
