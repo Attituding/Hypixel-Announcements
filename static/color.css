@@ -50,7 +50,7 @@
 .docs-markdown h4 .header-anchor-trigger,
 .docs-markdown h5 .header-anchor-trigger,
 .docs-markdown h6 .header-anchor-trigger {
-    color: rgb(220 175 78 / var(--tw-text-opacity)) !important;
+    color: rgb(220 175 78 / var(--tw-text-opacity));
 }
 .docs-markdown h1 .header-anchor-trigger:hover,
 .docs-markdown h2 .header-anchor-trigger:hover,
@@ -58,7 +58,7 @@
 .docs-markdown h4 .header-anchor-trigger:hover,
 .docs-markdown h5 .header-anchor-trigger:hover,
 .docs-markdown h6 .header-anchor-trigger:hover {
-    color: rgb(133 77 14 / var(--tw-text-opacity));
+    color: rgb(133 77 14 / var(--tw-text-opacity)) !important;
 }
 .dark .docs-markdown a:not(.no-link),
 .dark .docs-markdown h1 .header-anchor-trigger,
@@ -67,7 +67,7 @@
 .dark .docs-markdown h4 .header-anchor-trigger,
 .dark .docs-markdown h5 .header-anchor-trigger,
 .dark .docs-markdown h6 .header-anchor-trigger {
-    color: rgb(220 175 78 / var(--tw-text-opacity)) !important;
+    color: rgb(220 175 78 / var(--tw-text-opacity));
 }
 .dark .docs-markdown h1 .header-anchor-trigger:hover,
 .dark .docs-markdown h2 .header-anchor-trigger:hover,
