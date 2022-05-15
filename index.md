@@ -2,7 +2,7 @@
 icon: home
 order: 4
 ---
-# Hypixel News
+# Introduction
 
 ![](./assets/hypixel-news-banner.png)
 
