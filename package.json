@@ -3,7 +3,7 @@
     "description": "Hypixel News is a project that sends you the latest news from the Hypixel Network. ",
     "license": "MIT",
     "author": "Attituding <Attituding@outlook.com>",
-    "main": "src/main.ts",
+    "main": "dist/main.js",
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.25.0",
         "@typescript-eslint/parser": "^5.25.0",
@@ -31,8 +31,8 @@
     },
     "scripts": {
         "prerun": "tsc -p .",
-        "run": "node out/main.js",
-        "docker": "node out/main.js"
+        "run": "node dist/main.js",
+        "docker": "node dist/main.js"
     },
     "engines": {
         "node": ">=18.0.0"
