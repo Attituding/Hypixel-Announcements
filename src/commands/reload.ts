@@ -146,11 +146,15 @@ export default class implements CommandStatic {
             }
 
             if (typeName === 'commands') {
-                //@ts-expect-error testing
-                commandRefresh(interaction, selected.properties.name);
+                commandRefresh(
+                    interaction,
+                    (selected as Command).structure.name,
+                );
             } else if (typeName === 'events') {
-                //@ts-expect-error testing
-                eventRefresh(interaction, selected.properties.name);
+                eventRefresh(
+                    interaction,
+                    (selected as Event).event,
+                );
             }
 
             const reloadedEmbed = new BetterEmbed(interaction)
