@@ -13,6 +13,6 @@ jobs:
       - uses: retypeapp/action-build@latest
       - uses: retypeapp/action-github-pages@latest
         with:
-          branch: gh-pages-source
-          directory: /dist
+          branch: gh-pages
+          directory: /
           update-branch: true
