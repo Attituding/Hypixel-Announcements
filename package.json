@@ -1,6 +1,6 @@
 {
     "dependencies": {
-        "tailwindcss": "^3.0.24"
+        "tailwindcss": "^3.1.4"
     },
     "scripts": {
         "watch": "npx tailwindcss -i ./static/source.css -o ./static/discord.css --watch"
