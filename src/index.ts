@@ -8,8 +8,8 @@ import { ErrorHandler } from './errors/ErrorHandler';
 import { Client } from './structures/Client';
 
 Sentry.init({
-    dsn: process.env.DSN,
-    environment: process.env.ENVIRONMENT,
+    dsn: process.env.SENTRY_DSN,
+    environment: process.env.SENTRY_ENVIRONMENT,
     integrations: [new ExtraErrorData()],
     tracesSampleRate: 1.0,
 });
