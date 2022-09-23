@@ -1,9 +1,4 @@
 import { setTimeout } from 'node:timers';
-import fetch, {
-    type RequestInit,
-    type Response,
-} from 'node-fetch';
-import { AbortSignal } from 'node-fetch/externals';
 import { Base } from './Base';
 import { AbortError } from '../errors/AbortError';
 import { Options } from '../utility/Options';
@@ -39,7 +34,7 @@ export class Request extends Base {
         try {
             const response = await fetch(url, {
                 // Coerced due to a Typescript typings update to AbortController
-                signal: controller.signal as AbortSignal,
+                signal: controller.signal,
                 ...fetchOptions,
             });
 

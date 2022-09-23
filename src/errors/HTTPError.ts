@@ -1,5 +1,3 @@
-import { type Response } from 'node-fetch';
-
 export class HTTPError extends Error {
     public readonly response: Response | null;
 
