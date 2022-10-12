@@ -6,7 +6,6 @@
     "main": "dist/index.js",
     "devDependencies": {
         "@types/node": "^18.7.18",
-        "@types/node-fetch": "^2.6.2",
         "@types/turndown": "^5.0.1",
         "@typescript-eslint/eslint-plugin": "^5.38.0",
         "@typescript-eslint/parser": "^5.38.0",
