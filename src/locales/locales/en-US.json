@@ -17,6 +17,36 @@
     "none": {
         "message": "None"
     },
+    "commandsAnnouncementsAddDescription": {
+        "message": "$1 will be sent to $2!"
+    },
+    "commandsAnnouncementsAddTitle": {
+        "message": "Added $1"
+    },
+    "commandsAnnouncementsBotMissingPermissionDescription": {
+        "message": "This bot is unable to use the channel you selected because it is missing permission(s): $1. Grant the bot the listed permissions or select a different channel that the bot can use."
+    },
+    "commandsAnnouncementsBotMissingPermissionTitle": {
+        "message": "Missing Permission"
+    },
+    "commandsAnnouncementsRemoveDescription": {
+        "message": "$1 will no longer be sent to $2!"
+    },
+    "commandsAnnouncementsRemoveNotFoundDescription": {
+        "message": "The announcement type `$1` isn't added to $2!"
+    },
+    "commandsAnnouncementsRemoveNotFoundTitle": {
+        "message": "$1 Type Not Found"
+    },
+    "commandsAnnouncementsRemoveTitle": {
+        "message": "Removed $1"
+    },
+    "commandsAnnouncementsUserMissingPermissionDescription": {
+        "message": "You must have the **Manage Webhook(s)** permission to use this command. This permission can either be granted server-wide or given through a channel's advanced permissions."
+    },
+    "commandsAnnouncementsUserMissingPermissionTitle": {
+        "message": "Missing Permission"
+    },
     "commandsAPICallDescription": {
         "message": "Executed <Core>.errors.$1."
     },
@@ -49,36 +79,6 @@
     },
     "commandsAPIStatsUsesName": {
         "message": "Uses"
-    },
-    "commandsAnnouncementsAddDescription": {
-        "message": "$1 will be sent to $2!"
-    },
-    "commandsAnnouncementsAddTitle": {
-        "message": "Added $1"
-    },
-    "commandsAnnouncementsBotMissingPermissionDescription": {
-        "message": "This bot is unable to use the channel you selected because it is missing permission(s): $1. Grant the bot the listed permissions or select a different channel that the bot can use."
-    },
-    "commandsAnnouncementsBotMissingPermissionTitle": {
-        "message": "Missing Permission"
-    },
-    "commandsAnnouncementsRemoveDescription": {
-        "message": "$1 will no longer be sent to $2!"
-    },
-    "commandsAnnouncementsRemoveNotFoundDescription": {
-        "message": "The announcement type `$1` isn't added to $2!"
-    },
-    "commandsAnnouncementsRemoveNotFoundTitle": {
-        "message": "$1 Type Not Found"
-    },
-    "commandsAnnouncementsRemoveTitle": {
-        "message": "Removed $1"
-    },
-    "commandsAnnouncementsUserMissingPermissionDescription": {
-        "message": "You must have the **Manage Webhook(s)** permission to use this command. This permission can either be granted server-wide or given through a channel's advanced permissions."
-    },
-    "commandsAnnouncementsUserMissingPermissionTitle": {
-        "message": "Missing Permission"
     },
     "commandsConfigCoreDescription": {
         "message": "The core is now **$1**."
