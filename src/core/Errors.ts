@@ -49,9 +49,9 @@ export class Errors extends Base {
     public getTimeout() {
         return this.isTimeout()
             ? Math.max(
-                this.abort.pauseFor,
-                this.generic.pauseFor,
-                this.http.pauseFor,
+                this.abort.getPauseFor(),
+                this.generic.getPauseFor(),
+                this.http.getPauseFor(),
             )
             : 0;
     }
