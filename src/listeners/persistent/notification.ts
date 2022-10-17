@@ -90,7 +90,7 @@ export class PersistentNotificationListener extends Listener {
                 ephemeral: true,
             });
         } catch (error) {
-            await InteractionErrorHandler.init(error, interaction);
+            await new InteractionErrorHandler(error, interaction).init();
         }
     }
 }
