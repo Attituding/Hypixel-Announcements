@@ -1,9 +1,5 @@
-import {
-    Constants,
-    MessageActionRow,
-    MessageButton,
-} from 'discord.js';
-import { type RSS } from '../@types/RSS';
+import { Constants, MessageActionRow, MessageButton } from 'discord.js';
+import type { RSS } from '../@types/RSS';
 import { Base } from '../structures/Base';
 
 export class Components extends Base {
@@ -12,16 +8,11 @@ export class Components extends Base {
 
         data.items.forEach((item) => {
             const button = new MessageButton()
-                .setLabel(
-                    this.container.i18n.getMessage(
-                        'coreComponentsButtonsReadMoreLabel',
-                    ),
-                )
+                .setLabel(this.container.i18n.getMessage('coreComponentsButtonsReadMoreLabel'))
                 .setStyle(Constants.MessageButtonStyles.LINK)
                 .setURL(item.link);
 
-            const row = new MessageActionRow()
-                .setComponents(button);
+            const row = new MessageActionRow().setComponents(button);
 
             rows.unshift(row);
         });

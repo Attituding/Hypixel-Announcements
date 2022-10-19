@@ -4,9 +4,7 @@ import { Request } from '../structures/Request';
 
 export class Requests extends Base {
     public async request(url: string) {
-        const response = await new Request(
-            this.container.config,
-        ).request(url);
+        const response = await new Request(this.container.config).request(url);
 
         if (response.ok === false) {
             throw new HTTPError({

@@ -1,35 +1,22 @@
 import { setTimeout } from 'node:timers/promises';
-import {
-    Formatters,
-    type MessageActionRow,
-    type MessageEmbed,
-    type NewsChannel,
-} from 'discord.js';
-import { type RSS } from '../@types/RSS';
+import { Formatters, type MessageActionRow, type MessageEmbed, type NewsChannel } from 'discord.js';
+import type { RSS } from '../@types/RSS';
 import { Base } from '../structures/Base';
 import { Options } from '../utility/Options';
 
 /* eslint-disable no-await-in-loop */
 
 export class Dispatch extends Base {
-    public async dispatch(
-        embeds: MessageEmbed[],
-        components: MessageActionRow[],
-        data: RSS,
-    ) {
-        const { channelId, roleId } = this.container.announcements.find(
-            (announcement) => announcement.category === data.title,
+    public async dispatch(embeds: MessageEmbed[], components: MessageActionRow[], data: RSS) {
+        const { channelId, roleId } = this.container.categories.find(
+            (category) => category.category === data.title,
         )!;
 
-        const channel = await this.container.client.channels.fetch(
-            channelId,
-        ) as NewsChannel;
+        const channel = (await this.container.client.channels.fetch(channelId)) as NewsChannel;
 
-        const editedThreadIds = data.items.filter(
-            (item) => item.edited === true,
-        ).map(
-            (item) => item.id,
-        );
+        const editedThreadIds = data.items
+            .filter((item) => item.edited === true)
+            .map((item) => item.id);
 
         const editedPosts = editedThreadIds.length > 0
             ? await this.postsGet(data, editedThreadIds)
@@ -45,13 +32,11 @@ export class Dispatch extends Base {
         }
 
         for (let index = 0; index < embeds.length; index += 1) {
-            const item = data.items[index];
-            const embed = embeds[index];
-            const actionRow = components[index];
+            const item = data.items[index]!;
+            const embed = embeds[index]!;
+            const actionRow = components[index]!;
 
-            const editedPost = editedPosts.find(
-                (post) => post.id === item.id,
-            );
+            const editedPost = editedPosts.find((post) => post.id === item.id)!;
 
             const payload = {
                 embeds: [embed],
@@ -67,9 +52,7 @@ export class Dispatch extends Base {
 
                 await this.postSet(data, item.id, message.id);
             } else {
-                const message = await channel.messages.fetch(
-                    editedPost!.message!,
-                );
+                const message = await channel.messages.fetch(editedPost.message!);
 
                 await message.edit(payload);
             }

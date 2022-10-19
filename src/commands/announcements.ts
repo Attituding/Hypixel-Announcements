@@ -1,8 +1,4 @@
-import {
-    type ApplicationCommandRegistry,
-    BucketScope,
-    Command,
-} from '@sapphire/framework';
+import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
 import {
     type CommandInteraction,
     Formatters,
@@ -10,11 +6,8 @@ import {
     Permissions,
     type TextChannel,
 } from 'discord.js';
-import {
-    ApplicationCommandOptionTypes,
-    ChannelTypes,
-} from 'discord.js/typings/enums';
-import { Category } from '../@types/Category';
+import { ApplicationCommandOptionTypes, ChannelTypes } from 'discord.js/typings/enums';
+import type { Category } from '../@types/Category';
 import { Time } from '../enums/Time';
 import { BetterEmbed } from '../structures/BetterEmbed';
 import { Options } from '../utility/Options';
@@ -29,11 +22,7 @@ export class AnnouncementsCommand extends Command {
             cooldownLimit: 3,
             cooldownDelay: Time.Second * 10,
             cooldownScope: BucketScope.Guild,
-            preconditions: [
-                'Base',
-                'DevMode',
-                'GuildOnly',
-            ],
+            preconditions: ['Base', 'DevMode', 'GuildOnly'],
         });
 
         this.chatInputStructure = {
@@ -49,7 +38,8 @@ export class AnnouncementsCommand extends Command {
                             name: 'channel',
                             type: ApplicationCommandOptionTypes.CHANNEL,
                             channel_types: [ChannelTypes.GUILD_TEXT],
-                            description: 'The channel where Hypixel News and Announcements should be toggled',
+                            description:
+                                'The channel where Hypixel News and Announcements should be toggled',
                             required: true,
                         },
                     ],
@@ -77,7 +67,8 @@ export class AnnouncementsCommand extends Command {
                             name: 'channel',
                             type: ApplicationCommandOptionTypes.CHANNEL,
                             channel_types: [ChannelTypes.GUILD_TEXT],
-                            description: 'The channel where Moderation Information and Changes should be toggled',
+                            description:
+                                'The channel where Moderation Information and Changes should be toggled',
                             required: true,
                         },
                     ],
@@ -87,13 +78,10 @@ export class AnnouncementsCommand extends Command {
     }
 
     public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
-        registry.registerChatInputCommand(
-            this.chatInputStructure,
-            Options.commandRegistry(this),
-        );
+        registry.registerChatInputCommand(this.chatInputStructure, Options.commandRegistry(this));
     }
 
-    public async chatInputRun(interaction: CommandInteraction) {
+    public override async chatInputRun(interaction: CommandInteraction) {
         if (!interaction.inCachedGuild()) {
             return;
         }
@@ -104,22 +92,14 @@ export class AnnouncementsCommand extends Command {
 
         const userHasPermission = channel
             .permissionsFor(interaction.member)
-            .has([
-                Permissions.FLAGS.MANAGE_WEBHOOKS,
-            ]);
+            .has([Permissions.FLAGS.MANAGE_WEBHOOKS]);
 
         if (userHasPermission === false) {
             const missingPermission = new BetterEmbed(interaction)
                 .setColor(Options.colorsWarning)
-                .setTitle(
-                    i18n.getMessage(
-                        'commandsAnnouncementsUserMissingPermissionTitle',
-                    ),
-                )
+                .setTitle(i18n.getMessage('commandsAnnouncementsUserMissingPermissionTitle'))
                 .setDescription(
-                    i18n.getMessage(
-                        'commandsAnnouncementsUserMissingPermissionDescription',
-                    ),
+                    i18n.getMessage('commandsAnnouncementsUserMissingPermissionDescription'),
                 );
 
             this.container.logger.info(
@@ -137,25 +117,16 @@ export class AnnouncementsCommand extends Command {
 
         const botMissingPermissions = channel
             .permissionsFor(interaction.guild.me!)
-            .missing([
-                Permissions.FLAGS.VIEW_CHANNEL,
-                Permissions.FLAGS.MANAGE_WEBHOOKS,
-            ]);
+            .missing([Permissions.FLAGS.VIEW_CHANNEL, Permissions.FLAGS.MANAGE_WEBHOOKS]);
 
         if (botMissingPermissions.length !== 0) {
             const missingPermission = new BetterEmbed(interaction)
                 .setColor(Options.colorsWarning)
-                .setTitle(
-                    i18n.getMessage(
-                        'commandsAnnouncementsBotMissingPermissionTitle',
-                    ),
-                )
+                .setTitle(i18n.getMessage('commandsAnnouncementsBotMissingPermissionTitle'))
                 .setDescription(
-                    i18n.getMessage(
-                        'commandsAnnouncementsBotMissingPermissionDescription', [
-                            botMissingPermissions.join(', '),
-                        ],
-                    ),
+                    i18n.getMessage('commandsAnnouncementsBotMissingPermissionDescription', [
+                        botMissingPermissions.join(', '),
+                    ]),
                 );
 
             this.container.logger.info(
@@ -174,15 +145,18 @@ export class AnnouncementsCommand extends Command {
         let type: Category;
 
         switch (interaction.options.getSubcommand()) {
-            case 'general': type = 'News and Announcements';
+            case 'general':
+                type = 'News and Announcements';
                 break;
-            case 'skyblock': type = 'SkyBlock Patch Notes';
+            case 'skyblock':
+                type = 'SkyBlock Patch Notes';
                 break;
-            default: type = 'Moderation Information and Changes';
+            default:
+                type = 'Moderation Information and Changes';
         }
 
-        const announcementChannelId = this.container.announcements.find(
-            (announcement) => announcement.category === type,
+        const announcementChannelId = this.container.categories.find(
+            (category) => category.category === type,
         )!.channelId;
 
         const oldWebhooks = await channel.fetchWebhooks();
@@ -193,9 +167,9 @@ export class AnnouncementsCommand extends Command {
         if (typeof existingAnnouncementWebhook === 'undefined') {
             // Add webhook
 
-            const newsChannel = await interaction.client.channels.fetch(
+            const newsChannel = (await interaction.client.channels.fetch(
                 announcementChannelId,
-            ) as NewsChannel;
+            )) as NewsChannel;
 
             await newsChannel.addFollower(channel);
             const webhooks = await channel.fetchWebhooks();
@@ -211,20 +185,12 @@ export class AnnouncementsCommand extends Command {
 
             const addEmbed = new BetterEmbed(interaction)
                 .setColor(Options.colorsNormal)
-                .setTitle(
-                    i18n.getMessage(
-                        'commandsAnnouncementsAddTitle', [
-                            type,
-                        ],
-                    ),
-                )
+                .setTitle(i18n.getMessage('commandsAnnouncementsAddTitle', [type]))
                 .setDescription(
-                    i18n.getMessage(
-                        'commandsAnnouncementsAddDescription', [
-                            type,
-                            Formatters.channelMention(channel.id),
-                        ],
-                    ),
+                    i18n.getMessage('commandsAnnouncementsAddDescription', [
+                        type,
+                        Formatters.channelMention(channel.id),
+                    ]),
                 );
 
             this.container.logger.info(
@@ -241,20 +207,12 @@ export class AnnouncementsCommand extends Command {
 
             const removeEmbed = new BetterEmbed(interaction)
                 .setColor(Options.colorsNormal)
-                .setTitle(
-                    i18n.getMessage(
-                        'commandsAnnouncementsRemoveTitle', [
-                            type,
-                        ],
-                    ),
-                )
+                .setTitle(i18n.getMessage('commandsAnnouncementsRemoveTitle', [type]))
                 .setDescription(
-                    i18n.getMessage(
-                        'commandsAnnouncementsRemoveDescription', [
-                            type,
-                            Formatters.channelMention(channel.id),
-                        ],
-                    ),
+                    i18n.getMessage('commandsAnnouncementsRemoveDescription', [
+                        type,
+                        Formatters.channelMention(channel.id),
+                    ]),
                 );
 
             this.container.logger.info(

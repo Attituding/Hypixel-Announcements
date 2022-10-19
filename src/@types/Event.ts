@@ -1,4 +1,4 @@
-import { Events as SapphireEvents } from '@sapphire/framework';
+import type { Events as SapphireEvents } from '@sapphire/framework';
 
 const Events = {
     PersistentNotification: 'persistentNotification',

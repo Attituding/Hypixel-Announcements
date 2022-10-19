@@ -1,5 +1,5 @@
 import Turndown from 'turndown';
-import { BaseRss } from '../@types/BaseRss';
+import type { BaseRss } from '../@types/BaseRss';
 import { Base } from '../structures/Base';
 
 export class Normalize extends Base {
@@ -12,26 +12,15 @@ export class Normalize extends Base {
             codeBlockStyle: 'fenced',
         })
             .addRule('horizontal', {
-                filter: [
-                    'hr',
-                ],
+                filter: ['hr'],
                 replacement: () => '',
             })
             .addRule('header', {
-                filter: [
-                    'h1',
-                    'h2',
-                    'h3',
-                    'h4',
-                    'h5',
-                    'h6',
-                ],
+                filter: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
                 replacement: (content) => `**${content}**`,
             })
             .addRule('list', {
-                filter: [
-                    'li',
-                ],
+                filter: ['li'],
                 replacement: (content) => `• ${content.replaceAll('\n', '')}\n`,
             });
     }
@@ -48,17 +37,12 @@ export class Normalize extends Base {
         if (typeof channel.item === 'undefined') {
             const message = 'Expected <Channel>.item to be an object or array; received undefined';
 
-            this.container.logger.error(
-                `${this.constructor.name}:`,
-                message,
-            );
+            this.container.logger.error(`${this.constructor.name}:`, message);
 
             throw new Error(message);
         }
 
-        const items = Array.isArray(channel.item)
-            ? channel.item
-            : [channel.item];
+        const items = Array.isArray(channel.item) ? channel.item : [channel.item];
 
         const rss = {
             title: channel.title.text,
@@ -85,10 +69,8 @@ export class Normalize extends Base {
                 obj.content = this.contentFix(obj.content);
 
                 // Icon/Emoji handling
-                obj.content = [
-                    ...obj.content.matchAll(/!\[(\S+)\]\(.*?\)/gm),
-                ].reduce(
-                    (acc, current) => acc.replace(current[0], current[1]),
+                obj.content = [...obj.content.matchAll(/!\[(\S+)\]\(.*?\)/gm)].reduce(
+                    (acc, current) => acc.replace(current[0]!, current[1]!),
                     obj.content,
                 );
 
@@ -113,17 +95,11 @@ export class Normalize extends Base {
 
     private matchAttachments(content: string): string[] {
         return [
-            ...content.matchAll(
-                /https:\/\/staticassets\.hypixel\.net\/(\S)*\.(png|jpg)/gm,
-            ),
-            ...content.matchAll(
-                /https:\/\/i\.imgur\.com\/(\S)*\.(png|jpg)/gm,
-            ),
-            ...content.matchAll(
-                /https:\/\/hypixel\.net\/attachments\/(\S)*\//gm,
-            ),
+            ...content.matchAll(/https:\/\/staticassets\.hypixel\.net\/(\S)*\.(png|jpg)/gm),
+            ...content.matchAll(/https:\/\/i\.imgur\.com\/(\S)*\.(png|jpg)/gm),
+            ...content.matchAll(/https:\/\/hypixel\.net\/attachments\/(\S)*\//gm),
         ]
             .sort((primary, secondary) => primary.index! - secondary.index!)
-            .map((array) => array?.[0]);
+            .map((array) => array[0]!);
     }
 }

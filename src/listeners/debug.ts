@@ -1,8 +1,5 @@
-import {
-    Events,
-    Listener,
-} from '@sapphire/framework';
-import { Sentry } from '../structures/Sentry';
+import { Events, Listener } from '@sapphire/framework';
+// import { Sentry } from '../structures/Sentry';
 
 export class DebugListener extends Listener {
     public constructor(context: Listener.Context, options: Listener.Options) {
@@ -13,8 +10,8 @@ export class DebugListener extends Listener {
         });
     }
 
-    public run(info: string) {
-        return;
+    public run(/* info: string */) {
+        /*
         this.container.logger.debug(
             `${this.constructor.name}:`,
             info,
@@ -23,5 +20,6 @@ export class DebugListener extends Listener {
         new Sentry()
             .setSeverity('debug')
             .captureMessages(info);
+        */
     }
 }

@@ -1,11 +1,5 @@
-import {
-    Events,
-    Listener,
-} from '@sapphire/framework';
-import {
-    type Interaction,
-    MessageFlags,
-} from 'discord.js';
+import { Events, Listener } from '@sapphire/framework';
+import { type Interaction, MessageFlags } from 'discord.js';
 import { ErrorHandler } from '../errors/ErrorHandler';
 import { i18n } from '../locales/i18n';
 import { CustomId } from '../structures/CustomId';
@@ -34,21 +28,13 @@ export class ComponentInteractionCreateListener extends Listener {
                     `CustomId is ${interaction.customId}.`,
                 );
 
-                Object.defineProperty(
-                    interaction,
-                    'i18n',
-                    {
-                        value: new i18n(interaction.locale),
-                    },
-                );
+                Object.defineProperty(interaction, 'i18n', {
+                    value: new i18n(interaction.locale),
+                });
 
                 const customId = CustomId.parse(interaction.customId);
 
-                this.container.client.emit(
-                    customId.event,
-                    interaction,
-                    customId,
-                );
+                this.container.client.emit(customId.event, interaction, customId);
             }
         } catch (error) {
             new ErrorHandler(error).init();

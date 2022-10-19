@@ -1,12 +1,12 @@
-import {
-    type ChatInputApplicationCommandData,
-    type MessageApplicationCommandData,
-    type UserApplicationCommandData,
+import type {
+    ChatInputApplicationCommandData,
+    MessageApplicationCommandData,
+    UserApplicationCommandData,
 } from 'discord.js';
 
 declare module '@sapphire/framework' {
     interface Command {
-        chatInputStructure: ChatInputApplicationCommandData,
-        contextMenuStructure?: UserApplicationCommandData | MessageApplicationCommandData,
+        chatInputStructure: ChatInputApplicationCommandData;
+        contextMenuStructure?: UserApplicationCommandData | MessageApplicationCommandData;
     }
 }

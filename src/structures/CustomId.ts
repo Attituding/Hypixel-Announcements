@@ -1,6 +1,6 @@
 export interface CustomId {
-    event: string,
-    value: string,
+    event: string;
+    value: string;
 }
 
 export class CustomId {

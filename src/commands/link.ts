@@ -1,9 +1,5 @@
-import {
-    type ApplicationCommandRegistry,
-    BucketScope,
-    Command,
-} from '@sapphire/framework';
-import { type CommandInteraction } from 'discord.js';
+import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
+import type { CommandInteraction } from 'discord.js';
 import { ApplicationCommandOptionTypes } from 'discord.js/typings/enums';
 import { BetterEmbed } from '../structures/BetterEmbed';
 import { Options } from '../utility/Options';
@@ -18,11 +14,7 @@ export class LinkCommand extends Command {
             cooldownLimit: 0,
             cooldownDelay: 0,
             cooldownScope: BucketScope.User,
-            preconditions: [
-                'Base',
-                'DevMode',
-                'OwnerOnly',
-            ],
+            preconditions: ['Base', 'DevMode', 'OwnerOnly'],
             requiredUserPermissions: [],
             requiredClientPermissions: [],
         });
@@ -108,13 +100,10 @@ export class LinkCommand extends Command {
     }
 
     public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
-        registry.registerChatInputCommand(
-            this.chatInputStructure,
-            Options.commandRegistry(this),
-        );
+        registry.registerChatInputCommand(this.chatInputStructure, Options.commandRegistry(this));
     }
 
-    public async chatInputRun(interaction: CommandInteraction) {
+    public override async chatInputRun(interaction: CommandInteraction) {
         const { i18n } = interaction;
 
         const category = interaction.options.getString('category', true);
@@ -133,30 +122,16 @@ export class LinkCommand extends Command {
             },
         });
 
-        const linkEmbed = new BetterEmbed(interaction)
-            .setColor(Options.colorsNormal);
+        const linkEmbed = new BetterEmbed(interaction).setColor(Options.colorsNormal);
 
         if (interaction.options.getSubcommand() === 'link') {
             linkEmbed
                 .setTitle(i18n.getMessage('commandsLinkLinkedTitle'))
-                .setDescription(
-                    i18n.getMessage(
-                        'commandsLinkLinkedDescription', [
-                            id,
-                            message!,
-                        ],
-                    ),
-                );
+                .setDescription(i18n.getMessage('commandsLinkLinkedDescription', [id, message!]));
         } else {
             linkEmbed
                 .setTitle(i18n.getMessage('commandsLinkUnlinkedTitle'))
-                .setDescription(
-                    i18n.getMessage(
-                        'commandsLinkUnlinkedDescription', [
-                            id,
-                        ],
-                    ),
-                );
+                .setDescription(i18n.getMessage('commandsLinkUnlinkedDescription', [id]));
         }
 
         this.container.logger.info(

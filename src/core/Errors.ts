@@ -39,11 +39,7 @@ export class Errors extends Base {
     }
 
     public isTimeout() {
-        return (
-            this.abort.isTimeout()
-            || this.generic.isTimeout()
-            || this.http.isTimeout()
-        );
+        return this.abort.isTimeout() || this.generic.isTimeout() || this.http.isTimeout();
     }
 
     public getTimeout() {

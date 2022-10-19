@@ -1,12 +1,12 @@
 import { XMLParser } from 'fast-xml-parser';
 import Turndown from 'turndown';
-import { BaseRss } from '../@types/BaseRss';
+import type { BaseRss } from '../@types/BaseRss';
 import { Base } from '../structures/Base';
 
 export class Parser extends Base {
     validation: {
-        version: string,
-        namespaces: string[]
+        version: string;
+        namespaces: string[];
     };
 
     turndown: Turndown;
@@ -18,38 +18,22 @@ export class Parser extends Base {
 
         this.validation = {
             version: '2.0',
-            namespaces: [
-                'xmlns:atom',
-                'xmlns:dc',
-                'xmlns:content',
-                'xmlns:slash',
-            ],
+            namespaces: ['xmlns:atom', 'xmlns:dc', 'xmlns:content', 'xmlns:slash'],
         };
 
         this.turndown = new Turndown({
             codeBlockStyle: 'fenced',
         })
             .addRule('horizontal', {
-                filter: [
-                    'hr',
-                ],
+                filter: ['hr'],
                 replacement: () => '',
             })
             .addRule('header', {
-                filter: [
-                    'h1',
-                    'h2',
-                    'h3',
-                    'h4',
-                    'h5',
-                    'h6',
-                ],
+                filter: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
                 replacement: (content) => `**${content}**`,
             })
             .addRule('list', {
-                filter: [
-                    'li',
-                ],
+                filter: ['li'],
                 replacement: (content) => `• ${content.replaceAll('\n', '')}\n`,
             });
 
@@ -79,10 +63,7 @@ export class Parser extends Base {
         if (rss.rss.version !== version) {
             const message = `Expected RSS version ${version}; got version ${rss.rss.version}.`;
 
-            this.container.logger.error(
-                `${this.constructor.name}:`,
-                message,
-            );
+            this.container.logger.error(`${this.constructor.name}:`, message);
 
             throw new Error(message);
         }
@@ -92,12 +73,11 @@ export class Parser extends Base {
         );
 
         if (missingNamespaces.length !== 0) {
-            const message = `Expected ${namespaces.length} RSS namespaces; missing ${missingNamespaces.join(', ')}.`;
+            const message = `Expected ${
+                namespaces.length
+            } RSS namespaces; missing ${missingNamespaces.join(', ')}.`;
 
-            this.container.logger.error(
-                `${this.constructor.name}:`,
-                message,
-            );
+            this.container.logger.error(`${this.constructor.name}:`, message);
 
             throw new Error(message);
         }

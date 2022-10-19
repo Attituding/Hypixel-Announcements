@@ -1,16 +1,6 @@
-import { PrismaClient } from '@prisma/client';
-import {
-    container,
-    SapphireClient,
-} from '@sapphire/framework';
-import {
-    Intents,
-    Options,
-    type PresenceData,
-    Sweepers,
-} from 'discord.js';
-import { Announcement } from '../@types/Announcement';
-import { Config } from '../@types/Config';
+import { categories as Category, config as Config, PrismaClient } from '@prisma/client';
+import { container, SapphireClient } from '@sapphire/framework';
+import { Intents, Options, type PresenceData, Sweepers } from 'discord.js';
 import { Core } from '../core/Core';
 import { i18n } from '../locales/i18n';
 
@@ -84,19 +74,13 @@ export class Client extends SapphireClient {
 
         const { config, categories } = container.database;
 
-        container.config = await config.findFirst() as Config;
+        container.config = (await config.findFirst()) as Config;
 
-        container.logger.info(
-            `${this.constructor.name}:`,
-            'Fetched config from the database.',
-        );
+        container.logger.info(`${this.constructor.name}:`, 'Fetched config from the database.');
 
-        container.announcements = await categories.findMany();
+        container.categories = await categories.findMany();
 
-        container.logger.info(
-            `${this.constructor.name}:`,
-            'Fetched announcements from the database.',
-        );
+        container.logger.info(`${this.constructor.name}:`, 'Fetched categories from the database.');
 
         const endTime = Date.now();
 
@@ -113,11 +97,11 @@ export class Client extends SapphireClient {
 
 declare module '@sapphire/pieces' {
     interface Container {
-        announcements: Announcement[],
-        config: Config,
-        core: Core,
-        customPresence: PresenceData | null,
+        categories: Category[];
+        config: Config;
+        core: Core;
+        customPresence: PresenceData | null;
         database: PrismaClient;
-        i18n: i18n,
+        i18n: i18n;
     }
 }

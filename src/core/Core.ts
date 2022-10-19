@@ -74,9 +74,7 @@ export class Core extends Base {
             return;
         }
 
-        const urls = this.container.announcements.map(
-            (announcement) => announcement.url,
-        );
+        const urls = this.container.categories.map((category) => category.url);
 
         if (urls.length === 0) {
             await setTimeout(Options.coreDisabledTimeout);
@@ -103,22 +101,16 @@ export class Core extends Base {
 
                 this.performance.set('send');
                 if (changes.items.length > 0) {
-                    const newPosts = changes.items.filter(
-                        (item) => item.edited === false,
-                    );
+                    const newPosts = changes.items.filter((item) => item.edited === false);
 
-                    const editedPosts = changes.items.filter(
-                        (item) => item.edited === true,
-                    );
+                    const editedPosts = changes.items.filter((item) => item.edited === true);
 
                     const postLinks = newPosts.map((post) => post.link).join(', ');
 
                     this.container.logger.info(
                         `${this.constructor.name}:`,
                         `New Posts Found: ${newPosts.length} ${postLinks}.`,
-                        newPosts.length > 0
-                            ? `Links: ${postLinks}.`
-                            : '',
+                        newPosts.length > 0 ? `Links: ${postLinks}.` : '',
                     );
 
                     const editedPostLinks = newPosts.map((post) => post.link).join(', ');
@@ -126,9 +118,7 @@ export class Core extends Base {
                     this.container.logger.info(
                         `${this.constructor.name}:`,
                         `Edited Posts Found: ${editedPosts.length}.`,
-                        editedPosts.length > 0
-                            ? `Links: ${editedPostLinks}.`
-                            : '',
+                        editedPosts.length > 0 ? `Links: ${editedPostLinks}.` : '',
                     );
 
                     const embeds = this.embeds.create(changes);
@@ -151,10 +141,8 @@ export class Core extends Base {
                     new ErrorHandler(error).init();
                 }
 
-                const regularInterval = (
-                    this.container.config.interval
-                    / this.container.announcements.length
-                );
+                const regularInterval = this.container.config.interval
+                / this.container.categories.length;
 
                 if (regularInterval > this.errors.getTimeout()) {
                     await setTimeout(regularInterval);
@@ -163,10 +151,7 @@ export class Core extends Base {
                 return;
             }
 
-            await setTimeout(
-                this.container.config.interval
-                / this.container.announcements.length,
-            );
+            await setTimeout(this.container.config.interval / this.container.categories.length);
         }
     }
 }

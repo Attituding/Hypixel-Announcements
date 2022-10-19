@@ -1,9 +1,5 @@
-import {
-    type ApplicationCommandRegistry,
-    BucketScope,
-    Command,
-} from '@sapphire/framework';
-import { type CommandInteraction } from 'discord.js';
+import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
+import type { CommandInteraction } from 'discord.js';
 import { BetterEmbed } from '../structures/BetterEmbed';
 import { Options } from '../utility/Options';
 
@@ -16,11 +12,7 @@ export class PerformanceCommand extends Command {
             cooldownLimit: 0,
             cooldownDelay: 0,
             cooldownScope: BucketScope.User,
-            preconditions: [
-                'Base',
-                'DevMode',
-                'OwnerOnly',
-            ],
+            preconditions: ['Base', 'DevMode', 'OwnerOnly'],
             requiredUserPermissions: [],
             requiredClientPermissions: [],
         });
@@ -32,13 +24,10 @@ export class PerformanceCommand extends Command {
     }
 
     public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
-        registry.registerChatInputCommand(
-            this.chatInputStructure,
-            Options.commandRegistry(this),
-        );
+        registry.registerChatInputCommand(this.chatInputStructure, Options.commandRegistry(this));
     }
 
-    public async chatInputRun(interaction: CommandInteraction) {
+    public override async chatInputRun(interaction: CommandInteraction) {
         const { i18n } = interaction;
 
         const { latest } = this.container.core.performance;
@@ -51,21 +40,12 @@ export class PerformanceCommand extends Command {
 
         const responseEmbed = new BetterEmbed(interaction)
             .setColor(Options.colorsNormal)
-            .setTitle(
-                i18n.getMessage(
-                    'commandsPerformanceTitle',
-                ),
-            )
+            .setTitle(i18n.getMessage('commandsPerformanceTitle'))
             .addFields({
                 name: i18n.getMessage('commandsPerformanceLatestName'),
                 value: i18n.getMessage(
-                    'commandsPerformanceLatestValue', [
-                        fetch,
-                        parse,
-                        check,
-                        send,
-                        total,
-                    ].map(
+                    'commandsPerformanceLatestValue',
+                    [fetch, parse, check, send, total].map(
                         (value) => value ?? i18n.getMessage('null'),
                     ),
                 ),

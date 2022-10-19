@@ -1,8 +1,4 @@
-import {
-    type ApplicationCommandRegistry,
-    BucketScope,
-    Command,
-} from '@sapphire/framework';
+import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
 import {
     type CommandInteraction,
     MessageActionRow,
@@ -29,12 +25,7 @@ export class NotificationsCommand extends Command {
             cooldownLimit: 0,
             cooldownDelay: 0,
             cooldownScope: BucketScope.User,
-            preconditions: [
-                'Base',
-                'DevMode',
-                'OwnerOnly',
-                'GuildOnly',
-            ],
+            preconditions: ['Base', 'DevMode', 'OwnerOnly', 'GuildOnly'],
             requiredUserPermissions: [],
             requiredClientPermissions: [],
         });
@@ -55,47 +46,30 @@ export class NotificationsCommand extends Command {
     }
 
     public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
-        registry.registerChatInputCommand(
-            this.chatInputStructure,
-            Options.commandRegistry(this),
-        );
+        registry.registerChatInputCommand(this.chatInputStructure, Options.commandRegistry(this));
     }
 
-    public async chatInputRun(interaction: CommandInteraction) {
+    public override async chatInputRun(interaction: CommandInteraction) {
         const { i18n } = interaction;
 
         const notificationsEmbed = new MessageEmbed()
             .setColor(Options.colorsNormal)
-            .setTitle(
-                i18n.getMessage(
-                    'commandsNotificationsPublicTitle',
-                ),
-            )
-            .setDescription(
-                i18n.getMessage(
-                    'commandsNotificationsPublicDescription',
-                ),
-            );
+            .setTitle(i18n.getMessage('commandsNotificationsPublicTitle'))
+            .setDescription(i18n.getMessage('commandsNotificationsPublicDescription'));
 
-        const actionRow = new MessageActionRow()
-            .setComponents(
-                this.container.announcements.map(
-                    (announcement) => new MessageButton()
-                        .setCustomId(
-                            CustomId.create({
-                                event: Event.PersistentNotification,
-                                value: announcement.category,
-                            }),
-                        )
-                        .setLabel(announcement.category)
-                        .setStyle(MessageButtonStyles.PRIMARY),
-                ),
-            );
+        const actionRow = new MessageActionRow().setComponents(
+            this.container.categories.map((category) => new MessageButton()
+                .setCustomId(
+                    CustomId.create({
+                        event: Event.PersistentNotification,
+                        value: category.category,
+                    }),
+                )
+                .setLabel(category.category)
+                .setStyle(MessageButtonStyles.PRIMARY)),
+        );
 
-        const channel = interaction.options.getChannel(
-            'channel',
-            true,
-        ) as TextChannel;
+        const channel = interaction.options.getChannel('channel', true) as TextChannel;
 
         await channel.send({
             embeds: [notificationsEmbed],
@@ -104,11 +78,7 @@ export class NotificationsCommand extends Command {
 
         const embed = new BetterEmbed(interaction)
             .setColor(Options.colorsNormal)
-            .setTitle(
-                i18n.getMessage(
-                    'commandsNotificationsPrivateTitle',
-                ),
-            );
+            .setTitle(i18n.getMessage('commandsNotificationsPrivateTitle'));
 
         await interaction.editReply({
             embeds: [embed],

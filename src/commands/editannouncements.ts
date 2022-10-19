@@ -1,8 +1,4 @@
-import {
-    type ApplicationCommandRegistry,
-    BucketScope,
-    Command,
-} from '@sapphire/framework';
+import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
 import {
     type CommandInteraction,
     Constants as DiscordConstants,
@@ -15,11 +11,7 @@ import { ApplicationCommandOptionTypes } from 'discord.js/typings/enums';
 import { Time } from '../enums/Time';
 import { BetterEmbed } from '../structures/BetterEmbed';
 import { Options } from '../utility/Options';
-import {
-    awaitComponent,
-    disableComponents,
-    interactionLogContext,
-} from '../utility/utility';
+import { awaitComponent, disableComponents, interactionLogContext } from '../utility/utility';
 
 export class EditAnnouncementsCommand extends Command {
     public constructor(context: Command.Context, options: Command.Options) {
@@ -30,12 +22,7 @@ export class EditAnnouncementsCommand extends Command {
             cooldownLimit: 0,
             cooldownDelay: 0,
             cooldownScope: BucketScope.User,
-            preconditions: [
-                'Base',
-                'DevMode',
-                'OwnerOnly',
-                'GuildOnly',
-            ],
+            preconditions: ['Base', 'DevMode', 'OwnerOnly', 'GuildOnly'],
             requiredUserPermissions: [],
             requiredClientPermissions: [],
         });
@@ -76,7 +63,8 @@ export class EditAnnouncementsCommand extends Command {
                 },
                 {
                     name: 'crosspost',
-                    description: 'Whether to crosspost the announcement, if not already (defaults to true)',
+                    description:
+                        'Whether to crosspost the announcement, if not already (defaults to true)',
                     type: ApplicationCommandOptionTypes.BOOLEAN,
                     required: false,
                 },
@@ -85,13 +73,10 @@ export class EditAnnouncementsCommand extends Command {
     }
 
     public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
-        registry.registerChatInputCommand(
-            this.chatInputStructure,
-            Options.commandRegistry(this),
-        );
+        registry.registerChatInputCommand(this.chatInputStructure, Options.commandRegistry(this));
     }
 
-    public async chatInputRun(interaction: CommandInteraction) {
+    public override async chatInputRun(interaction: CommandInteraction) {
         const { i18n } = interaction;
 
         const messageId = interaction.options.getString('message', true);
@@ -125,26 +110,14 @@ export class EditAnnouncementsCommand extends Command {
         const button = new MessageActionRow().setComponents(
             new MessageButton()
                 .setCustomId('true')
-                .setLabel(
-                    i18n.getMessage(
-                        'commandsEditAnnouncementsPreviewButtonLabel',
-                    ),
-                )
+                .setLabel(i18n.getMessage('commandsEditAnnouncementsPreviewButtonLabel'))
                 .setStyle(DiscordConstants.MessageButtonStyles.PRIMARY),
         );
 
         const previewEmbed = new BetterEmbed(interaction)
             .setColor(Options.colorsNormal)
-            .setTitle(
-                i18n.getMessage(
-                    'commandsEditAnnouncementsPreviewTitle',
-                ),
-            )
-            .setDescription(
-                i18n.getMessage(
-                    'commandsEditAnnouncementsPreviewDescription',
-                ),
-            );
+            .setTitle(i18n.getMessage('commandsEditAnnouncementsPreviewTitle'))
+            .setDescription(i18n.getMessage('commandsEditAnnouncementsPreviewDescription'));
 
         const reply = await interaction.followUp({
             embeds: [previewEmbed, ...message.embeds],
@@ -153,8 +126,7 @@ export class EditAnnouncementsCommand extends Command {
 
         // eslint-disable-next-line arrow-body-style
         const componentFilter = (i: MessageComponentInteraction) => {
-            return interaction.user.id === i.user.id
-            && i.message.id === reply.id;
+            return interaction.user.id === i.user.id && i.message.id === reply.id;
         };
 
         await interaction.client.channels.fetch(interaction.channelId);
@@ -201,16 +173,8 @@ export class EditAnnouncementsCommand extends Command {
 
         const successEmbed = new BetterEmbed(interaction)
             .setColor(Options.colorsNormal)
-            .setTitle(
-                i18n.getMessage(
-                    'commandsEditAnnouncementsSuccessTitle',
-                ),
-            )
-            .setDescription(
-                i18n.getMessage(
-                    'commandsEditAnnouncementsSuccessDescription',
-                ),
-            );
+            .setTitle(i18n.getMessage('commandsEditAnnouncementsSuccessTitle'))
+            .setDescription(i18n.getMessage('commandsEditAnnouncementsSuccessDescription'));
 
         await previewButton.update({
             embeds: [successEmbed],

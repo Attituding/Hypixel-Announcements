@@ -1,8 +1,4 @@
-import {
-    type ApplicationCommandRegistry,
-    BucketScope,
-    Command,
-} from '@sapphire/framework';
+import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
 import {
     type CommandInteraction,
     Constants as DiscordConstants,
@@ -13,18 +9,11 @@ import {
     MessageEmbed,
     type NewsChannel,
 } from 'discord.js';
-import {
-    ApplicationCommandOptionTypes,
-    ChannelTypes,
-} from 'discord.js/typings/enums';
+import { ApplicationCommandOptionTypes, ChannelTypes } from 'discord.js/typings/enums';
 import { Time } from '../enums/Time';
 import { BetterEmbed } from '../structures/BetterEmbed';
 import { Options } from '../utility/Options';
-import {
-    awaitComponent,
-    disableComponents,
-    interactionLogContext,
-} from '../utility/utility';
+import { awaitComponent, disableComponents, interactionLogContext } from '../utility/utility';
 
 export class SendAnnouncementsCommand extends Command {
     public constructor(context: Command.Context, options: Command.Options) {
@@ -35,12 +24,7 @@ export class SendAnnouncementsCommand extends Command {
             cooldownLimit: 0,
             cooldownDelay: 0,
             cooldownScope: BucketScope.User,
-            preconditions: [
-                'Base',
-                'DevMode',
-                'OwnerOnly',
-                'GuildOnly',
-            ],
+            preconditions: ['Base', 'DevMode', 'OwnerOnly', 'GuildOnly'],
             requiredUserPermissions: [],
             requiredClientPermissions: [],
         });
@@ -53,10 +37,7 @@ export class SendAnnouncementsCommand extends Command {
                     name: 'channel',
                     description: 'The channel to send the announcement to',
                     type: ApplicationCommandOptionTypes.CHANNEL,
-                    channel_types: [
-                        ChannelTypes.GUILD_NEWS,
-                        ChannelTypes.GUILD_TEXT,
-                    ],
+                    channel_types: [ChannelTypes.GUILD_NEWS, ChannelTypes.GUILD_TEXT],
                     required: true,
                 },
                 {
@@ -106,19 +87,13 @@ export class SendAnnouncementsCommand extends Command {
     }
 
     public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
-        registry.registerChatInputCommand(
-            this.chatInputStructure,
-            Options.commandRegistry(this),
-        );
+        registry.registerChatInputCommand(this.chatInputStructure, Options.commandRegistry(this));
     }
 
-    public async chatInputRun(interaction: CommandInteraction) {
+    public override async chatInputRun(interaction: CommandInteraction) {
         const { i18n } = interaction;
 
-        const channel = interaction.options.getChannel(
-            'channel',
-            true,
-        ) as NewsChannel;
+        const channel = interaction.options.getChannel('channel', true) as NewsChannel;
 
         const title = interaction.options.getString('title', true);
         const description = interaction.options.getString('description', true);
@@ -128,16 +103,13 @@ export class SendAnnouncementsCommand extends Command {
 
         const announcement = new MessageEmbed()
             .setAuthor({
-                name: i18n.getMessage(
-                    'commandsSendAnnouncementsEmbedAuthorName',
-                ),
+                name: i18n.getMessage('commandsSendAnnouncementsEmbedAuthorName'),
             })
             .setDescription(description)
             .setFooter({
-                text: i18n.getMessage(
-                    'commandsSendAnnouncementsEmbedFooterName',
-                ),
-                iconURL: 'https://cdn.discordapp.com/icons/489529070913060867/f7df056de15eabfc0a0e178d641f812b.webp?size=128',
+                text: i18n.getMessage('commandsSendAnnouncementsEmbedFooterName'),
+                iconURL:
+                    'https://cdn.discordapp.com/icons/489529070913060867/f7df056de15eabfc0a0e178d641f812b.webp?size=128',
             })
             .setTitle(title);
 
@@ -156,26 +128,14 @@ export class SendAnnouncementsCommand extends Command {
         const button = new MessageActionRow().setComponents(
             new MessageButton()
                 .setCustomId('true')
-                .setLabel(
-                    i18n.getMessage(
-                        'commandsSendAnnouncementsPreviewButtonLabel',
-                    ),
-                )
+                .setLabel(i18n.getMessage('commandsSendAnnouncementsPreviewButtonLabel'))
                 .setStyle(DiscordConstants.MessageButtonStyles.PRIMARY),
         );
 
         const previewEmbed = new BetterEmbed(interaction)
             .setColor(Options.colorsNormal)
-            .setTitle(
-                i18n.getMessage(
-                    'commandsSendAnnouncementsPreviewTitle',
-                ),
-            )
-            .setDescription(
-                i18n.getMessage(
-                    'commandsSendAnnouncementsPreviewDescription',
-                ),
-            );
+            .setTitle(i18n.getMessage('commandsSendAnnouncementsPreviewTitle'))
+            .setDescription(i18n.getMessage('commandsSendAnnouncementsPreviewDescription'));
 
         const reply = await interaction.followUp({
             embeds: [previewEmbed, announcement],
@@ -184,8 +144,7 @@ export class SendAnnouncementsCommand extends Command {
 
         // eslint-disable-next-line arrow-body-style
         const componentFilter = (i: MessageComponentInteraction) => {
-            return interaction.user.id === i.user.id
-            && i.message.id === reply.id;
+            return interaction.user.id === i.user.id && i.message.id === reply.id;
         };
 
         await interaction.client.channels.fetch(interaction.channelId);
@@ -240,16 +199,8 @@ export class SendAnnouncementsCommand extends Command {
 
         const successEmbed = new BetterEmbed(interaction)
             .setColor(Options.colorsNormal)
-            .setTitle(
-                i18n.getMessage(
-                    'commandsSendAnnouncementsSuccessTitle',
-                ),
-            )
-            .setDescription(
-                i18n.getMessage(
-                    'commandsSendAnnouncementsSuccessDescription',
-                ),
-            );
+            .setTitle(i18n.getMessage('commandsSendAnnouncementsSuccessTitle'))
+            .setDescription(i18n.getMessage('commandsSendAnnouncementsSuccessDescription'));
 
         await previewButton.update({
             embeds: [successEmbed],

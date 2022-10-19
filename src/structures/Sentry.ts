@@ -1,11 +1,6 @@
 import * as SentryClient from '@sentry/node';
-import {
-    CommandInteraction,
-    GuildChannel,
-    type Interaction,
-    TextChannel,
-} from 'discord.js';
-import { type Core } from '../core/Core';
+import { CommandInteraction, GuildChannel, type Interaction, TextChannel } from 'discord.js';
+import type { Core } from '../core/Core';
 import { HTTPError } from '../errors/HTTPError';
 import { slashCommandResolver } from '../utility/utility';
 
@@ -25,19 +20,13 @@ export class Sentry {
     }
 
     public baseInteractionContext(interaction: Interaction) {
-        const {
-            user,
-            guild,
-            channel,
-            client,
-        } = interaction;
+        const { user, guild, channel, client } = interaction;
 
         this.scope.setTags({
-            interactionCommand: interaction instanceof CommandInteraction
-                ? slashCommandResolver(
-                    interaction,
-                ).slice(0, 200)
-                : null,
+            interactionCommand:
+                interaction instanceof CommandInteraction
+                    ? slashCommandResolver(interaction).slice(0, 200)
+                    : null,
             interactionCreatedTimestamp: interaction.createdTimestamp,
             userId: user.id,
             interactionId: interaction.id,
@@ -48,12 +37,11 @@ export class Sentry {
             guildPermissions: guild?.me?.permissions.bitfield.toString(),
             channelId: channel?.id,
             channelType: channel?.type,
-            channelName: channel instanceof TextChannel
-                ? channel.name
-                : null,
-            channelPermissions: channel instanceof GuildChannel
-                ? guild?.me?.permissionsIn(channel).bitfield.toString()
-                : null,
+            channelName: channel instanceof TextChannel ? channel.name : null,
+            channelPermissions:
+                channel instanceof GuildChannel
+                    ? guild?.me?.permissionsIn(channel).bitfield.toString()
+                    : null,
             ping: client.ws.ping,
         });
 
@@ -61,20 +49,14 @@ export class Sentry {
     }
 
     public captureException(exception: unknown) {
-        SentryClient.captureException(
-            exception,
-            this.scope,
-        );
+        SentryClient.captureException(exception, this.scope);
 
         return this;
     }
 
     public captureMessages(...messages: string[]) {
         messages.forEach((message) => {
-            SentryClient.captureMessage(
-                message,
-                this.scope,
-            );
+            SentryClient.captureMessage(message, this.scope);
         });
 
         return this;
@@ -90,9 +72,7 @@ export class Sentry {
 
     public requestContext(error: unknown, core: Core) {
         this.scope.setTags({
-            type: error instanceof Error
-                ? error.name
-                : null,
+            type: error instanceof Error ? error.name : null,
             resumingIn: core.errors.getTimeout(),
             lastHourAbort: core.errors.abort.getLastHour(),
             lastHourGeneric: core.errors.generic.getLastHour(),
@@ -101,12 +81,8 @@ export class Sentry {
             nextTimeoutGeneric: core.errors.generic.getTimeout(),
             nextTimeoutHTTP: core.errors.http.getTimeout(),
             uses: core.uses,
-            status: error instanceof HTTPError
-                ? error.status
-                : null,
-            statusText: error instanceof HTTPError
-                ? error.statusText
-                : null,
+            status: error instanceof HTTPError ? error.status : null,
+            statusText: error instanceof HTTPError ? error.statusText : null,
         });
 
         return this;
