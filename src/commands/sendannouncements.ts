@@ -1,6 +1,7 @@
 import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
 import {
     type CommandInteraction,
+    Constants,
     Constants as DiscordConstants,
     Formatters,
     MessageActionRow,
@@ -9,7 +10,6 @@ import {
     MessageEmbed,
     type NewsChannel,
 } from 'discord.js';
-import { ApplicationCommandOptionTypes, ChannelTypes } from 'discord.js/typings/enums';
 import { Time } from '../enums/Time';
 import { BetterEmbed } from '../structures/BetterEmbed';
 import { Options } from '../utility/Options';
@@ -36,50 +36,53 @@ export class SendAnnouncementsCommand extends Command {
                 {
                     name: 'channel',
                     description: 'The channel to send the announcement to',
-                    type: ApplicationCommandOptionTypes.CHANNEL,
-                    channel_types: [ChannelTypes.GUILD_NEWS, ChannelTypes.GUILD_TEXT],
+                    type: Constants.ApplicationCommandOptionTypes.CHANNEL,
+                    channel_types: [
+                        Constants.ChannelTypes.GUILD_NEWS,
+                        Constants.ChannelTypes.GUILD_TEXT,
+                    ],
                     required: true,
                 },
                 {
                     name: 'title',
                     description: 'The title for the embed',
-                    type: ApplicationCommandOptionTypes.STRING,
+                    type: Constants.ApplicationCommandOptionTypes.STRING,
                     required: true,
                 },
                 {
                     name: 'description',
                     description: 'The description for the embed',
-                    type: ApplicationCommandOptionTypes.STRING,
+                    type: Constants.ApplicationCommandOptionTypes.STRING,
                     required: true,
                 },
                 {
                     name: 'image',
                     description: 'The image for the embed',
-                    type: ApplicationCommandOptionTypes.STRING,
+                    type: Constants.ApplicationCommandOptionTypes.STRING,
                     required: false,
                 },
                 {
                     name: 'url',
                     description: 'The url for the embed',
-                    type: ApplicationCommandOptionTypes.STRING,
+                    type: Constants.ApplicationCommandOptionTypes.STRING,
                     required: false,
                 },
                 {
                     name: 'author',
                     description: 'The author of the announcement',
-                    type: ApplicationCommandOptionTypes.STRING,
+                    type: Constants.ApplicationCommandOptionTypes.STRING,
                     required: false,
                 },
                 {
                     name: 'role',
                     description: 'The role to mention with the announcement',
-                    type: ApplicationCommandOptionTypes.ROLE,
+                    type: Constants.ApplicationCommandOptionTypes.ROLE,
                     required: false,
                 },
                 {
                     name: 'crosspost',
                     description: 'Whether to crosspost the announcement (default to true)',
-                    type: ApplicationCommandOptionTypes.BOOLEAN,
+                    type: Constants.ApplicationCommandOptionTypes.BOOLEAN,
                     required: false,
                 },
             ],

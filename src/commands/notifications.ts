@@ -1,16 +1,12 @@
 import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
 import {
     type CommandInteraction,
+    Constants,
     MessageActionRow,
     MessageButton,
     MessageEmbed,
     type TextChannel,
 } from 'discord.js';
-import {
-    ApplicationCommandOptionTypes,
-    ChannelTypes,
-    MessageButtonStyles,
-} from 'discord.js/typings/enums';
 import { Event } from '../enums/Event';
 import { BetterEmbed } from '../structures/BetterEmbed';
 import { CustomId } from '../structures/CustomId';
@@ -37,8 +33,8 @@ export class NotificationsCommand extends Command {
                 {
                     name: 'channel',
                     description: 'The channel to add the selector to',
-                    type: ApplicationCommandOptionTypes.CHANNEL,
-                    channel_types: [ChannelTypes.GUILD_TEXT],
+                    type: Constants.ApplicationCommandOptionTypes.CHANNEL,
+                    channel_types: [Constants.ChannelTypes.GUILD_TEXT],
                     required: true,
                 },
             ],
@@ -66,7 +62,7 @@ export class NotificationsCommand extends Command {
                     }),
                 )
                 .setLabel(category.category)
-                .setStyle(MessageButtonStyles.PRIMARY)),
+                .setStyle(Constants.MessageButtonStyles.PRIMARY)),
         );
 
         const channel = interaction.options.getChannel('channel', true) as TextChannel;

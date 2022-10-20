@@ -1,7 +1,6 @@
 import { type Command, container, RegisterBehavior } from '@sapphire/framework';
 import { PresenceUpdateStatus } from 'discord-api-types/v10';
-import type { ColorResolvable, PresenceData } from 'discord.js';
-import { ActivityTypes } from 'discord.js/typings/enums';
+import { ColorResolvable, Constants, PresenceData } from 'discord.js';
 import { Time } from '../enums/Time';
 import type { locales } from '../locales/locales';
 
@@ -46,7 +45,7 @@ export class Options {
         activities: [
             {
                 name: 'Hypixel News',
-                type: ActivityTypes.WATCHING,
+                type: Constants.ActivityTypes.WATCHING,
             },
         ],
         status: PresenceUpdateStatus.Online,
