@@ -33,7 +33,7 @@
         "message": "$1 will no longer be sent to $2!"
     },
     "commandsAnnouncementsRemoveNotFoundDescription": {
-        "message": "The announcement type `$1` isn't added to $2!"
+        "message": "The announcement category `$1` isn't added to $2!"
     },
     "commandsAnnouncementsRemoveNotFoundTitle": {
         "message": "$1 Type Not Found"
@@ -219,13 +219,13 @@
         "message": "About"
     },
     "commandsHelpInformationMenuAboutValue": {
-        "message": "Hypixel News is a project that sends you the latest news from the Hypixel Network. When new posts are made by the admins on the forums, you can choose which ones you want to receive as a neat message in a selected Discord channel.\n\nLearn more at https://attituding.github.io/hypixel-news/."
+        "message": "Hypixel News is a project that sends you the latest news from the Hypixel Network. When new announcements are made by the admins on the forums, you can choose which ones you want to receive as a neat message in a selected Discord channel.\n\nLearn more at https://attituding.github.io/hypixel-news/."
     },
     "commandsHelpInformationMenuLegalName": {
         "message": "Legal Stuff"
     },
     "commandsHelpInformationMenuLegalValue": {
-        "message": "By using this service, you agree to our [Privacy Policy](https://attituding.github.io/Hypixel-News/legal/privacy-policy/ \"Privacy Policy\") and our [Terms of Service](https://attituding.github.io/Hypixel-News/legal/terms-of-service/ \"Terms of Service\")."
+        "message": "By using this service, you agree to our [Privacy Policy](https://attituding.github.io/hypixel-news/legal/privacy-policy/ \"Privacy Policy\") and our [Terms of Service](https://attituding.github.io/hypixel-news/legal/terms-of-service/ \"Terms of Service\")."
     },
     "commandsHelpInformationMenuTitle": {
         "message": "Information"
