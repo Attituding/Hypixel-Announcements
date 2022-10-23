@@ -180,7 +180,7 @@
         "message": "Command Cooldown"
     },
     "commandsHelpCommandsMenuCooldownValue": {
-        "message": "$1 second(s)."
+        "message": "$1 execution(s) every $1 second(s)."
     },
     "commandsHelpCommandsMenuDMName": {
         "message": "Direct Messages"
@@ -210,7 +210,7 @@
         "message": "Commands"
     },
     "commandsHelpCommandsValue": {
-        "message": "Click \"Commands\" to view available commands."
+        "message": "Select \"Commands\" to view available commands."
     },
     "commandsHelpInformationLabel": {
         "message": "Information"
@@ -234,7 +234,7 @@
         "message": "Information"
     },
     "commandsHelpInformationValue": {
-        "message": "Click \"Information\" to learn more about this bot."
+        "message": "Select \"Information\" to learn more about this bot."
     },
     "commandsHelpTitle": {
         "message": "Help"
@@ -255,7 +255,7 @@
         "message": "Sent"
     },
     "commandsNotificationsPublicDescription": {
-        "message": "Use the buttons below to manage the notifications you want to receive. Clicking on a button will toggle notifications for the selected announcement category."
+        "message": "Use the buttons below to manage the notifications you want to receive. Selecting on a button will toggle notifications for the selected announcement category."
     },
     "commandsNotificationsPublicTitle": {
         "message": "Announcement Notifications"
