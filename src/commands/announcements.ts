@@ -102,7 +102,7 @@ export class AnnouncementsCommand extends Command {
                     i18n.getMessage('commandsAnnouncementsUserMissingPermissionDescription'),
                 );
 
-            this.container.logger.info(
+            this.container.logger.warn(
                 interactionLogContext(interaction),
                 `${this.constructor.name}:`,
                 'User missing permission.',
@@ -129,7 +129,7 @@ export class AnnouncementsCommand extends Command {
                     ]),
                 );
 
-            this.container.logger.info(
+            this.container.logger.warn(
                 interactionLogContext(interaction),
                 `${this.constructor.name}:`,
                 'Bot missing permission.',

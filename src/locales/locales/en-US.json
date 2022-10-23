@@ -366,7 +366,7 @@
         "message": "Unexpected Error"
     },
     "errorsInteractionReplyDescription": {
-        "message": "An error occurred while executing the interaction! This error has been automatically forwarded for review. Sorry."
+        "message": "An error occurred while processing this interaction! This error has been automatically forwarded for review. Sorry."
     },
     "errorsInteractionReplyIncidentName": {
         "message": "Incident Id"
@@ -398,10 +398,10 @@
     "errorsPreconditionCooldownWaitingTitle": {
         "message": "Cooldown"
     },
-    "errorsPreconditionDMDescription": {
+    "errorsPreconditionGuildOnlyDescription": {
         "message": "You cannot execute this command in the DM channel! Please switch to a server channel!"
     },
-    "errorsPreconditionDMTitle": {
+    "errorsPreconditionGuildOnlyTitle": {
         "message": "DM Channel"
     },
     "errorsPreconditionDevModeDescription": {

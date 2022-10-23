@@ -139,6 +139,12 @@ export class ReloadCommand extends Command {
                     i18n.getMessage('commandsReloadSingleUnknownDescription', [typeName, item]),
                 );
 
+            this.container.logger.warn(
+                interactionLogContext(interaction),
+                `${this.constructor.name}:`,
+                `Unknown item: ${typeName}.${item}.`,
+            );
+
             await interaction.editReply({ embeds: [undefinedSelected] });
             return;
         }

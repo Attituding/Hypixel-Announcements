@@ -133,7 +133,7 @@ export class EditAnnouncementsCommand extends Command {
         const disabledRows = disableComponents([button]);
 
         const previewButton = await awaitComponent(interaction.channel!, {
-            componentType: 'BUTTON',
+            componentType: Constants.MessageComponentTypes.BUTTON,
             filter: componentFilter,
             idle: Time.Minute,
         });
