@@ -159,7 +159,7 @@ export class EditAnnouncementsCommand extends Command {
         // Case for when a channel is converted to an announcement channel
         if (
             editedAnnouncement.crosspostable === true
-            && interaction.options.getBoolean('crosspost', false) !== false
+            && interaction.options.getBoolean('crosspost', false)
         ) {
             await editedAnnouncement.crosspost();
         }

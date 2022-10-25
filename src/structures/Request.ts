@@ -27,7 +27,6 @@ export class Request extends Base {
 
         try {
             const response = await fetch(url, {
-                // Coerced due to a Typescript typings update to AbortController
                 signal: controller.signal,
                 ...fetchOptions,
             });
