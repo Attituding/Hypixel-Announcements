@@ -161,6 +161,12 @@ export class SendAnnouncementsCommand extends Command {
         });
 
         if (previewButton === null) {
+            this.container.logger.info(
+                interactionLogContext(interaction),
+                `${this.constructor.name}:`,
+                'Ran out of time.',
+            );
+
             await interaction.editReply({
                 components: disabledRows,
             });
