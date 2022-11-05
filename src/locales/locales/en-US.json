@@ -261,7 +261,7 @@
         "message": "Announcement Notifications"
     },
     "commandsPerformanceLatestName": {
-        "message": "Latest Performance"
+        "message": "$1 - Latest Performance"
     },
     "commandsPerformanceLatestValue": {
         "message": "Hypixel RSS Fetch: $1ms\nParse Data: $2ms\nCheck Data: $3ms\nSend: $4ms\nTotal: $5ms"
