@@ -12,6 +12,7 @@ model config {
   core               Boolean  @default(true)
   devMode            Boolean  @default(false)
   interval           Int      @default(210000)
+  logLevel           Int      @default(30)
   restRequestTimeout Int      @default(5000)
   retryLimit         Int      @default(3)
   ownerGuilds        String[] @default([])

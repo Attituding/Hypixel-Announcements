@@ -5,7 +5,7 @@ import { Core } from '../core/Core';
 import { i18n } from '../locales/i18n';
 
 export class Client extends SapphireClient {
-    public constructor() {
+    public constructor(config: Config) {
         super({
             allowedMentions: {
                 parse: ['users'],
@@ -13,6 +13,10 @@ export class Client extends SapphireClient {
             },
             failIfNotExists: false,
             intents: [Intents.FLAGS.GUILDS],
+            loadDefaultErrorListeners: false,
+            logger: {
+                level: config.logLevel,
+            },
             makeCache: Options.cacheWithLimits({
                 GuildBanManager: 0,
                 GuildInviteManager: 0,
@@ -29,7 +33,6 @@ export class Client extends SapphireClient {
                 ThreadMemberManager: 0,
                 VoiceStateManager: 0,
             }),
-            loadDefaultErrorListeners: false,
             presence: {
                 status: 'online',
             },
@@ -64,34 +67,25 @@ export class Client extends SapphireClient {
         });
     }
 
-    public async init() {
+    public static async init() {
         const startTime = Date.now();
 
         container.database = new PrismaClient();
+
+        const { config, categories } = container.database;
+
+        container.categories = await categories.findMany();
+        container.config = (await config.findFirst()) as Config;
         container.core = new Core();
         container.customPresence = null;
         container.i18n = new i18n();
 
-        const { config, categories } = container.database;
-
-        container.config = (await config.findFirst()) as Config;
-
-        container.logger.info(`${this.constructor.name}:`, 'Fetched config from the database.');
-
-        container.categories = await categories.findMany();
-
-        container.logger.info(`${this.constructor.name}:`, 'Fetched categories from the database.');
-
-        const endTime = Date.now();
-
-        const initTime = endTime - startTime;
+        await new Client(container.config).login();
 
         container.logger.info(
             `${this.constructor.name}:`,
-            `Initialized container after ${initTime}ms.`,
+            `Initialized container after ${Date.now() - startTime}ms.`,
         );
-
-        await this.login();
     }
 }
 

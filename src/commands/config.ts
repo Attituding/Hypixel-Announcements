@@ -48,6 +48,49 @@ export class ConfigCommand extends Command {
                     ],
                 },
                 {
+                    name: 'loglevel',
+                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                    description: 'Set the minimum severity for logs to appear',
+                    options: [
+                        {
+                            name: 'level',
+                            type: Constants.ApplicationCommandOptionTypes.INTEGER,
+                            description: 'The minimum level for logs to appear',
+                            required: true,
+                            choices: [
+                                {
+                                    name: 'Trace',
+                                    value: 10,
+                                },
+                                {
+                                    name: 'Debug',
+                                    value: 20,
+                                },
+                                {
+                                    name: 'Info',
+                                    value: 30,
+                                },
+                                {
+                                    name: 'Warn',
+                                    value: 40,
+                                },
+                                {
+                                    name: 'Error',
+                                    value: 50,
+                                },
+                                {
+                                    name: 'Fatal',
+                                    value: 60,
+                                },
+                                {
+                                    name: 'None',
+                                    value: 100,
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
                     name: 'restrequesttimeout',
                     description: 'Set the request timeout before an abort error is thrown',
                     type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
@@ -127,6 +170,9 @@ export class ConfigCommand extends Command {
             case 'interval':
                 await this.interval(interaction);
                 break;
+            case 'loglevel':
+                await this.logLevel(interaction);
+                break;
             case 'restrequesttimeout':
                 await this.restRequestTimeout(interaction);
                 break;
@@ -142,7 +188,8 @@ export class ConfigCommand extends Command {
             case 'view':
                 await this.view(interaction);
                 break;
-            // no default
+            default:
+                throw new RangeError();
         }
     }
 
@@ -247,6 +294,39 @@ export class ConfigCommand extends Command {
             interactionLogContext(interaction),
             `${this.constructor.name}:`,
             `The interval is now ${milliseconds}ms.`,
+        );
+    }
+
+    public async logLevel(interaction: CommandInteraction) {
+        const { i18n } = interaction;
+
+        const level = interaction.options.getInteger('level', true);
+
+        this.container.config.logLevel = level;
+
+        // @ts-ignore
+        this.container.logger.level = this.container.config.logLevel;
+
+        await this.container.database.config.update({
+            data: {
+                logLevel: this.container.config.logLevel,
+            },
+            where: {
+                index: 0,
+            },
+        });
+
+        const logLevelEmbed = new BetterEmbed(interaction)
+            .setColor(Options.colorsNormal)
+            .setTitle(i18n.getMessage('commandsConfigLogLevelTitle'))
+            .setDescription(i18n.getMessage('commandsConfigLogLevelDescription', [level]));
+
+        await interaction.editReply({ embeds: [logLevelEmbed] });
+
+        this.container.logger.info(
+            interactionLogContext(interaction),
+            `${this.constructor.name}:`,
+            `The minimum log level for logs to appear is now ${level}.`,
         );
     }
 

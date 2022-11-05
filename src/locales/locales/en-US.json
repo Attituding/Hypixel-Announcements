@@ -98,17 +98,11 @@
     "commandsConfigIntervalTitle": {
         "message": "Interval Updated"
     },
-    "commandsConfigOwnerGuildsDescription": {
-        "message": "The owner guilds are now **$1**."
+    "commandsConfigLogLevelDescription": {
+        "message": "The minimum log level for logs to appear is now $1."
     },
-    "commandsConfigOwnerGuildsTitle": {
-        "message": "Owner Guilds Updated"
-    },
-    "commandsConfigOwnersDescription": {
-        "message": "The owners are now **$1**."
-    },
-    "commandsConfigOwnersTitle": {
-        "message": "Owners Updated"
+    "commandsConfigLogLevelTitle": {
+        "message": "Log Level Updated"
     },
     "commandsConfigRestRequestTimeoutDescription": {
         "message": "The rest request timeout is now **$1**."
@@ -121,6 +115,18 @@
     },
     "commandsConfigRetryLimitTitle": {
         "message": "Retry Limit Updated"
+    },
+    "commandsConfigOwnerGuildsDescription": {
+        "message": "The owner guilds are now **$1**."
+    },
+    "commandsConfigOwnerGuildsTitle": {
+        "message": "Owner Guilds Updated"
+    },
+    "commandsConfigOwnersDescription": {
+        "message": "The owners are now **$1**."
+    },
+    "commandsConfigOwnersTitle": {
+        "message": "Owners Updated"
     },
     "commandsConfigViewDescription": {
         "message": "Core: **$1**\nDeveloper Mode: **$2**\nInterval: **$3**ms\nRest Request Timeout: **$4**ms\nRetry Limit: **$5**\nOwner Guilds: **$6**\nOwners: **$7**"
