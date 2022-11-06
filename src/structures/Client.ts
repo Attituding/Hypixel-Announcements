@@ -15,6 +15,7 @@ export class Client extends SapphireClient {
             intents: [Intents.FLAGS.GUILDS],
             loadDefaultErrorListeners: false,
             logger: {
+                depth: 5,
                 level: config.logLevel,
             },
             makeCache: Options.cacheWithLimits({
