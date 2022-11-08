@@ -1,9 +1,9 @@
 import { Events, Listener } from '@sapphire/framework';
 import { type Interaction, MessageFlags } from 'discord.js';
-import { ErrorHandler } from '../errors/ErrorHandler';
-import { i18n } from '../locales/i18n';
-import { CustomId } from '../structures/CustomId';
-import { interactionLogContext } from '../utility/utility';
+import { ErrorHandler } from '../../errors/ErrorHandler';
+import { i18n } from '../../locales/i18n';
+import { CustomId } from '../../structures/CustomId';
+import { interactionLogContext } from '../../utility/utility';
 
 export class ComponentInteractionCreateListener extends Listener {
     public constructor(context: Listener.Context, options: Listener.Options) {
