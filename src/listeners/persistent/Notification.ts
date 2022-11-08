@@ -1,9 +1,9 @@
 import { Listener } from '@sapphire/framework';
 import { type MessageComponentInteraction, MessageEmbed } from 'discord.js';
-import { Event } from '../../../enums/Event';
-import { InteractionErrorHandler } from '../../../errors/InteractionErrorHandler';
-import type { CustomId } from '../../../structures/CustomId';
-import { Options } from '../../../utility/Options';
+import { Event } from '../../enums/Event';
+import { InteractionErrorHandler } from '../../errors/InteractionErrorHandler';
+import type { CustomId } from '../../structures/CustomId';
+import { Options } from '../../utility/Options';
 
 export class PersistentNotificationListener extends Listener {
     public constructor(context: Listener.Context, options: Listener.Options) {
