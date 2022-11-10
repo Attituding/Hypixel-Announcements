@@ -23,6 +23,7 @@ export class Options {
 
     static readonly commandRegistry = (command: Command) => ({
         guildIds: command.options.preconditions?.find((condition) => condition === 'OwnerOnly')
+        && process.env.ENVIRONMENT === 'production'
             ? container.config.ownerGuilds
             : undefined,
         registerCommandIfMissing: true,

@@ -34,10 +34,4 @@ declare module 'discord.js' {
     interface Interaction {
         i18n: i18n;
     }
-
-    /*
-    interface Message {
-        i18n: i18n;
-    }
-    */
 }
