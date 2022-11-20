@@ -1,10 +1,11 @@
-import { type Command, container, RegisterBehavior } from '@sapphire/framework';
+import { type Command, RegisterBehavior } from '@sapphire/framework';
 import { PresenceUpdateStatus } from 'discord-api-types/v10';
 import { ColorResolvable, Constants, PresenceData } from 'discord.js';
 import { Time } from '../enums/Time';
 import type { locales } from '../locales/locales';
+import { Base } from '../structures/Base';
 
-export class Options {
+export class Options extends Base {
     static readonly colorsError: ColorResolvable = 0xaa0000;
 
     static readonly colorsWarning: ColorResolvable = 0xff5555;
@@ -24,7 +25,7 @@ export class Options {
     static readonly commandRegistry = (command: Command) => ({
         guildIds: command.options.preconditions?.find((condition) => condition === 'OwnerOnly')
         && process.env.ENVIRONMENT === 'production'
-            ? container.config.ownerGuilds
+            ? this.container.config.ownerGuilds
             : undefined,
         registerCommandIfMissing: true,
         behaviorWhenNotIdentical: RegisterBehavior.Overwrite,
