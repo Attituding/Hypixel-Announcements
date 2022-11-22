@@ -8,31 +8,31 @@ datasource db {
 }
 
 model config {
-  index              Int      @id @default(0)
-  core               Boolean  @default(true)
-  devMode            Boolean  @default(false)
-  interval           Int      @default(210000)
-  logLevel           Int      @default(30)
-  restRequestTimeout Int      @default(5000)
-  retryLimit         Int      @default(3)
-  ownerGuilds        String[] @default([])
-  owners             String[] @default([])
+  index             Int      @id @default(0)
+  core              Boolean  @default(true)
+  devMode           Boolean  @default(false)
+  interval          Int      @default(210000)
+  logLevel          Int      @default(30)
+  ownerGuilds       String[] @default([]) @db.VarChar(20)
+  owners            String[] @default([]) @db.VarChar(20)
+  requestTimeout    Int      @default(5000)
+  requestRetryLimit Int      @default(3)
 }
 
 model categories {
-  category    String @id(map: "announcements_pkey")
-  channelId   String
+  category    String @id(map: "announcements_pkey") @db.VarChar(50)
+  channelId   String @db.VarChar(20)
   maxComments Int
-  roleId      String
-  url         String
+  roleId      String @db.VarChar(20)
+  url         String @db.VarChar(100)
 }
 
 model announcements {
-  category String
-  id       String
-  title    String
-  content  String
-  message  String?
+  category String  @db.VarChar(50)
+  id       String  @db.VarChar(20)
+  title    String  @db.VarChar(250)
+  content  String  @db.VarChar(750)
+  message  String? @db.VarChar(20)
 
   @@id([category, id], map: "unique")
 }

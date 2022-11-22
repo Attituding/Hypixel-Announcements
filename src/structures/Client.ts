@@ -74,17 +74,19 @@ export class Client extends SapphireClient {
         container.database = new PrismaClient();
 
         const { config, categories } = container.database;
-
         container.categories = await categories.findMany();
         container.config = (await config.findFirst()) as Config;
+
+        const client = new Client(container.config);
+
         container.core = new Core();
         container.customPresence = null;
         container.i18n = new i18n();
 
-        await new Client(container.config).login();
+        await client.login();
 
         container.logger.info(
-            `${this.constructor.name}:`,
+            `${this.name}:`,
             `Initialized container after ${Date.now() - startTime}ms.`,
         );
     }

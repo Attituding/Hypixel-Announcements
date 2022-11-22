@@ -104,18 +104,6 @@
     "commandsConfigLogLevelTitle": {
         "message": "Log Level Updated"
     },
-    "commandsConfigRestRequestTimeoutDescription": {
-        "message": "The rest request timeout is now **$1**."
-    },
-    "commandsConfigRestRequestTimeoutTitle": {
-        "message": "Rest Request Timeout Updated"
-    },
-    "commandsConfigRetryLimitDescription": {
-        "message": "The retry limit is now **$1**."
-    },
-    "commandsConfigRetryLimitTitle": {
-        "message": "Retry Limit Updated"
-    },
     "commandsConfigOwnerGuildsDescription": {
         "message": "The owner guilds are now **$1**."
     },
@@ -128,8 +116,20 @@
     "commandsConfigOwnersTitle": {
         "message": "Owners Updated"
     },
+    "commandsConfigRequestTimeoutDescription": {
+        "message": "The request timeout is now **$1**."
+    },
+    "commandsConfigRequestTimeoutTitle": {
+        "message": "Request Timeout Updated"
+    },
+    "commandsConfigRequestRetryLimitDescription": {
+        "message": "The request retry limit is now **$1**."
+    },
+    "commandsConfigRequestRetryLimitTitle": {
+        "message": "Request Retry Limit Updated"
+    },
     "commandsConfigViewDescription": {
-        "message": "Core: **$1**\nDeveloper Mode: **$2**\nInterval: **$3**ms\nRest Request Timeout: **$4**ms\nRetry Limit: **$5**\nOwner Guilds: **$6**\nOwners: **$7**"
+        "message": "Core: **$1**\nDeveloper Mode: **$2**\nInterval: **$3**ms\nLog Level: **$4**\nOwner Guilds: **$5**\nOwners: **$6**\nRequest Timeout: **$7**ms\nRequest Retry Limit: **$8**"
     },
     "commandsConfigViewTitle": {
         "message": "Current Configuration"
