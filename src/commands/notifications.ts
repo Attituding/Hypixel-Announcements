@@ -7,6 +7,7 @@ import {
     MessageEmbed,
     type TextChannel,
 } from 'discord.js';
+import { CustomIdType } from '../enums/CustomIdType';
 import { Event } from '../enums/Event';
 import { BetterEmbed } from '../structures/BetterEmbed';
 import { CustomId } from '../structures/CustomId';
@@ -57,8 +58,9 @@ export class NotificationsCommand extends Command {
             this.container.categories.map((category) => new MessageButton()
                 .setCustomId(
                     CustomId.create({
+                        category: category.category,
                         event: Event.PersistentNotification,
-                        value: category.category,
+                        type: CustomIdType.Persistent,
                     }),
                 )
                 .setLabel(category.category)

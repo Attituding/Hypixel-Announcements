@@ -1,6 +1,8 @@
+import type { CustomIdType } from '../enums/CustomIdType';
+
 export interface CustomId {
-    event: string;
-    value: string;
+    type: CustomIdType;
+    [key: string]: string | undefined;
 }
 
 export class CustomId {

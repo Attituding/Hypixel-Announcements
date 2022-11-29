@@ -34,7 +34,9 @@ export class ComponentInteractionCreateListener extends Listener {
 
                 const customId = CustomId.parse(interaction.customId);
 
-                this.container.client.emit(customId.event, interaction, customId);
+                if (customId.event) {
+                    this.container.client.emit(customId.event, interaction, customId);
+                }
             }
         } catch (error) {
             new ErrorHandler(error).init();

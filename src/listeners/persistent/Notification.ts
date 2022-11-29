@@ -4,6 +4,7 @@ import { Event } from '../../enums/Event';
 import { InteractionErrorHandler } from '../../errors/InteractionErrorHandler';
 import type { CustomId } from '../../structures/CustomId';
 import { Options } from '../../utility/Options';
+import { interactionLogContext } from '../../utility/utility';
 
 export class PersistentNotificationListener extends Listener {
     public constructor(context: Listener.Context, options: Listener.Options) {
@@ -16,7 +17,17 @@ export class PersistentNotificationListener extends Listener {
 
     public async run(interaction: MessageComponentInteraction<'cached'>, customId: CustomId) {
         try {
-            const selectedCategory = customId.value;
+            const selectedCategory = customId.category;
+
+            if (typeof selectedCategory === 'undefined') {
+                this.container.logger.info(
+                    interactionLogContext(interaction),
+                    `${this.constructor.name}:`,
+                    'Category is undefined.',
+                );
+
+                return;
+            }
 
             const { roleId } = this.container.categories.find(
                 (announcement) => announcement.category === selectedCategory,
