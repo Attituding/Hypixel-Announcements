@@ -1,6 +1,6 @@
 import { Events, Listener } from '@sapphire/framework';
-import { type Interaction, MessageFlags } from 'discord.js';
-import { ErrorHandler } from '../errors/ErrorHandler';
+import { type Interaction, Message, MessageFlags } from 'discord.js';
+import { InteractionErrorHandler } from '../errors/InteractionErrorHandler';
 import { i18n } from '../locales/i18n';
 import { CustomId } from '../structures/CustomId';
 import { interactionLogContext } from '../utility/utility';
@@ -15,12 +15,22 @@ export class ComponentInteractionCreateListener extends Listener {
     }
 
     public run(interaction: Interaction) {
+        if (!interaction.isMessageComponent()) {
+            return;
+        }
+
         try {
+            const flags = interaction.message instanceof Message
+                ? interaction.message.flags
+                : new MessageFlags(interaction.message.flags);
+
+            // Is a sort of persistent listener
             if (
-                interaction.isMessageComponent()
-                && interaction.inCachedGuild()
-                && interaction.message.flags.has(MessageFlags.FLAGS.EPHEMERAL) === false
-                && interaction.message.type === 'DEFAULT'
+                flags.has(MessageFlags.FLAGS.EPHEMERAL) === false
+                && (
+                    interaction.message.type === 'DEFAULT'
+                    || interaction.message.type === 0
+                )
             ) {
                 this.container.logger.info(
                     interactionLogContext(interaction),
@@ -39,7 +49,7 @@ export class ComponentInteractionCreateListener extends Listener {
                 }
             }
         } catch (error) {
-            new ErrorHandler(error).init();
+            new InteractionErrorHandler(error, interaction).init();
         }
     }
 }
