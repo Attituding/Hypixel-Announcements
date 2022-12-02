@@ -1,3 +1,3 @@
 export const enum CustomIdType {
-    Persistent = 'persistent',
+    Persistent = '0',
 }
