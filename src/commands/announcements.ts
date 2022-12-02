@@ -10,8 +10,8 @@ import {
 import type { Category } from '../@types/Category';
 import { Time } from '../enums/Time';
 import { BetterEmbed } from '../structures/BetterEmbed';
+import { Logger } from '../structures/Logger';
 import { Options } from '../utility/Options';
-import { interactionLogContext } from '../utility/utility';
 
 export class AnnouncementsCommand extends Command {
     public constructor(context: Command.Context, options: Command.Options) {
@@ -103,8 +103,8 @@ export class AnnouncementsCommand extends Command {
                 );
 
             this.container.logger.warn(
-                interactionLogContext(interaction),
-                `${this.constructor.name}:`,
+                this,
+                Logger.interactionLogContext(interaction),
                 'User missing permission.',
             );
 
@@ -130,8 +130,8 @@ export class AnnouncementsCommand extends Command {
                 );
 
             this.container.logger.warn(
-                interactionLogContext(interaction),
-                `${this.constructor.name}:`,
+                this,
+                Logger.interactionLogContext(interaction),
                 'Bot missing permission.',
             );
 
@@ -194,8 +194,8 @@ export class AnnouncementsCommand extends Command {
                 );
 
             this.container.logger.info(
-                interactionLogContext(interaction),
-                `${this.constructor.name}:`,
+                this,
+                Logger.interactionLogContext(interaction),
                 `${type} added from ${channel.id}.`,
             );
 
@@ -216,8 +216,8 @@ export class AnnouncementsCommand extends Command {
                 );
 
             this.container.logger.info(
-                interactionLogContext(interaction),
-                `${this.constructor.name}:`,
+                this,
+                Logger.interactionLogContext(interaction),
                 `${type} removed from ${channel.id}.`,
             );
 

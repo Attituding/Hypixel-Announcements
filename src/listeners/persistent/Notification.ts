@@ -3,8 +3,8 @@ import { type MessageComponentInteraction, MessageEmbed } from 'discord.js';
 import { Event } from '../../enums/Event';
 import { InteractionErrorHandler } from '../../errors/InteractionErrorHandler';
 import type { CustomId } from '../../structures/CustomId';
+import { Logger } from '../../structures/Logger';
 import { Options } from '../../utility/Options';
-import { interactionLogContext } from '../../utility/utility';
 
 export class PersistentNotificationListener extends Listener {
     public constructor(context: Listener.Context, options: Listener.Options) {
@@ -21,8 +21,8 @@ export class PersistentNotificationListener extends Listener {
 
             if (typeof selectedCategory === 'undefined') {
                 this.container.logger.info(
-                    interactionLogContext(interaction),
-                    `${this.constructor.name}:`,
+                    this,
+                    Logger.interactionLogContext(interaction),
                     'Category is undefined.',
                 );
 

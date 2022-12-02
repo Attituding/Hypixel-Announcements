@@ -3,7 +3,7 @@ import { type Interaction, Message, MessageFlags } from 'discord.js';
 import { InteractionErrorHandler } from '../errors/InteractionErrorHandler';
 import { i18n } from '../locales/i18n';
 import { CustomId } from '../structures/CustomId';
-import { interactionLogContext } from '../utility/utility';
+import { Logger } from '../structures/Logger';
 
 export class ComponentInteractionCreateListener extends Listener {
     public constructor(context: Listener.Context, options: Listener.Options) {
@@ -33,8 +33,8 @@ export class ComponentInteractionCreateListener extends Listener {
                 )
             ) {
                 this.container.logger.info(
-                    interactionLogContext(interaction),
-                    `${this.constructor.name}:`,
+                    this,
+                    Logger.interactionLogContext(interaction),
                     `CustomId is ${interaction.customId}.`,
                 );
 

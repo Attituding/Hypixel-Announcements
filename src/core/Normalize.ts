@@ -37,7 +37,7 @@ export class Normalize extends Base {
         if (typeof channel.item === 'undefined') {
             const message = 'Expected <Channel>.item to be an object or array; received undefined';
 
-            this.container.logger.error(`${this.constructor.name}:`, message);
+            this.container.logger.error(this, message);
 
             throw new Error(message);
         }

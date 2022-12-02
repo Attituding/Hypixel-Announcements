@@ -28,7 +28,7 @@ export class Request extends Base {
             if (response.ok) {
                 if (retries >= 1) {
                     this.container.logger.warn(
-                        `${this.name}:`,
+                        this,
                         'Successfully fetched after one or more retries.',
                     );
                 }
@@ -38,7 +38,7 @@ export class Request extends Base {
 
             if (retries < requestRetryLimit && response.status >= 500 && response.status < 600) {
                 this.container.logger.warn(
-                    `${this.name}:`,
+                    this,
                     `Retrying due to a response between 500 and 600: ${response.status}.`,
                 );
 
@@ -53,7 +53,7 @@ export class Request extends Base {
             throw new HTTPError(baseErrorData);
         } catch (error) {
             if (retries < requestRetryLimit) {
-                this.container.logger.warn(`${this.name}:`, 'Retrying due to an AbortError.');
+                this.container.logger.warn(this, 'Retrying due to an AbortError.');
 
                 return await this.requestHelper(retries + 1, url, fetchOptions);
             }

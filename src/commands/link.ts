@@ -1,8 +1,8 @@
 import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
 import { type CommandInteraction, Constants } from 'discord.js';
 import { BetterEmbed } from '../structures/BetterEmbed';
+import { Logger } from '../structures/Logger';
 import { Options } from '../utility/Options';
-import { interactionLogContext } from '../utility/utility';
 
 export class LinkCommand extends Command {
     public constructor(context: Command.Context, options: Command.Options) {
@@ -134,8 +134,8 @@ export class LinkCommand extends Command {
         }
 
         this.container.logger.info(
-            interactionLogContext(interaction),
-            `${this.constructor.name}:`,
+            this,
+            Logger.interactionLogContext(interaction),
             interaction.options.getSubcommand() === 'link'
                 ? `Linked the Id ${id} to ${message}.`
                 : `Unlinked the Id ${id} from a message.`,

@@ -4,19 +4,19 @@ import { i18n } from '../locales/i18n';
 
 export class BasePrecondition extends Precondition {
     public override async chatInputRun(interaction: CommandInteraction) {
-        return this.interaction(interaction);
+        return this.command(interaction);
     }
 
     public override async contextMenuRun(interaction: ContextMenuInteraction) {
-        return this.interaction(interaction);
+        return this.command(interaction);
     }
 
-    private async interaction(action: CommandInteraction | ContextMenuInteraction) {
-        Object.defineProperty(action, 'i18n', {
-            value: new i18n(action.locale),
+    private async command(interaction: CommandInteraction | ContextMenuInteraction) {
+        Object.defineProperty(interaction, 'i18n', {
+            value: new i18n(interaction.locale),
         });
 
-        await action.deferReply({
+        await interaction.deferReply({
             ephemeral: true,
         });
 

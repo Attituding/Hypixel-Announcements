@@ -10,16 +10,7 @@ export class DebugListener extends Listener {
         });
     }
 
-    public run(/* info: string */) {
-        /*
-        this.container.logger.debug(
-            `${this.constructor.name}:`,
-            info,
-        );
-
-        new Sentry()
-            .setSeverity('debug')
-            .captureMessages(info);
-        */
+    public run(info: string) {
+        this.container.logger.debug(this, info);
     }
 }

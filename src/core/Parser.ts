@@ -63,7 +63,7 @@ export class Parser extends Base {
         if (rss.rss.version !== version) {
             const message = `Expected RSS version ${version}; got version ${rss.rss.version}.`;
 
-            this.container.logger.error(`${this.constructor.name}:`, message);
+            this.container.logger.error(this, message);
 
             throw new Error(message);
         }
@@ -77,7 +77,7 @@ export class Parser extends Base {
                 namespaces.length
             } RSS namespaces; missing ${missingNamespaces.join(', ')}.`;
 
-            this.container.logger.error(`${this.constructor.name}:`, message);
+            this.container.logger.error(this, message);
 
             throw new Error(message);
         }

@@ -12,8 +12,9 @@ import {
 } from 'discord.js';
 import { Time } from '../enums/Time';
 import { BetterEmbed } from '../structures/BetterEmbed';
+import { Logger } from '../structures/Logger';
 import { Options } from '../utility/Options';
-import { awaitComponent, disableComponents, interactionLogContext } from '../utility/utility';
+import { awaitComponent, disableComponents } from '../utility/utility';
 
 export class SendAnnouncementsCommand extends Command {
     public constructor(context: Command.Context, options: Command.Options) {
@@ -162,8 +163,8 @@ export class SendAnnouncementsCommand extends Command {
 
         if (previewButton === null) {
             this.container.logger.info(
-                interactionLogContext(interaction),
-                `${this.constructor.name}:`,
+                this,
+                Logger.interactionLogContext(interaction),
                 'Ran out of time.',
             );
 
@@ -175,8 +176,8 @@ export class SendAnnouncementsCommand extends Command {
         }
 
         this.container.logger.info(
-            interactionLogContext(interaction),
-            `${this.constructor.name}:`,
+            this,
+            Logger.interactionLogContext(interaction),
             'Sending message...',
         );
 
@@ -201,8 +202,8 @@ export class SendAnnouncementsCommand extends Command {
         }
 
         this.container.logger.info(
-            interactionLogContext(interaction),
-            `${this.constructor.name}:`,
+            this,
+            Logger.interactionLogContext(interaction),
             'Published announcement!',
         );
 

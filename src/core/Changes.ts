@@ -23,7 +23,7 @@ export class Changes extends Base {
             const newIds = potentiallyNewThreads.map((thread) => thread.id).join(', ');
 
             this.container.logger.debug(
-                `${this.constructor.name}:`,
+                this,
                 `The potential new threads ${potentiallyNewIds} were found.`,
                 `${newIds} remain after the comment count filter.`,
             );

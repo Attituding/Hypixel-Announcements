@@ -3,6 +3,7 @@ import { container, SapphireClient } from '@sapphire/framework';
 import { Intents, Options, type PresenceData, Sweepers } from 'discord.js';
 import { Core } from '../core/Core';
 import { i18n } from '../locales/i18n';
+import { Logger } from './Logger';
 
 export class Client extends SapphireClient {
     public constructor(config: Config) {
@@ -15,8 +16,10 @@ export class Client extends SapphireClient {
             intents: [Intents.FLAGS.GUILDS],
             loadDefaultErrorListeners: false,
             logger: {
-                depth: 5,
-                level: config.logLevel,
+                instance: new Logger({
+                    level: config.logLevel,
+                    depth: 5,
+                }),
             },
             makeCache: Options.cacheWithLimits({
                 GuildBanManager: 0,
@@ -86,7 +89,7 @@ export class Client extends SapphireClient {
         await client.login();
 
         container.logger.info(
-            `${this.name}:`,
+            this,
             `Initialized container after ${Date.now() - startTime}ms.`,
         );
     }
