@@ -2,8 +2,7 @@ import {
     type ApplicationCommandRegistry,
     BucketScope,
     Command,
-    type Listener,
-    Command as SapphireCommand,
+    type Piece,
 } from '@sapphire/framework';
 import { type CommandInteraction, Constants } from 'discord.js';
 import { BetterEmbed } from '../structures/BetterEmbed';
@@ -87,26 +86,24 @@ export class ReloadCommand extends Command {
         const { i18n } = interaction;
 
         const now = Date.now();
-        const promises: Promise<void>[] = [];
+        const items: Piece[] = [];
 
-        // eslint-disable-next-line no-restricted-syntax
-        for (const [, command] of this.container.stores.get('commands')) {
-            promises.push(this.reloadItem(command));
-        }
+        this.container.stores.get('commands').forEach((command) => {
+            items.push((command));
+        });
 
-        // eslint-disable-next-line no-restricted-syntax
-        for (const [, listener] of this.container.stores.get('listeners')) {
-            promises.push(this.reloadItem(listener));
-        }
+        this.container.stores.get('listeners').forEach((listener) => {
+            items.push((listener));
+        });
 
-        await Promise.all(promises);
+        await Promise.all(items.map((item) => this.reloadItem(item)));
 
         const reloadedEmbed = new BetterEmbed(interaction)
             .setColor(Options.colorsNormal)
             .setTitle(i18n.getMessage('commandsReloadAllTitle'))
             .setDescription(
                 i18n.getMessage('commandsReloadAllDescription', [
-                    promises.length,
+                    items.length,
                     Date.now() - now,
                 ]),
             );
@@ -176,7 +173,7 @@ export class ReloadCommand extends Command {
         });
     }
 
-    private async reloadItem(item: SapphireCommand | Listener) {
+    private async reloadItem(item: Piece) {
         await item.reload();
     }
 }
