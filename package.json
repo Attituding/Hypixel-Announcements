@@ -1,6 +1,7 @@
 {
     "dependencies": {
-        "tailwindcss": "^3.1.4"
+        "retypeapp": "^2.4.0",
+        "tailwindcss": "^3.2.4"
     },
     "scripts": {
         "watch": "npx tailwindcss -i ./static/source.css -o ./static/discord.css --watch"
