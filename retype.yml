@@ -22,16 +22,16 @@ links:
   iconAlign: left
   target: blank
 - text: GitHub
-  link: https://github.com/Attituding/Hypixel-News
+  link: https://github.com/Attituding/hypixel-news
   icon: mark-github
   iconAlign: left
   target: blank
 meta:
   title: " - Hypixel News"
 output: .retype
-url: hypixelnews.attituding.live
+url: hypixelnews.attituding.xyz
 footer:
-  copyright: "&copy; {{ year }} [Attituding](https://attituding.live/). All rights reserved."
+  copyright: "&copy; {{ year }} [Attituding](https://attituding.xyz/). All rights reserved."
   links:
     - text: About
       link: /
