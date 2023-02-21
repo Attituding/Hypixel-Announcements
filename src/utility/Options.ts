@@ -1,6 +1,5 @@
 import { type Command, RegisterBehavior } from '@sapphire/framework';
-import { PresenceUpdateStatus } from 'discord-api-types/v10';
-import { ColorResolvable, Constants, PresenceData } from 'discord.js';
+import { ActivityType, ColorResolvable, PresenceData, PresenceUpdateStatus } from 'discord.js';
 import { Time } from '../enums/Time';
 import type { locales } from '../locales/locales';
 import { Base } from '../structures/Base';
@@ -28,7 +27,7 @@ export class Options extends Base {
             ? this.container.config.ownerGuilds
             : undefined,
         registerCommandIfMissing: true,
-        behaviorWhenNotIdentical: RegisterBehavior.Overwrite,
+        behaviorWhenNotIdentical: RegisterBehavior.Overwrite as const,
     });
 
     static readonly defaultLocale: keyof typeof locales = 'en-US';
@@ -47,7 +46,7 @@ export class Options extends Base {
         activities: [
             {
                 name: 'Hypixel News',
-                type: Constants.ActivityTypes.WATCHING,
+                type: ActivityType.Watching,
             },
         ],
         status: PresenceUpdateStatus.Online,

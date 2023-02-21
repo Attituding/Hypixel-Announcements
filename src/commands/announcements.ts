@@ -1,10 +1,11 @@
 import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
 import {
-    type CommandInteraction,
-    Constants,
-    Formatters,
+    ApplicationCommandOptionType,
+    channelMention,
+    ChannelType,
+    ChatInputCommandInteraction,
     type NewsChannel,
-    Permissions,
+    PermissionFlagsBits,
     type TextChannel,
 } from 'discord.js';
 import type { Category } from '../@types/Category';
@@ -36,8 +37,8 @@ export class AnnouncementsCommand extends Command {
                     options: [
                         {
                             name: 'channel',
-                            type: Constants.ApplicationCommandOptionTypes.CHANNEL,
-                            channel_types: [Constants.ChannelTypes.GUILD_TEXT],
+                            type: ApplicationCommandOptionType.Channel,
+                            channel_types: [ChannelType.GuildText],
                             description:
                                 'The channel where Hypixel News and Announcements should be toggled',
                             required: true,
@@ -47,12 +48,12 @@ export class AnnouncementsCommand extends Command {
                 {
                     name: 'skyblock',
                     description: 'SkyBlock Patch Notes',
-                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                    type: ApplicationCommandOptionType.Subcommand,
                     options: [
                         {
                             name: 'channel',
-                            type: Constants.ApplicationCommandOptionTypes.CHANNEL,
-                            channel_types: [Constants.ChannelTypes.GUILD_TEXT],
+                            type: ApplicationCommandOptionType.Channel,
+                            channel_types: [ChannelType.GuildText],
                             description: 'The channel where SkyBlock Patch Notes should be toggled',
                             required: true,
                         },
@@ -61,12 +62,12 @@ export class AnnouncementsCommand extends Command {
                 {
                     name: 'moderation',
                     description: 'Moderation Information and Changes',
-                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                    type: ApplicationCommandOptionType.Subcommand,
                     options: [
                         {
                             name: 'channel',
-                            type: Constants.ApplicationCommandOptionTypes.CHANNEL,
-                            channel_types: [Constants.ChannelTypes.GUILD_TEXT],
+                            type: ApplicationCommandOptionType.Channel,
+                            channel_types: [ChannelType.GuildText],
                             description:
                                 'The channel where Moderation Information and Changes should be toggled',
                             required: true,
@@ -81,7 +82,7 @@ export class AnnouncementsCommand extends Command {
         registry.registerChatInputCommand(this.chatInputStructure, Options.commandRegistry(this));
     }
 
-    public override async chatInputRun(interaction: CommandInteraction) {
+    public override async chatInputRun(interaction: ChatInputCommandInteraction) {
         if (!interaction.inCachedGuild()) {
             return;
         }
@@ -92,7 +93,7 @@ export class AnnouncementsCommand extends Command {
 
         const userHasPermission = channel
             .permissionsFor(interaction.member)
-            .has([Permissions.FLAGS.MANAGE_WEBHOOKS]);
+            .has([PermissionFlagsBits.ManageWebhooks]);
 
         if (userHasPermission === false) {
             const missingPermission = new BetterEmbed(interaction)
@@ -116,8 +117,8 @@ export class AnnouncementsCommand extends Command {
         }
 
         const botMissingPermissions = channel
-            .permissionsFor(interaction.guild.me!)
-            .missing([Permissions.FLAGS.VIEW_CHANNEL, Permissions.FLAGS.MANAGE_WEBHOOKS]);
+            .permissionsFor(interaction.guild.members.me!)
+            .missing([PermissionFlagsBits.ViewChannel, PermissionFlagsBits.ManageWebhooks]);
 
         if (botMissingPermissions.length !== 0) {
             const missingPermission = new BetterEmbed(interaction)
@@ -189,7 +190,7 @@ export class AnnouncementsCommand extends Command {
                 .setDescription(
                     i18n.getMessage('commandsAnnouncementsAddDescription', [
                         type,
-                        Formatters.channelMention(channel.id),
+                        channelMention(channel.id),
                     ]),
                 );
 
@@ -211,7 +212,7 @@ export class AnnouncementsCommand extends Command {
                 .setDescription(
                     i18n.getMessage('commandsAnnouncementsRemoveDescription', [
                         type,
-                        Formatters.channelMention(channel.id),
+                        channelMention(channel.id),
                     ]),
                 );
 

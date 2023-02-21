@@ -1,18 +1,18 @@
-import { Constants, MessageActionRow, MessageButton } from 'discord.js';
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from 'discord.js';
 import type { RSS } from '../@types/RSS';
 import { Base } from '../structures/Base';
 
 export class Components extends Base {
     public create(data: RSS) {
-        const rows: MessageActionRow[] = [];
+        const rows: ActionRowBuilder<ButtonBuilder>[] = [];
 
         data.items.forEach((item) => {
-            const button = new MessageButton()
+            const button = new ButtonBuilder()
                 .setLabel(this.container.i18n.getMessage('coreComponentsButtonsReadMoreLabel'))
-                .setStyle(Constants.MessageButtonStyles.LINK)
+                .setStyle(ButtonStyle.Link)
                 .setURL(item.link);
 
-            const row = new MessageActionRow().setComponents(button);
+            const row = new ActionRowBuilder<ButtonBuilder>().setComponents(button);
 
             rows.unshift(row);
         });

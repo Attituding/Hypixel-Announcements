@@ -1,10 +1,12 @@
 import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
 import {
-    type CommandInteraction,
-    Constants,
-    MessageActionRow,
-    MessageButton,
-    MessageEmbed,
+    ActionRowBuilder,
+    ApplicationCommandOptionType,
+    ButtonBuilder,
+    ButtonStyle,
+    ChannelType,
+    type ChatInputCommandInteraction,
+    EmbedBuilder,
     type TextChannel,
 } from 'discord.js';
 import { CustomIdType } from '../enums/CustomIdType';
@@ -34,8 +36,8 @@ export class NotificationsCommand extends Command {
                 {
                     name: 'channel',
                     description: 'The channel to add the selector to',
-                    type: Constants.ApplicationCommandOptionTypes.CHANNEL,
-                    channel_types: [Constants.ChannelTypes.GUILD_TEXT],
+                    type: ApplicationCommandOptionType.Channel,
+                    channel_types: [ChannelType.GuildText],
                     required: true,
                 },
             ],
@@ -46,16 +48,16 @@ export class NotificationsCommand extends Command {
         registry.registerChatInputCommand(this.chatInputStructure, Options.commandRegistry(this));
     }
 
-    public override async chatInputRun(interaction: CommandInteraction) {
+    public override async chatInputRun(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
 
-        const notificationsEmbed = new MessageEmbed()
+        const notificationsEmbed = new EmbedBuilder()
             .setColor(Options.colorsNormal)
             .setTitle(i18n.getMessage('commandsNotificationsPublicTitle'))
             .setDescription(i18n.getMessage('commandsNotificationsPublicDescription'));
 
-        const actionRow = new MessageActionRow().setComponents(
-            this.container.categories.map((category) => new MessageButton()
+        const actionRow = new ActionRowBuilder<ButtonBuilder>().setComponents(
+            this.container.categories.map((category) => new ButtonBuilder()
                 .setCustomId(
                     CustomId.create({
                         category: category.category,
@@ -64,7 +66,7 @@ export class NotificationsCommand extends Command {
                     }),
                 )
                 .setLabel(category.category)
-                .setStyle(Constants.MessageButtonStyles.PRIMARY)),
+                .setStyle(ButtonStyle.Primary)),
         );
 
         const channel = interaction.options.getChannel('channel', true) as TextChannel;

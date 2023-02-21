@@ -1,14 +1,16 @@
 import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
 import {
-    type CommandInteraction,
-    Constants,
-    Constants as DiscordConstants,
-    Formatters,
-    MessageActionRow,
-    MessageButton,
+    ActionRowBuilder,
+    ApplicationCommandOptionType,
+    ButtonBuilder,
+    ButtonStyle,
+    ChannelType,
+    type ChatInputCommandInteraction,
+    ComponentType,
+    EmbedBuilder,
     type MessageComponentInteraction,
-    MessageEmbed,
     type NewsChannel,
+    roleMention,
 } from 'discord.js';
 import { Time } from '../enums/Time';
 import { BetterEmbed } from '../structures/BetterEmbed';
@@ -37,53 +39,53 @@ export class SendAnnouncementsCommand extends Command {
                 {
                     name: 'channel',
                     description: 'The channel to send the announcement to',
-                    type: Constants.ApplicationCommandOptionTypes.CHANNEL,
+                    type: ApplicationCommandOptionType.Channel,
                     channel_types: [
-                        Constants.ChannelTypes.GUILD_NEWS,
-                        Constants.ChannelTypes.GUILD_TEXT,
+                        ChannelType.GuildAnnouncement,
+                        ChannelType.GuildText,
                     ],
                     required: true,
                 },
                 {
                     name: 'title',
                     description: 'The title for the embed',
-                    type: Constants.ApplicationCommandOptionTypes.STRING,
+                    type: ApplicationCommandOptionType.String,
                     required: true,
                 },
                 {
                     name: 'description',
                     description: 'The description for the embed',
-                    type: Constants.ApplicationCommandOptionTypes.STRING,
+                    type: ApplicationCommandOptionType.String,
                     required: true,
                 },
                 {
                     name: 'image',
                     description: 'The image for the embed',
-                    type: Constants.ApplicationCommandOptionTypes.STRING,
+                    type: ApplicationCommandOptionType.String,
                     required: false,
                 },
                 {
                     name: 'url',
                     description: 'The url for the embed',
-                    type: Constants.ApplicationCommandOptionTypes.STRING,
+                    type: ApplicationCommandOptionType.String,
                     required: false,
                 },
                 {
                     name: 'author',
                     description: 'The author of the announcement',
-                    type: Constants.ApplicationCommandOptionTypes.STRING,
+                    type: ApplicationCommandOptionType.String,
                     required: false,
                 },
                 {
                     name: 'role',
                     description: 'The role to mention with the announcement',
-                    type: Constants.ApplicationCommandOptionTypes.ROLE,
+                    type: ApplicationCommandOptionType.Role,
                     required: false,
                 },
                 {
                     name: 'crosspost',
                     description: 'Whether to crosspost the announcement (default to true)',
-                    type: Constants.ApplicationCommandOptionTypes.BOOLEAN,
+                    type: ApplicationCommandOptionType.Boolean,
                     required: false,
                 },
             ],
@@ -94,7 +96,7 @@ export class SendAnnouncementsCommand extends Command {
         registry.registerChatInputCommand(this.chatInputStructure, Options.commandRegistry(this));
     }
 
-    public override async chatInputRun(interaction: CommandInteraction) {
+    public override async chatInputRun(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
 
         const channel = interaction.options.getChannel('channel', true) as NewsChannel;
@@ -105,7 +107,7 @@ export class SendAnnouncementsCommand extends Command {
         const url = interaction.options.getString('url', false);
         const author = interaction.options.getString('author', false);
 
-        const announcement = new MessageEmbed()
+        const announcement = new EmbedBuilder()
             .setAuthor({
                 name: i18n.getMessage('commandsSendAnnouncementsEmbedAuthorName'),
             })
@@ -129,11 +131,11 @@ export class SendAnnouncementsCommand extends Command {
             announcement.setAuthor({ name: author });
         }
 
-        const button = new MessageActionRow().setComponents(
-            new MessageButton()
+        const button = new ActionRowBuilder<ButtonBuilder>().setComponents(
+            new ButtonBuilder()
                 .setCustomId('true')
                 .setLabel(i18n.getMessage('commandsSendAnnouncementsPreviewButtonLabel'))
-                .setStyle(DiscordConstants.MessageButtonStyles.PRIMARY),
+                .setStyle(ButtonStyle.Primary),
         );
 
         const previewEmbed = new BetterEmbed(interaction)
@@ -156,7 +158,7 @@ export class SendAnnouncementsCommand extends Command {
         const disabledRows = disableComponents([button]);
 
         const previewButton = await awaitComponent(interaction.channel!, {
-            componentType: Constants.MessageComponentTypes.BUTTON,
+            componentType: ComponentType.Button,
             filter: componentFilter,
             idle: Time.Minute,
         });
@@ -185,7 +187,7 @@ export class SendAnnouncementsCommand extends Command {
 
         if (role !== null) {
             await channel.send({
-                content: Formatters.roleMention(role.id),
+                content: roleMention(role.id),
                 allowedMentions: {
                     parse: ['roles'],
                 },

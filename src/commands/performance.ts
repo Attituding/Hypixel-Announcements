@@ -1,5 +1,5 @@
 import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
-import type { CommandInteraction } from 'discord.js';
+import type { ChatInputCommandInteraction } from 'discord.js';
 import { BetterEmbed } from '../structures/BetterEmbed';
 import { Options } from '../utility/Options';
 import { timestamp } from '../utility/utility';
@@ -28,7 +28,7 @@ export class PerformanceCommand extends Command {
         registry.registerChatInputCommand(this.chatInputStructure, Options.commandRegistry(this));
     }
 
-    public override async chatInputRun(interaction: CommandInteraction) {
+    public override async chatInputRun(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
 
         const { latest } = this.container.core.performance;

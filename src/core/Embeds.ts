@@ -1,13 +1,13 @@
-import { MessageEmbed } from 'discord.js';
+import { EmbedBuilder } from 'discord.js';
 import type { RSS } from '../@types/RSS';
 import { Base } from '../structures/Base';
 
 export class Embeds extends Base {
     public create(data: RSS) {
-        const posts: MessageEmbed[] = [];
+        const posts: EmbedBuilder[] = [];
 
         data.items.forEach((item) => {
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
                 .setAuthor({
                     name: item.author,
                 })

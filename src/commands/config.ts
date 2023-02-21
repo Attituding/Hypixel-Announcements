@@ -1,6 +1,6 @@
 import type { config as Config } from '@prisma/client';
 import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
-import { type CommandInteraction, Constants } from 'discord.js';
+import { ApplicationCommandOptionType, type ChatInputCommandInteraction } from 'discord.js';
 import { BetterEmbed } from '../structures/BetterEmbed';
 import { Logger } from '../structures/Logger';
 import { Options } from '../utility/Options';
@@ -25,22 +25,22 @@ export class ConfigCommand extends Command {
             options: [
                 {
                     name: 'core',
-                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                    type: ApplicationCommandOptionType.Subcommand,
                     description: 'Toggle the core',
                 },
                 {
                     name: 'devmode',
-                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                    type: ApplicationCommandOptionType.Subcommand,
                     description: 'Toggle Developer Mode',
                 },
                 {
                     name: 'interval',
                     description: 'Set the RSS fetch interval',
-                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                    type: ApplicationCommandOptionType.Subcommand,
                     options: [
                         {
                             name: 'milliseconds',
-                            type: Constants.ApplicationCommandOptionTypes.INTEGER,
+                            type: ApplicationCommandOptionType.Integer,
                             description: 'The interval in milliseconds',
                             required: true,
                             minValue: 60,
@@ -50,12 +50,12 @@ export class ConfigCommand extends Command {
                 },
                 {
                     name: 'loglevel',
-                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                    type: ApplicationCommandOptionType.Subcommand,
                     description: 'Set the minimum severity for logs to appear',
                     options: [
                         {
                             name: 'level',
-                            type: Constants.ApplicationCommandOptionTypes.INTEGER,
+                            type: ApplicationCommandOptionType.Integer,
                             description: 'The minimum level for logs to appear',
                             required: true,
                             choices: [
@@ -94,11 +94,11 @@ export class ConfigCommand extends Command {
                 {
                     name: 'ownerguilds',
                     description: 'Set the guild(s) where owner commands should be set',
-                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                    type: ApplicationCommandOptionType.Subcommand,
                     options: [
                         {
                             name: 'guilds',
-                            type: Constants.ApplicationCommandOptionTypes.STRING,
+                            type: ApplicationCommandOptionType.String,
                             description: 'The Ids of the guilds separated by a comma (no spaces)',
                             required: true,
                         },
@@ -107,11 +107,11 @@ export class ConfigCommand extends Command {
                 {
                     name: 'owners',
                     description: 'Set the application owner(s)',
-                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                    type: ApplicationCommandOptionType.Subcommand,
                     options: [
                         {
                             name: 'owners',
-                            type: Constants.ApplicationCommandOptionTypes.STRING,
+                            type: ApplicationCommandOptionType.String,
                             description: 'The Ids of the owners separated by a comma (no spaces)',
                             required: true,
                         },
@@ -120,11 +120,11 @@ export class ConfigCommand extends Command {
                 {
                     name: 'requesttimeout',
                     description: 'Set the request timeout before an abort error is thrown',
-                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                    type: ApplicationCommandOptionType.Subcommand,
                     options: [
                         {
                             name: 'milliseconds',
-                            type: Constants.ApplicationCommandOptionTypes.INTEGER,
+                            type: ApplicationCommandOptionType.Integer,
                             description: 'The timeout in milliseconds',
                             required: true,
                             minValue: 0,
@@ -135,11 +135,11 @@ export class ConfigCommand extends Command {
                 {
                     name: 'requestretrylimit',
                     description: 'Set the number of request retries before throwing',
-                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                    type: ApplicationCommandOptionType.Subcommand,
                     options: [
                         {
                             name: 'limit',
-                            type: Constants.ApplicationCommandOptionTypes.INTEGER,
+                            type: ApplicationCommandOptionType.Integer,
                             description: 'The number of retries',
                             required: true,
                             minValue: 0,
@@ -150,7 +150,7 @@ export class ConfigCommand extends Command {
                 {
                     name: 'view',
                     description: 'View the current configuration',
-                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                    type: ApplicationCommandOptionType.Subcommand,
                 },
             ],
         };
@@ -160,7 +160,7 @@ export class ConfigCommand extends Command {
         registry.registerChatInputCommand(this.chatInputStructure, Options.commandRegistry(this));
     }
 
-    public override async chatInputRun(interaction: CommandInteraction) {
+    public override async chatInputRun(interaction: ChatInputCommandInteraction) {
         switch (interaction.options.getSubcommand()) {
             case 'core':
                 await this.core(interaction);
@@ -194,7 +194,7 @@ export class ConfigCommand extends Command {
         }
     }
 
-    public async core(interaction: CommandInteraction) {
+    public async core(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
 
         await this.handleConfigUpdate(
@@ -210,7 +210,7 @@ export class ConfigCommand extends Command {
         );
     }
 
-    private async devMode(interaction: CommandInteraction) {
+    private async devMode(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
 
         await this.handleConfigUpdate(
@@ -226,7 +226,7 @@ export class ConfigCommand extends Command {
         );
     }
 
-    public async interval(interaction: CommandInteraction) {
+    public async interval(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
 
         const milliseconds = interaction.options.getInteger('milliseconds', true);
@@ -240,7 +240,7 @@ export class ConfigCommand extends Command {
         );
     }
 
-    private async logLevel(interaction: CommandInteraction) {
+    private async logLevel(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
 
         const level = interaction.options.getInteger('level', true);
@@ -257,7 +257,7 @@ export class ConfigCommand extends Command {
         this.container.logger.level = this.container.config.logLevel;
     }
 
-    private async ownerGuilds(interaction: CommandInteraction) {
+    private async ownerGuilds(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
 
         const guilds = interaction.options.getString('guilds', true).split(',');
@@ -271,7 +271,7 @@ export class ConfigCommand extends Command {
         );
     }
 
-    private async owners(interaction: CommandInteraction) {
+    private async owners(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
 
         const owners = interaction.options.getString('owners', true).split(',');
@@ -285,7 +285,7 @@ export class ConfigCommand extends Command {
         );
     }
 
-    private async requestTimeout(interaction: CommandInteraction) {
+    private async requestTimeout(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
 
         const milliseconds = interaction.options.getInteger('milliseconds', true);
@@ -299,7 +299,7 @@ export class ConfigCommand extends Command {
         );
     }
 
-    private async requestRetryLimit(interaction: CommandInteraction) {
+    private async requestRetryLimit(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
 
         const limit = interaction.options.getInteger('limit', true);
@@ -313,7 +313,7 @@ export class ConfigCommand extends Command {
         );
     }
 
-    private async view(interaction: CommandInteraction) {
+    private async view(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
 
         const { config } = this.container;
@@ -338,7 +338,7 @@ export class ConfigCommand extends Command {
     }
 
     private async handleConfigUpdate(
-        interaction: CommandInteraction,
+        interaction: ChatInputCommandInteraction,
         key: keyof Config,
         value: typeof this.container.config[typeof key],
         title: string,

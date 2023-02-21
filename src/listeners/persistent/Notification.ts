@@ -1,5 +1,5 @@
 import { Listener } from '@sapphire/framework';
-import { type MessageComponentInteraction, MessageEmbed } from 'discord.js';
+import { EmbedBuilder, type MessageComponentInteraction } from 'discord.js';
 import { Event } from '../../enums/Event';
 import { InteractionErrorHandler } from '../../errors/InteractionErrorHandler';
 import type { CustomId } from '../../structures/CustomId';
@@ -36,7 +36,7 @@ export class PersistentNotificationListener extends Listener {
             const memberRoles = interaction.member.roles;
             const hasRole = memberRoles.cache.has(roleId);
 
-            const notificationsEmbed = new MessageEmbed().setColor(Options.colorsNormal);
+            const notificationsEmbed = new EmbedBuilder().setColor(Options.colorsNormal);
 
             if (hasRole === true) {
                 await memberRoles.remove(roleId);

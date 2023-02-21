@@ -1,5 +1,11 @@
 import { setTimeout } from 'node:timers/promises';
-import { Formatters, type MessageActionRow, type MessageEmbed, type NewsChannel } from 'discord.js';
+import {
+    type ActionRowBuilder,
+    ButtonBuilder,
+    type EmbedBuilder,
+    type NewsChannel,
+    roleMention,
+} from 'discord.js';
 import type { RSS } from '../@types/RSS';
 import { Base } from '../structures/Base';
 import { Options } from '../utility/Options';
@@ -7,7 +13,11 @@ import { Options } from '../utility/Options';
 /* eslint-disable no-await-in-loop */
 
 export class Dispatch extends Base {
-    public async dispatch(embeds: MessageEmbed[], components: MessageActionRow[], data: RSS) {
+    public async dispatch(
+        embeds: EmbedBuilder[],
+        components: ActionRowBuilder<ButtonBuilder>[],
+        data: RSS,
+    ) {
         const { channelId, roleId } = this.container.categories.find(
             (category) => category.category === data.title,
         )!;
@@ -24,7 +34,7 @@ export class Dispatch extends Base {
 
         if (data.items.some((item) => item.edited === false)) {
             await channel.send({
-                content: Formatters.roleMention(roleId),
+                content: roleMention(roleId),
                 allowedMentions: {
                     parse: ['roles'],
                 },

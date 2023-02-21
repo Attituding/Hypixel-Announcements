@@ -1,11 +1,13 @@
 import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
 import {
-    type CommandInteraction,
-    Constants,
-    MessageActionRow,
-    MessageButton,
+    ActionRowBuilder,
+    ApplicationCommandOptionType,
+    ButtonBuilder,
+    ButtonStyle,
+    type ChatInputCommandInteraction,
+    ComponentType,
+    EmbedBuilder,
     type MessageComponentInteraction,
-    MessageEmbed,
 } from 'discord.js';
 import { Time } from '../enums/Time';
 import { BetterEmbed } from '../structures/BetterEmbed';
@@ -34,38 +36,38 @@ export class EditAnnouncementsCommand extends Command {
                 {
                     name: 'message',
                     description: 'The message to target',
-                    type: Constants.ApplicationCommandOptionTypes.STRING,
+                    type: ApplicationCommandOptionType.String,
                     required: true,
                 },
                 {
                     name: 'title',
                     description: 'The new title for the embed',
-                    type: Constants.ApplicationCommandOptionTypes.STRING,
+                    type: ApplicationCommandOptionType.String,
                     required: false,
                 },
                 {
                     name: 'description',
                     description: 'The new description for the embed',
-                    type: Constants.ApplicationCommandOptionTypes.STRING,
+                    type: ApplicationCommandOptionType.String,
                     required: false,
                 },
                 {
                     name: 'image',
                     description: 'The new image for the embed',
-                    type: Constants.ApplicationCommandOptionTypes.STRING,
+                    type: ApplicationCommandOptionType.String,
                     required: false,
                 },
                 {
                     name: 'url',
                     description: 'The new url for the embed',
-                    type: Constants.ApplicationCommandOptionTypes.STRING,
+                    type: ApplicationCommandOptionType.String,
                     required: false,
                 },
                 {
                     name: 'crosspost',
                     description:
                         'Whether to crosspost the announcement, if not already (defaults to true)',
-                    type: Constants.ApplicationCommandOptionTypes.BOOLEAN,
+                    type: ApplicationCommandOptionType.Boolean,
                     required: false,
                 },
             ],
@@ -76,7 +78,7 @@ export class EditAnnouncementsCommand extends Command {
         registry.registerChatInputCommand(this.chatInputStructure, Options.commandRegistry(this));
     }
 
-    public override async chatInputRun(interaction: CommandInteraction) {
+    public override async chatInputRun(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
 
         const messageId = interaction.options.getString('message', true);
@@ -87,7 +89,7 @@ export class EditAnnouncementsCommand extends Command {
 
         const message = await interaction.channel!.messages.fetch(messageId);
 
-        const tempEmbed = new MessageEmbed(message.embeds[0]);
+        const tempEmbed = new EmbedBuilder(message.embeds[0]?.data);
 
         if (title !== null) {
             tempEmbed.setTitle(title);
@@ -105,13 +107,11 @@ export class EditAnnouncementsCommand extends Command {
             tempEmbed.setURL(url);
         }
 
-        message.embeds[0] = tempEmbed;
-
-        const button = new MessageActionRow().setComponents(
-            new MessageButton()
+        const button = new ActionRowBuilder<ButtonBuilder>().setComponents(
+            new ButtonBuilder()
                 .setCustomId('true')
                 .setLabel(i18n.getMessage('commandsEditAnnouncementsPreviewButtonLabel'))
-                .setStyle(Constants.MessageButtonStyles.PRIMARY),
+                .setStyle(ButtonStyle.Primary),
         );
 
         const previewEmbed = new BetterEmbed(interaction)
@@ -120,7 +120,7 @@ export class EditAnnouncementsCommand extends Command {
             .setDescription(i18n.getMessage('commandsEditAnnouncementsPreviewDescription'));
 
         const reply = await interaction.followUp({
-            embeds: [previewEmbed, ...message.embeds],
+            embeds: [previewEmbed, tempEmbed],
             components: [button],
         });
 
@@ -134,7 +134,7 @@ export class EditAnnouncementsCommand extends Command {
         const disabledRows = disableComponents([button]);
 
         const previewButton = await awaitComponent(interaction.channel!, {
-            componentType: Constants.MessageComponentTypes.BUTTON,
+            componentType: ComponentType.Button,
             filter: componentFilter,
             idle: Time.Minute,
         });

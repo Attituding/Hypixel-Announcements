@@ -1,6 +1,6 @@
 import { EmbedLimits } from '@sapphire/discord-utilities';
 import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
-import { type CommandInteraction, Constants } from 'discord.js';
+import { ApplicationCommandOptionType, type ChatInputCommandInteraction } from 'discord.js';
 import { BetterEmbed } from '../structures/BetterEmbed';
 import { Logger } from '../structures/Logger';
 import { Options } from '../utility/Options';
@@ -30,17 +30,17 @@ export class APICommand extends Command {
             options: [
                 {
                     name: 'stats',
-                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                    type: ApplicationCommandOptionType.Subcommand,
                     description: 'Returns some stats about the API Request Handler',
                 },
                 {
                     name: 'set',
-                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                    type: ApplicationCommandOptionType.Subcommand,
                     description: 'Set data for the API Request Handler',
                     options: [
                         {
                             name: 'category',
-                            type: Constants.ApplicationCommandOptionTypes.STRING,
+                            type: ApplicationCommandOptionType.String,
                             description: 'The category to execute on',
                             required: true,
                             choices: [
@@ -60,7 +60,7 @@ export class APICommand extends Command {
                         },
                         {
                             name: 'type',
-                            type: Constants.ApplicationCommandOptionTypes.STRING,
+                            type: ApplicationCommandOptionType.String,
                             description: 'The category to execute on',
                             required: true,
                             choices: [
@@ -80,7 +80,7 @@ export class APICommand extends Command {
                         },
                         {
                             name: 'value',
-                            type: Constants.ApplicationCommandOptionTypes.NUMBER,
+                            type: ApplicationCommandOptionType.Number,
                             description: 'An integer as an input',
                             required: true,
                             min_value: 0,
@@ -89,12 +89,12 @@ export class APICommand extends Command {
                 },
                 {
                     name: 'call',
-                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                    type: ApplicationCommandOptionType.Subcommand,
                     description: 'Call a function from the API Request Handler',
                     options: [
                         {
                             name: 'method',
-                            type: Constants.ApplicationCommandOptionTypes.STRING,
+                            type: ApplicationCommandOptionType.String,
                             description: 'The method to call',
                             required: true,
                             choices: [
@@ -122,7 +122,7 @@ export class APICommand extends Command {
         registry.registerChatInputCommand(this.chatInputStructure, Options.commandRegistry(this));
     }
 
-    public override async chatInputRun(interaction: CommandInteraction) {
+    public override async chatInputRun(interaction: ChatInputCommandInteraction) {
         switch (interaction.options.getSubcommand()) {
             case 'stats':
                 await this.stats(interaction);
@@ -138,7 +138,7 @@ export class APICommand extends Command {
         }
     }
 
-    public async stats(interaction: CommandInteraction) {
+    public async stats(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
 
         const { abort, generic, http, getTimeout } = this.container.core.errors;
@@ -189,7 +189,7 @@ export class APICommand extends Command {
         });
     }
 
-    public async set(interaction: CommandInteraction) {
+    public async set(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
 
         const category = interaction.options.getString('category', true) as ErrorTypes;
@@ -214,7 +214,7 @@ export class APICommand extends Command {
         });
     }
 
-    public async call(interaction: CommandInteraction) {
+    public async call(interaction: ChatInputCommandInteraction) {
         const { i18n } = interaction;
         const method = interaction.options.getString('method', true);
 

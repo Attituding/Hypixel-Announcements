@@ -1,5 +1,5 @@
 import { Events, Listener } from '@sapphire/framework';
-import { type Interaction, Message, MessageFlags } from 'discord.js';
+import { type Interaction, MessageFlags, MessageType } from 'discord.js';
 import { InteractionErrorHandler } from '../errors/InteractionErrorHandler';
 import { i18n } from '../locales/i18n';
 import { CustomId } from '../structures/CustomId';
@@ -20,16 +20,15 @@ export class ComponentInteractionCreateListener extends Listener {
         }
 
         try {
-            const flags = interaction.message instanceof Message
-                ? interaction.message.flags
-                : new MessageFlags(interaction.message.flags);
+            const { flags } = interaction.message;
 
             // Is a sort of persistent listener
             if (
-                flags.has(MessageFlags.FLAGS.EPHEMERAL) === false
+                flags.has(MessageFlags.Ephemeral) === false
                 && (
-                    interaction.message.type === 'DEFAULT'
-                    || interaction.message.type === 0
+                    interaction.message.type === MessageType.Default
+                    // TODO: please double check this
+                    // || interaction.message.type === 0
                 )
             ) {
                 this.container.logger.info(

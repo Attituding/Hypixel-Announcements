@@ -1,5 +1,5 @@
 import { type ApplicationCommandRegistry, BucketScope, Command } from '@sapphire/framework';
-import { type CommandInteraction, Constants } from 'discord.js';
+import { ApplicationCommandOptionType, type ChatInputCommandInteraction } from 'discord.js';
 import { Options } from '../utility/Options';
 
 export class TestCommand extends Command {
@@ -22,17 +22,17 @@ export class TestCommand extends Command {
             options: [
                 {
                     name: 'delete',
-                    type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND_GROUP,
+                    type: ApplicationCommandOptionType.SubcommandGroup,
                     description: 'Delete all of your data',
                     options: [
                         {
                             name: 'view',
                             description: 'Returns a file with all of your data',
-                            type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
+                            type: ApplicationCommandOptionType.Subcommand,
                             options: [
                                 {
                                     name: 'command',
-                                    type: Constants.ApplicationCommandOptionTypes.STRING,
+                                    type: ApplicationCommandOptionType.String,
                                     description:
                                         'A command to get info about. This parameter is completely optional',
                                     required: false,
@@ -49,7 +49,7 @@ export class TestCommand extends Command {
         registry.registerChatInputCommand(this.chatInputStructure, Options.commandRegistry(this));
     }
 
-    public override async chatInputRun(interaction: CommandInteraction) {
+    public override async chatInputRun(interaction: ChatInputCommandInteraction) {
         await interaction.followUp({
             content: 'e',
         });
