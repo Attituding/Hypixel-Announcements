@@ -31,7 +31,7 @@ model announcements {
   category String  @db.VarChar(50)
   id       String  @db.VarChar(20)
   title    String  @db.VarChar(250)
-  content  String  @db.VarChar(750)
+  content  String  @db.VarChar(2500)
   message  String? @db.VarChar(20)
 
   @@id([category, id], map: "unique")
